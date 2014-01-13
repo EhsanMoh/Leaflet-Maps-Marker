@@ -8423,6 +8423,7 @@ $this->_settings['clustering_helptext2'] = array(
 				'es_MX' => __('Spanish','lmm') . ' (es_MX)',
 				'tr_TR' => __('Turkish','lmm') . ' (tr_TR)',
 				'uk_UK' => __('Ukrainian','lmm') . ' (uk_UK)',
+				'vi' => __('Vietnamese','lmm') . ' (vi)',
 				'yi' => __('Yiddish','lmm') . ' (yi)'
 			)
 		);

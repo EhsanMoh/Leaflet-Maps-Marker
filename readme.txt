@@ -166,13 +166,14 @@ to the visitors of your website.
 * Portuguese (pt_BR) thanks to Andre Santos and Antonio Hammerl
 * Portuguese (pt_PT) translation thanks to Joao Campos
 * Romanian (ro_RO) translation thanks to Arian and Daniel Codrea
-* Russian (ru_RU) thanks to Ekaterina Golubina, supported by Teplitsa of Social Technologies
+* Russian (ru_RU) thanks to Ekaterina Golubina (supported by Teplitsa of Social Technologies) and Vyacheslav Strenadko
 * Slovak (sk_SK) thanks to Zdenko Podobny
 * Spanish (es_ES) thanks to David Ramirez, Alvaro Lara, Ricardo Viteri
 * Spanish (es_MX) thanks to Victor Guevara
 * Swedish (sv_SE) thanks to Swedish translation thanks to Olof Odier, Tedy Warsitha and Dan Paulsson
 * Turkish (tr_TR) thanks to Emre Erkan and Mahir Tosun
 * Ukrainian (uk_UK) thanks to Andrexj
+* Vietnamese (vi) thanks to Hoai Thu
 * Yiddish (yi) thanks to Raphael Finkel
 
 For full credits of each translations please visit [http://www.mapsmarker.com/languages](http://www.mapsmarker.com/languages) (had to remove backlinks from readme-file as it is considered as spam by WordPress :-/ )
@@ -287,7 +288,7 @@ For more information on translations of the plugin and how to contribute a new t
 
 = Trademark and copyright =
 MapsMarker &reg; - registration pending
-Copyright 2011-2013, Robert Harm, All Rights Reserved
+Copyright 2011-2014, Robert Harm, All Rights Reserved
 
 == Upgrade Notice ==
 = v3.8.2 =

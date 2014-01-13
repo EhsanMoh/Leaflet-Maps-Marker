@@ -11,7 +11,7 @@ Donate link: http://www.mapsmarker.com/donations
 Requires at least: 3.0
 Tested up to: 3.8
 Requires at least PHP 5.2
-Copyright 2011-2013 - @RobertHarm - All rights reserved
+Copyright 2011-2014 - @RobertHarm - All rights reserved
 MapsMarker &reg; - registration pending
 Parts of this plugin were originally based on the Leaflet Plugin by Hind (Copyright 2011)
 
