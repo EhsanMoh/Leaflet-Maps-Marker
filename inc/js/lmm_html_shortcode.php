@@ -17,24 +17,25 @@ jQuery(function($) {
         $('#ed_insertMap, #globe').remove();
         var html_active = true;
         if($('#wp-content-wrap').is('.html-active')){
-        $('#wp-content-media-buttons').append('<a title=\'<?php esc_attr_e('Insert map','lmm'); ?>\' id = globe href=#><img src="<?=$LEAFLET_PLUGIN_URL?>inc/img/icon-tinymce.png"></a>');
-        $('#ed_toolbar').append('<input type=button value=\'<?php esc_attr_e('Insert map','lmm'); ?>\' id=ed_insertMap class=ed_button title=\'<?php esc_attr_e('Insert map','lmm'); ?>\' />');
-
-        var info = $("<div id=modal-content style='overflow: hidden' />");
-        info.html('<iframe width="450" height="480" scrolling="no" src = "<?=$adminurl?>admin-ajax.php?action=get_mm_list&mode=html" />')
-            info.wpdialog({
-                title : '<?php esc_attr_e('Insert map','lmm'); ?>',
-                dialogClass: 'wp-dialog',
-                width : 450,
-                height : 480,
-                modal : true,
-                autoOpen : false,
-                closeOnEscape : true,
-            });
-            $(document).on('click', '#globe, #ed_insertMap', function(event) {
-                info.wpdialog('open');
-                return false;
-            });
+		
+			$('#wp-content-media-buttons').append('<a style=\'margin-left:5px;\' class=\'button\' title=\'<?php esc_attr_e('Insert map','lmm'); ?>\' id=\'globe\' href=\'#\'><div style=\'float:left;\'><img src="<?=$LEAFLET_PLUGIN_URL?>inc/img/icon-tinymce.png" style=\'padding:0 4px 3px 0;\'></div><div style=\'float:right;padding-top:0px;\'><?php esc_attr_e('Insert map','lmm'); ?></div></a>');
+			//info: removed - $('#ed_toolbar').append('<input type=button value=\'<?php esc_attr_e('Insert map','lmm'); ?>\' id=ed_insertMap class=ed_button title=\'<?php esc_attr_e('Insert map','lmm'); ?>\' />');
+	
+			var info = $("<div id=modal-content style='overflow: hidden' />");
+			info.html('<iframe width="450" height="440" scrolling="no" src = "<?=$adminurl?>admin-ajax.php?action=get_mm_list&mode=html" />')
+				info.wpdialog({
+					title : '<?php esc_attr_e('Insert map','lmm'); ?>',
+					dialogClass: 'wp-dialog',
+					width : 450,
+					height : 440,
+					modal : true,
+					autoOpen : false,
+					closeOnEscape : true,
+				});
+				$(document).on('click', '#globe, #ed_insertMap', function(event) {
+					info.wpdialog('open');
+					return false;
+				});
         }});
 });
 <?php endif;?>

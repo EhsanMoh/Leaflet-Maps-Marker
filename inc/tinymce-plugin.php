@@ -56,9 +56,9 @@ function get_mm_list(){
     $m_condition = isset($_GET['q']) ? "AND m.markername LIKE '%" . mysql_real_escape_string($_GET['q']) . "%'" : '';
 
     $marklist = $wpdb->get_results("
-            (SELECT l.id, l.name as 'name', l.createdon, 'layer' as 'type' FROM $table_name_layers as l WHERE l.id != '0' $l_condition)
+            (SELECT l.id, 'icon-layer.png' as 'icon', l.name as 'name', l.createdon, 'layer' as 'type' FROM $table_name_layers as l WHERE l.id != '0' $l_condition)
             UNION
-            (SELECT m.id, m.markername as 'name', m.createdon, 'marker' as 'type' FROM $table_name_markers as m WHERE  m.id != '0' $m_condition)
+            (SELECT m.id, m.icon as 'icon', m.markername as 'name', m.createdon, 'marker' as 'type' FROM $table_name_markers as m WHERE  m.id != '0' $m_condition)
             order by createdon DESC LIMIT 15", ARRAY_A);
     if(isset($_GET['q']) ){
         buildMarkersList($marklist);
@@ -79,11 +79,10 @@ function get_mm_list(){
 </head>
 <body>
 <table style="width:100%;"><tr>
-<td id="msb_header_description" colspan="3"><?php echo __('If no search term is entered, the latest 15 maps will be shown.','lmm'); ?></td></tr>
 <tr>
-<td style="width:50%;"><div id="msb_searchContainer" style="color:#666666;"><?php _e('Search','lmm'); ?> <input type="text" name="q" id="msb_serch"/></div></td>
-<td><a style="font-size: 10px;Verdana,Arial,Helvetica,sans-serif; color:#666666;" href="<?php echo LEAFLET_WP_ADMIN_URL ?>admin.php?page=leafletmapsmarker_marker" target="_blank" title="<?php esc_attr_e('create a new marker map','lmm'); ?>"><?php _e("Add new marker", "lmm") ?></a></td>
-<td><a style="font-size: 10px;Verdana,Arial,Helvetica,sans-serif; color:#666666;" href="<?php echo LEAFLET_WP_ADMIN_URL ?>admin.php?page=leafletmapsmarker_layer" target="_blank" title="<?php esc_attr_e('create a new layer map','lmm'); ?>"><?php _e("Add new layer", "lmm") ?></a></td>
+<td style="width:50%;"><div id="msb_searchContainer" style="color:#666666;" title="<?php esc_attr_e('If no search term is entered, the latest 15 maps will be shown.','lmm'); ?>"><?php _e('Search','lmm'); ?> <input type="text" name="q" id="msb_search"/></div></td>
+<td><a style="font-size: 13px;Verdana,Arial,Helvetica,sans-serif; color:#666666;" href="<?php echo LEAFLET_WP_ADMIN_URL ?>admin.php?page=leafletmapsmarker_marker" target="_blank" title="<?php esc_attr_e('create a new marker map','lmm'); ?>"><?php _e("Add new marker", "lmm") ?></a></td>
+<td><a style="font-size: 13px;Verdana,Arial,Helvetica,sans-serif; color:#666666;" href="<?php echo LEAFLET_WP_ADMIN_URL ?>admin.php?page=leafletmapsmarker_layer" target="_blank" title="<?php esc_attr_e('create a new layer map','lmm'); ?>"><?php _e("Add new layer", "lmm") ?></a></td>
 </tr>
 </table>
 <div id="msb_listContainer">
@@ -97,7 +96,7 @@ function get_mm_list(){
 	} ?>
 </div>
 <table style="width:100%;"><tr>
-<td style="padding-top:13px;"><div id="msb_attribution">powered by <a style="text-decoration:none;" href="http://www.mapsmarker.com" target"_blank">MapsMarker.com</a></div></td>
+<td style="padding-top:13px;"><a href="#" id="msb_cancel" style="color:red;text-decoration:none;"><?php _e('Cancel','lmm'); ?></a></td>
 <td><input class="button-primary" type="button" href="#" id="msb_insertMarkerSC" value="<?php esc_attr_e('Add shortcode','lmm'); ?>" /></td></tr>
 </table>
 <script type="text/javascript">
@@ -126,7 +125,7 @@ function get_mm_list(){
                 self.setMarkerID(id)
                 self.setMarkerType(type);
             })
-            $('#msb_serch').on('keyup', function(){
+            $('#msb_search').on('keyup', function(){
                 $.post('<?php if (!is_multisite()) { echo admin_url(); } else { echo get_admin_url(); } ?>admin-ajax.php?action=get_mm_list&q='+$(this).val(), function(data){
                         $('.list_item').remove();
                         $('#msb_listContainer').append(data);
@@ -185,25 +184,31 @@ function buildMarkersList($array){
 		if ($one['name'] == NULL) {
 			$name = '(ID '. $one['id'].')';
 		} else {
-			$name = $one['name'] . ' (ID '. $one['id'].')';
+			$name = stripslashes(htmlspecialchars($one['name'])) . ' (ID '. $one['id'].')';
 		}
 
 		if ($one['type'] == 'marker') {
-			$maptype = __('Marker','lmm'). '<br/>ID '. $one['id'];
+			$title = __('Marker','lmm'). ' ID ' . $one['id'];
+			if ($one['icon'] == NULL) {
+				$list_entry = '<img src="' . LEAFLET_PLUGIN_URL  . '/leaflet-dist/images/marker.png" title="' . $title . '" />';
+			} else {
+				$list_entry = '<img src="' . LEAFLET_PLUGIN_ICONS_URL . '/' . $one['icon'] . '" title="' . $title . '"/>';
+			}
 		} else {
-			$maptype = __('Layer','lmm'). ' <br/>ID '. $one['id'];
+			$title = __('Layer','lmm'). ' ID ' . $one['id'];
+			$list_entry = '<img src="' . LEAFLET_PLUGIN_URL  . '/inc/img/icon-layer.png" title="' . $title . '" style="padding:1px 0 0 8px;" />';
 		}
 	?>
     <div class="list_item">
 	<table style="width:100%;"><tr>
-	<td style="width:55px;">
-		<span class="name" title="<?php esc_attr_e('map type and ID','lmm');?>"><?php echo $maptype; ?></span>
+	<td style="width:30px;">
+		<span class="name" title="<?php esc_attr_e('map type and ID','lmm');?>"><?php echo $list_entry; ?></span>
 	</td>
-	<td valign="top">
-        <span class="name" title="<?php esc_attr_e('name','lmm');?>"><strong><?php echo stripslashes(htmlspecialchars($one['name'])); ?></strong></span>
+	<td valign="top" title="<?php echo $name; ?>">
+        <span class="name"><strong><?php echo $name; ?></strong></span>
 	</td>
-	<td valign="top">
-		<span class="date" title="<?php esc_attr_e('created on','lmm');?>"><?php echo $date; ?></span>
+	<td valign="top" title="<?php esc_attr_e('created on','lmm');?>">
+		<span class="date"><?php echo $date; ?></span>
         <input type="hidden" value="<?php echo $one['type']?>" name="msb_type">
         <input type="hidden" value="<?php echo $one['id']?>" name="msb_id">
 	</td></tr></table>

@@ -34,15 +34,15 @@ if ( isset($lmm_options['misc_tinymce_button']) && ($lmm_options['misc_tinymce_b
 				ed.addCommand('mm_shortcode', function(){
 				open_map();
 				});
-				ed.addButton('mm_shortcode', {title : '" . esc_attr__('Insert map','lmm') . "', cmd : 'mm_shortcode', image: '".$LEAFLET_PLUGIN_URL."inc/img/icon-tinymce.png' });
+				//info: removed - ed.addButton('mm_shortcode', {title : '" . esc_attr__('Insert map','lmm') . "', cmd : 'mm_shortcode', image: '".$LEAFLET_PLUGIN_URL."inc/img/icon-tinymce.png' });
 			},
 			createControl : function(n, cm) {
 				return null;
 			}
 		});
 		tinymce.PluginManager.add('mm_shortcode', tinymce.plugins.mm_shortcode);
-		$('#wp-content-media-buttons').append('<a title=\'" . esc_attr__('Insert map','lmm') . "\' id = globe href=#><img src=".$LEAFLET_PLUGIN_URL."inc/img/icon-tinymce.png></a>');
-	    $('#ed_toolbar').append('<input type=button value=\'" . esc_attr__('Insert map','lmm') . "\' id=ed_insertMap class=ed_button title=\'" . esc_attr__('Insert map','lmm') . "\' />');
+		$('#wp-content-media-buttons').append('<a style=\'margin-left:5px;\' class=\'button\' title=\'" . esc_attr__('Insert map','lmm') . "\' id=\'globe\' href=\'#\'><div style=\'float:left;\'><img src=\'".$LEAFLET_PLUGIN_URL."inc/img/icon-tinymce.png#\' style=\'padding:0 4px 3px 0;\'></div><div style=\'float:right;padding-top:0px;\'>" . __('Insert map','lmm') . "</div></a>');
+	    //info: removed - $('#ed_toolbar').append('<input type=button value=\'" . esc_attr__('Insert map','lmm') . "\' id=ed_insertMap class=ed_button title=\'" . esc_attr__('Insert map','lmm') . "\' />');
 		}})(jQuery);
 	";
 }
