@@ -59,7 +59,7 @@ function get_mm_list(){
             (SELECT l.id, 'icon-layer.png' as 'icon', l.name as 'name', l.createdon, 'layer' as 'type' FROM $table_name_layers as l WHERE l.id != '0' $l_condition)
             UNION
             (SELECT m.id, m.icon as 'icon', m.markername as 'name', m.createdon, 'marker' as 'type' FROM $table_name_markers as m WHERE  m.id != '0' $m_condition)
-            order by createdon DESC LIMIT 15", ARRAY_A);
+            order by createdon DESC LIMIT 50", ARRAY_A);
     if(isset($_GET['q']) ){
         buildMarkersList($marklist);
         exit();
@@ -80,7 +80,7 @@ function get_mm_list(){
 <body>
 <table style="width:100%;"><tr>
 <tr>
-<td style="width:50%;"><div id="msb_searchContainer" style="color:#666666;" title="<?php esc_attr_e('If no search term is entered, the latest 15 maps will be shown.','lmm'); ?>"><?php _e('Search','lmm'); ?> <input type="text" name="q" id="msb_search"/></div></td>
+<td style="width:50%;"><div id="msb_searchContainer" style="color:#666666;" title="<?php echo sprintf(esc_attr__('If no search term is entered, the latest %1$s maps will be shown.','lmm'), 50); ?>"><?php _e('Search','lmm'); ?> <input type="text" name="q" id="msb_search"/></div></td>
 <td><a style="font-size: 13px;Verdana,Arial,Helvetica,sans-serif; color:#666666;" href="<?php echo LEAFLET_WP_ADMIN_URL ?>admin.php?page=leafletmapsmarker_marker" target="_blank" title="<?php esc_attr_e('create a new marker map','lmm'); ?>"><?php _e("Add new marker", "lmm") ?></a></td>
 <td><a style="font-size: 13px;Verdana,Arial,Helvetica,sans-serif; color:#666666;" href="<?php echo LEAFLET_WP_ADMIN_URL ?>admin.php?page=leafletmapsmarker_layer" target="_blank" title="<?php esc_attr_e('create a new layer map','lmm'); ?>"><?php _e("Add new layer", "lmm") ?></a></td>
 </tr>
