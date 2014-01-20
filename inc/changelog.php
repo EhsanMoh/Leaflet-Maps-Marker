@@ -97,7 +97,12 @@ if (get_option('leafletmapsmarker_update_info') == 'show') {
 		<tr><td>
 		<img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-changed.png">
 		</td><td>
-		optimized TinyMCE media button integration (showing button just once & design update)
+		optimized TinyMCE media button integration for posts/pages (showing button just once & design update)
+		</td></tr>
+		<tr><td>
+		<img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-changed.png">
+		</td><td>
+		improved backend performance for marker edit pages and posts/pages (by removing unneeded TinyMCE code)
 		</td></tr>
 		<tr><td>
 		<img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-fixed.png">

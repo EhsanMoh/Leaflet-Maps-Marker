@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/javascript; charset=UTF-8');
+header('Content-Type: text/javascript; charset=UTF-8'); //info: to prevent console warning on chrome
 $leaflet_plugin_url = isset($_GET['leafletpluginurl']) ? base64_decode($_GET['leafletpluginurl']) : '';
 $admin_url = isset($_GET['adminurl']) ? base64_decode($_GET['adminurl']) : '';
 $text_add = isset($_GET['textadd']) ? base64_decode($_GET['textadd']) : '';
