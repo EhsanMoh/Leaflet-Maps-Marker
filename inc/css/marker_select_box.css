@@ -1,6 +1,6 @@
 #msb_searchContainer {
 	color:#666666;
-	margin: 5px 0;
+	margin: 5px 0 7px 0;
 }
 #msb_listContainer {
 	height: 300px;
@@ -38,7 +38,7 @@ a.newmap {
 	font-size: 13px;
 	height: 24px;
 	line-height: 23px;
-	margin: 13px 0 0 0;
+	margin: 10px 13px 0 0;
 	padding: 0 10px 1px;
 	text-decoration: none;
 	white-space: nowrap;
@@ -61,7 +61,7 @@ a.newmap {
 	font-size: 13px;
 	height: 24px;
 	line-height: 23px;
-	margin: 13px 0 0 0;
+	margin: 10px 13px 0 0;
 	padding: 0 10px 1px;
 	text-decoration: none;
 	white-space: nowrap;

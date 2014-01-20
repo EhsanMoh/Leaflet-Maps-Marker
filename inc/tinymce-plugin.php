@@ -115,7 +115,7 @@ function get_mm_list(){
 		} ?>
 	</div>
 	<table style="width:100%;"><tr>
-	<td style="padding-top:13px;"><a href="#" id="msb_cancel"><?php _e('Cancel','lmm'); ?></a></td>
+	<td style="padding-top:12px;"><a href="#" id="msb_cancel"><?php _e('Cancel','lmm'); ?></a></td>
 	<td>
 		<span id="submit-enabled" style="display:none;"><input type="button" href="#" id="msb_insertMarkerSC" value="<?php esc_attr_e('Insert map','lmm'); ?>" /></span>
 		<span id="submit-disabled"><input class="disabled" type="button" href="#" id="msb_insertMarkerSC_disabled" value="<?php esc_attr_e('Insert map','lmm'); ?>" disabled="disabled" title="<?php esc_attr_e('Please select a map first!','lmm'); ?>" /></span>

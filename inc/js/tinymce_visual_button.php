@@ -15,7 +15,7 @@ jQuery(function($) {
 			$('#wp-content-media-buttons').append('<a style=\'margin-left:5px;\' class=\'button\' title=\'" . $text_add . "\' id=\'map_button\' href=\'#\'><div style=\'float:left;\'><img src=\'" . $leaflet_plugin_url . "inc/img/icon-tinymce.png\' style=\'padding:0 5px 3px 0;\'></div><div style=\'float:right;padding-top:0px;\'>" . $text_add . "</div></a>');
 	
 			var info = $('<div id=modal-content style=\'overflow: hidden;\' />');
-			info.html('<iframe width=\'450\' height=\'402\' scrolling=\'no\' src=\'" . $admin_url . "admin-ajax.php?action=get_mm_list&mode=html\' />')
+			info.html('<iframe width=\'450\' height=\'407\' scrolling=\'no\' src=\'" . $admin_url . "admin-ajax.php?action=get_mm_list&mode=html\' />')
 				info.wpdialog({
 					title : '" . $text_insert . "',
 					dialogClass: 'wp-dialog',

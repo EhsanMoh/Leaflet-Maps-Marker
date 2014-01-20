@@ -17,7 +17,7 @@ echo "
 						title : '" . $text_add . "',
 						file : '" . $admin_url . "admin-ajax.php?action=get_mm_list',
 						width : 450 + parseInt(ed.getLang('example.delta_width', 0)),
-						height : 402 + parseInt(ed.getLang('example.delta_height', 0)),
+						height : 407 + parseInt(ed.getLang('example.delta_height', 0)),
 						inline: 1
 					});
 				}
