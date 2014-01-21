@@ -103,7 +103,7 @@ improved performance for marker edit pages and posts/pages (by removing TinyMCE 
 improved performance for dynamic changelog (by removing additional WordPress initialization)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
-
+bing maps were broken if https was used due to changes in the bing url templates
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
