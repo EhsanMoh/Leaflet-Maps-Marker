@@ -102,7 +102,11 @@ if (isset($_GET['layer'])) {
 		echo '<Document>'.PHP_EOL;
 		echo '<ar:provider id="' . $ar_wikitude_provider_name_sanitized . '">'.PHP_EOL;
 		if (($layer == '*' or $layer == 'all')  or (intval($clayer) > 0) ) {
-			$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			if (is_int($layer) == TRUE) { //info: to prevent PHP error log entries
+				$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			} else {
+				$layername = NULL;
+			}
 			if ($layername == NULL) { 
 				$layername = get_bloginfo('name');
 				if ($layername == NULL) { //info: as Wikitude does not accept empty name
@@ -110,7 +114,11 @@ if (isset($_GET['layer'])) {
 				}
 			}
 		} else {
-			$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			if (is_int($layer) == TRUE) { //info: to prevent PHP error log entries
+				$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			} else {
+				$layername = NULL;
+			}
 			if ($layername == NULL) { $layername = __('layer','lmm') . ' ID ' . $layer; }
 		}
 		echo '<ar:name><![CDATA[' . $layername . ']]></ar:name>'.PHP_EOL;
@@ -193,7 +201,11 @@ if (isset($_GET['layer'])) {
 		echo '<Document>'.PHP_EOL;
 		echo '<ar:provider id="' . $ar_wikitude_provider_name_sanitized . '">'.PHP_EOL;
 		if (($layer == '*' or $layer == 'all')  or (intval($clayer) > 0) ) {
-			$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			if (is_int($layer) == TRUE) { //info: to prevent PHP error log entries
+				$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			} else {
+				$layername = NULL;
+			}
 			if ($layername == NULL) { 
 				$layername = get_bloginfo('name');
 				if ($layername == NULL) { //info: as Wikitude does not accept empty name
@@ -201,7 +213,11 @@ if (isset($_GET['layer'])) {
 				}
 			}
 		} else {
-			$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			if (is_int($layer) == TRUE) { //info: to prevent PHP error log entries
+				$layername = $wpdb->get_var('SELECT l.name FROM '.$table_name_layers.' as l WHERE l.id='.$layer);
+			} else {
+				$layername = NULL;
+			}
 			if ($layername == NULL) { $layername = __('layer','lmm') . ' ID ' . $layer; }
 		}
 		echo '<ar:name><![CDATA[' . $layername . ']]></ar:name>'.PHP_EOL;

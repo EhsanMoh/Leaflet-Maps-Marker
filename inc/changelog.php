@@ -3,38 +3,14 @@
 <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 <title>Changelog for Leaflet Maps Marker</title>
 <style type="text/css">
-body {
-	font-family: sans-serif;
-	padding:0 0 0 5px;
-	margin:0px;
-	font-size: 12px;
-	line-height: 1.4em;
-}
-table {
-	line-height:0.7em;
-	font-size:12px;
-	font-family:sans-serif;
-}
-td {
-	line-height:1.1em;
-}
-.updated {
-	padding:10px;
-	background-color: #FFFFE0;
-}
-a {
-	color: #21759B;
-	text-decoration: none;
-}
-a:hover, a:active, a:focus {
-	color: #D54E21;
-}
-hr {
-	color: #E6DB55;
-}
-</style>
-</head>
-<body>
+body{font-family:sans-serif;font-size:12px;line-height:1.4em;margin:0;padding:0 0 0 5px}
+table{line-height:.7em;font-size:12px;font-family:sans-serif}
+td{line-height:1.1em}
+.updated{background-color:#FFFFE0;padding:10px}
+a{color:#21759B;text-decoration:none}
+a:hover,a:active,a:focus{color:#D54E21}
+hr{color:#E6DB55}
+</style></head><body>
 <?php
 $lmm_version_old = isset($_GET['version_old']) ? $_GET['version_old'] : '';
 $lmm_version_new = isset($_GET['version_new']) ? $_GET['version_new'] : '';
@@ -54,38 +30,9 @@ $fixed = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-fixed.png">
 $transl = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-translations.png">';
 $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues.png">';
 
-/*************************************************************************************************************************************/
-/* 2do: change verion numbers and date in first line on each update and add if ( ($lmm_version_old < 'x.x' ) ){ to old changelog
-*************************************************************************************************************************************
-echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.x') . '</strong> - ' . $cl_text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.x" target="_blank">' . $cl_text_c . '</a>):</p>
-<table>
-<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"></a>
-</td></tr>
-<tr><td>' . $new . '</td><td>
+/*****************************************************************************************/
 
-</td></tr>
-<tr><td>' . $changed . '</td><td>
-
-</td></tr>
-<tr><td>' . $fixed . '</td><td>
-
-</td></tr>
-<tr><td colspan="2">
-<p><strong>' . $cl_text_d . '</a></p></strong>
-<p>' . sprintf($cl_text_e, 'http://translate.mapsmarker.com/projects/lmm') . '</p>
-</td></tr>
-<tr><td>' . $transl . '</td><td>
-updated German translation
-</td></tr>
-<tr><td colspan="2">
-<p><strong>' . $cl_text_f . '</a></p></strong>
-<p>' . $cl_text_g . '</p>
-</td></tr>	
-</table>'.PHP_EOL;
-*************************************************************************************************************************************/
-
-echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.x') . '</strong> - ' . $cl_text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.x" target="_blank">' . $cl_text_c . '</a>):</p>
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.3') . '</strong> - ' . $cl_text_b . ' xx.01.2014 (<a href="http://www.mapsmarker.com/v3.8.3" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"></a>
@@ -102,8 +49,38 @@ improved performance for marker edit pages and posts/pages (by removing TinyMCE 
 <tr><td>' . $changed . '</td><td>
 improved performance for dynamic changelog (by removing additional WordPress initialization)
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+removed backend compatibility check for flickr-gallery plugin
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+GeoJSON API: add marker=all parameter & only allow all/* to list all markers
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+KML API: add marker=all parameter & only allow all/* to list all markers
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+improved performance for GeoJSON API by removing mySQL-function CONCAT() from select statements
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+update jQuery timepicker addon to v1.43
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+reduced http requests for jquery time picker addon css on marker edit page
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+optimized css loading on backend (load leaflet.css only on marker and layer edit pages) 
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+optimized backend performance by reducing SQL queries and http requests on new layer edit page
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 bing maps were broken if https was used due to changes in the bing url templates
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+PHP error log entries when Wikitude API was called with specific parameters
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+GeoRSS API for marker parameter displayed incorrect titles
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
@@ -114,6 +91,7 @@ updated German translation
 </td></tr>
 </table>'.PHP_EOL;
 
+if ( ( $lmm_version_old < '3.8.3' ) && ( $lmm_version_old > '0' ) ) {
 echo '<p><hr noshade size="1"/></p>';
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.3') . '</strong> - ' . $cl_text_b . ' 17.01.2014 (<a href="http://www.mapsmarker.com/v3.8.3" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
@@ -161,6 +139,7 @@ updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolar
 updated Turkish translation thanks to Emre Erkan, <a href="http://www.karalamalar.net" target="_blank">http://www.karalamalar.net</a> and Mahir Tosun, <a href="http://www.bozukpusula.com" target="_blank">http://www.bozukpusula.com</a>
 </td></tr>
 </table>'.PHP_EOL;
+}
 
 if ( ( $lmm_version_old < '3.8.2' ) && ( $lmm_version_old > '0' ) ) {
 echo '<p><hr noshade size="1"/></p>';
@@ -2629,6 +2608,37 @@ active translations made setting tabs unaccessible
 </table>'.PHP_EOL;
 }
 echo '</div>';
+
+/*************************************************************************************************************************************/
+/* 2do: change version numbers and date in first line on each update and add if ( ($lmm_version_old < 'x.x' ) ){ to old changelog
+*************************************************************************************************************************************
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.x') . '</strong> - ' . $cl_text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.x" target="_blank">' . $cl_text_c . '</a>):</p>
+<table>
+<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"></a>
+</td></tr>
+<tr><td>' . $new . '</td><td>
+
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+
+</td></tr>
+<tr><td colspan="2">
+<p><strong>' . $cl_text_d . '</a></p></strong>
+<p>' . sprintf($cl_text_e, 'http://translate.mapsmarker.com/projects/lmm') . '</p>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated German translation
+</td></tr>
+<tr><td colspan="2">
+<p><strong>' . $cl_text_f . '</a></p></strong>
+<p>' . $cl_text_g . '</p>
+</td></tr>	
+</table>'.PHP_EOL;
+*************************************************************************************************************************************/
 ?>
 </body>
 </html>

@@ -1189,11 +1189,16 @@ var markers = {};
   mapcentermarker.addTo(selectlayer);
   var layers = {};
   var geojsonObj, mapIcon, marker_clickable, marker_title;
-  <?php if ($multi_layer_map == 0) {
-	  echo 'geojsonObj = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $id . '", async: false, cache: true}).responseText + ")");';
-  } else if ($multi_layer_map == 1) {
-	  echo 'geojsonObj = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $multi_layer_map_list . '", async: false, cache: true}).responseText + ")");';
-  }; ?>
+
+  <?php 
+  if ($id != NULL) { //info: dont load geojson.php on new layer maps to save mysql queries+http requests
+	  if ($multi_layer_map == 0) {
+		  echo 'geojsonObj = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $id . '", async: false, cache: true}).responseText + ")");';
+	  } else if ($multi_layer_map == 1) {
+		  echo 'geojsonObj = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $multi_layer_map_list . '", async: false, cache: true}).responseText + ")");';
+	  }; 
+  }
+  ?>
 	L.geoJson(geojsonObj, {
 		onEachFeature: function(feature, marker) {
 			if (feature.properties.text != '') {

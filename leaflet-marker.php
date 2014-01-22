@@ -389,7 +389,7 @@ if ( $edit_status == 'updated') {
 					</script>
 					<?php }; ?>
 					<label for="kml_timestamp"><strong><?php _e('Timestamp for KML animation','lmm') ?>:</strong></label> <a tabindex="104" href="http://www.mapsmarker.com/kml-timestamp" target="_blank"><img src="<?php echo LEAFLET_PLUGIN_URL; ?>inc/img/icon-question-mark.png" title="<?php esc_attr_e('Click here for more information on animations in KML/Google Earth','lmm'); ?>" width="12" height="12" border="0"/></a><br/>
-					<input type="text" id="kml_timestamp" name="kml_timestamp" value="<?php echo $kml_timestamp ; ?>" style="width:145px;background-image:url(<?php echo LEAFLET_PLUGIN_URL; ?>inc/img/icon-calendar.png);background-position:123px center;background-repeat:no-repeat;" /><br/>
+					<input type="text" id="kml_timestamp" name="kml_timestamp" value="<?php echo $kml_timestamp ; ?>" style="width:166px;background-image:url(<?php echo LEAFLET_PLUGIN_URL; ?>inc/img/icon-calendar.png);background-position:143px center;background-repeat:no-repeat;" /><br/>
 					<small><?php _e('If empty, marker creation date will be used','lmm') ?></small>
 					</p>
 					</div>
