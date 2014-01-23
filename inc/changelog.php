@@ -73,6 +73,9 @@ optimized css loading on backend (load leaflet.css only on marker and layer edit
 <tr><td>' . $changed . '</td><td>
 optimized backend performance by reducing SQL queries and http requests on new layer edit page
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+only show first 25 characters for layernames in select box on marker edit page in order not to break page layout
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 bing maps were broken if https was used due to changes in the bing url templates
 </td></tr>
@@ -87,7 +90,7 @@ GeoRSS API for marker parameter displayed incorrect titles
 <p>' . sprintf($cl_text_e, 'http://translate.mapsmarker.com/projects/lmm') . '</p>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
-updated German translation
+<a href="http://translate.mapsmarker.com/projects/lmm" target="_blank">new design template on translation.mapsmarker.com & support for SSL-login</a>
 </td></tr>
 </table>'.PHP_EOL;
 

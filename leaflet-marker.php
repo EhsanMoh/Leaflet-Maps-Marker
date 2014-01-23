@@ -334,13 +334,14 @@ if ( $edit_status == 'updated') {
 						<?php _e('not assigned to a layer','lmm') ?>
 						</option>
 						<?php
-							foreach ($layerlist as $row) {
-								if ($row['multi_layer_map'] == 0) {
-									echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . '>' . stripslashes(htmlspecialchars($row['name'])) . ' (ID ' . $row['id'] . ')</option>';
-								} else {
-									echo '<option title="' . esc_attr__('This is a multi-layer map - markers cannot be assigned to this layer directly','lmm') . '" value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' disabled="disabled">' . stripslashes(htmlspecialchars($row['name'])) . ' (ID ' . $row['id'] . '/MLM)</option>';
-								}
+						foreach ($layerlist as $row) {
+							$layername_abstract = (strlen($row['name']) >= 25) ? '...': '';
+							if ($row['multi_layer_map'] == 0) {
+								echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . stripslashes(htmlspecialchars($row['name'])) . '">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 25) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							} else {
+								echo '<option title="' . stripslashes(htmlspecialchars($row['name'])) . ' (' . esc_attr__('This is a multi-layer map - markers cannot be assigned to this layer directly','lmm') . ')" value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 25) . $layername_abstract . ' (ID ' . $row['id'] . '/MLM)</option>';
 							}
+						}
 						?>
 					</select>
 					<br>
