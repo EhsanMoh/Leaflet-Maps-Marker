@@ -76,6 +76,9 @@ optimized backend performance by reducing SQL queries and http requests on new l
 <tr><td>' . $changed . '</td><td>
 only show first 25 characters for layernames in select box on marker edit page in order not to break page layout
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+reduced mysql queries on layer edit page by showing marker count for multi-layer-maps only on demand
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 bing maps were broken if https was used due to changes in the bing url templates
 </td></tr>
