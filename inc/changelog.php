@@ -32,7 +32,7 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 
 /*****************************************************************************************/
 
-echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.3') . '</strong> - ' . $cl_text_b . ' xx.01.2014 (<a href="http://www.mapsmarker.com/v3.8.3" target="_blank">' . $cl_text_c . '</a>):</p>
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.4') . '</strong> - ' . $cl_text_b . ' 24.01.2014 (<a href="http://www.mapsmarker.com/v3.8.4" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td>' . $changed . '</td><td>
 optimized TinyMCE media button integration for posts/pages (showing button just once & design update)
