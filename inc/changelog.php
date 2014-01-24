@@ -34,12 +34,6 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.3') . '</strong> - ' . $cl_text_b . ' xx.01.2014 (<a href="http://www.mapsmarker.com/v3.8.3" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
-<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"></a>
-</td></tr>
-<tr><td>' . $new . '</td><td>
-
-</td></tr>
 <tr><td>' . $changed . '</td><td>
 optimized TinyMCE media button integration for posts/pages (showing button just once & design update)
 </td></tr>
@@ -94,6 +88,15 @@ GeoRSS API for marker parameter displayed incorrect titles
 </td></tr>
 <tr><td>' . $transl . '</td><td>
 <a href="http://translate.mapsmarker.com/projects/lmm" target="_blank">new design template on translation.mapsmarker.com & support for SSL-login</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Dutch translation thanks to Patrick Ruers, <a href="http://www.stationskwartiersittard.nl" target="_blank">http://www.stationskwartiersittard.nl</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated German translation
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Italian translation thanks to Luca Barbetti, <a href="http://twitter.com/okibone" target="_blank">http://twitter.com/okibone</a>
 </td></tr>
 </table>'.PHP_EOL;
 
