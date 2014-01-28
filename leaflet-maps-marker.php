@@ -45,17 +45,13 @@ if ( is_admin() ) {
 }
 
 //info: define necessary paths and urls
-if ( ! defined( 'LEAFLET_WP_ADMIN_URL' ) )
-	define( 'LEAFLET_WP_ADMIN_URL', get_admin_url() );
-if ( ! defined( 'LEAFLET_PLUGIN_URL' ) )
-	define ("LEAFLET_PLUGIN_URL", plugin_dir_url(__FILE__));
-if ( ! defined( 'LEAFLET_PLUGIN_DIR' ) )
-	define ("LEAFLET_PLUGIN_DIR", plugin_dir_path(__FILE__));
+define( 'LEAFLET_WP_ADMIN_URL', get_admin_url() );
+define ("LEAFLET_PLUGIN_URL", plugin_dir_url(__FILE__));
+define ("LEAFLET_PLUGIN_DIR", plugin_dir_path(__FILE__));
 $lmm_upload_dir = wp_upload_dir();
-if ( ! defined( 'LEAFLET_PLUGIN_ICONS_URL' ) )
-	define ("LEAFLET_PLUGIN_ICONS_URL", $lmm_upload_dir['baseurl'] . "/leaflet-maps-marker-icons");
-if ( ! defined( 'LEAFLET_PLUGIN_ICONS_DIR' ) )
-	define ("LEAFLET_PLUGIN_ICONS_DIR", $lmm_upload_dir['basedir'] . DIRECTORY_SEPARATOR . "leaflet-maps-marker-icons");
+define ("LEAFLET_PLUGIN_ICONS_URL", $lmm_upload_dir['baseurl'] . "/leaflet-maps-marker-icons");
+define ("LEAFLET_PLUGIN_ICONS_DIR", $lmm_upload_dir['basedir'] . DIRECTORY_SEPARATOR . "leaflet-maps-marker-icons");
+
 class Leafletmapsmarker
 {
 	function __construct() {
