@@ -599,12 +599,13 @@ class Leafletmapsmarker
 		}
 		//info: Google API key
 		if ( isset($lmm_options['google_maps_api_key']) && ($lmm_options['google_maps_api_key'] != NULL) ) { $google_maps_api_key = $lmm_options['google_maps_api_key']; } else { $google_maps_api_key = ''; }
+		$protocol_handler = (is_ssl() == TRUE) ? 'https' : 'http'; //info: conditional ssl loading for Google js (performance issues in China)
 		//info: fallback for adding js to footer 1
 		if ( (version_compare( $wp_version, '3.3', '>=' )) && ($lmm_options['misc_javascript_header_footer'] == 'footer') ) {
-			wp_register_script( 'leafletmapsmarker-googlemaps-loader', 'https://www.google.com/jsapi?key='.$google_maps_api_key, array(), 3.7, true);
+			wp_register_script( 'leafletmapsmarker-googlemaps-loader', $protocol_handler . '://www.google.com/jsapi?key='.$google_maps_api_key, array(), 3.7, true);
 		} else if ( (version_compare( $wp_version, '3.3', '<' )) || ((version_compare( $wp_version, '3.3', '>=' )) && ($lmm_options['misc_javascript_header_footer'] == 'header')) ) {
 			wp_enqueue_script( array ( 'jquery' ) );
-			wp_enqueue_script( 'leafletmapsmarker-googlemaps-loader', 'https://www.google.com/jsapi?key='.$google_maps_api_key, array(), NULL);
+			wp_enqueue_script( 'leafletmapsmarker-googlemaps-loader', $protocol_handler . '://www.google.com/jsapi?key='.$google_maps_api_key, array(), NULL);
 		}
 		//info: Bing culture code
 		if ($lmm_options['bingmaps_culture'] == 'automatic') {
@@ -650,7 +651,8 @@ class Leafletmapsmarker
 		wp_enqueue_script( array ( 'jquery' ) );
 		//info: Google API key
 		if ( isset($lmm_options['google_maps_api_key']) && ($lmm_options['google_maps_api_key'] != NULL) ) { $google_maps_api_key = $lmm_options['google_maps_api_key']; } else { $google_maps_api_key = ''; }
-		wp_enqueue_script( 'leafletmapsmarker-googlemaps-loader', 'https://www.google.com/jsapi?key='.$google_maps_api_key, array(), NULL);
+		$protocol_handler = (is_ssl() == TRUE) ? 'https' : 'http'; //info: conditional ssl loading for Google js (performance issues in China)
+		wp_enqueue_script( 'leafletmapsmarker-googlemaps-loader', $protocol_handler . '://www.google.com/jsapi?key='.$google_maps_api_key, array(), 3.7, true);
 		//info: Bing culture code
 		if ($lmm_options['bingmaps_culture'] == 'automatic') {
 			if ( defined('WPLANG') ) { $bing_culture = WPLANG; } else { $bing_culture =  'en_us'; }
