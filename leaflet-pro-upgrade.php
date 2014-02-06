@@ -104,10 +104,10 @@ if ( $action == NULL ) {
 				</div>
 				<p><a href="#top" class="upgrade-top-link">' . __('back to top to start free 30-day-trial','lmm') . '</a></p>
 
-				<span class="pro-feature-header">' . __('support for CSV/XLS/XLSX/ODS import and export for bulk additions and bulk updates of markers','lmm') . '</span>
+				<span class="pro-feature-header">' . __('support for CSV/XLS/XLSX/ODS import and export for bulk additions and bulk updates','lmm') . '</span>
 				<div class="pro-feature-content" style="background:' . $bgcolor . ';">
 				<p style="margin:0 0 10px 0;">
-				' . __('Leaflet Maps Marker Pro allows you to easily perform bulk updates on markers by using the integrated import feature:','lmm') . '
+				' . __('Leaflet Maps Marker Pro allows you to easily perform bulk updates on markers and layers by using the integrated import feature:','lmm') . '
 				</p>
 				<img src="' . LEAFLET_PLUGIN_URL . 'inc/img/help-import.png">
 				<p>

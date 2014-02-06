@@ -44,7 +44,7 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.x') . '<
 </td></tr>
 </td></tr>
 <tr><td>' . $new . '</td><td>
-support for conditional SSL loading of Google JS to increase performance for users in China (thx John!)
+support for conditional SSL loading of Javascript for Google Maps to increase performance (thx John!)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 
