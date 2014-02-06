@@ -14,7 +14,7 @@ $action = isset($_POST['action']) ? $_POST['action'] : '';
 
 if (!empty($action)) {
 	$import_export_nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : (isset($_GET['_wpnonce']) ? $_GET['_wpnonce'] : '');
-	if (! wp_verify_nonce($import_export_nonce, 'import-export-nonce') ) die('<br/>'.__('Security check failed - please call this function from the according Leaflet Maps Marker admin page!','lmm').'');
+	if (! wp_verify_nonce($import_export_nonce, 'import-export-nonce') ) die('<br/>'.__('Security check failed - please call this function from the according admin page!','lmm').'');
 	$import_export_standalone_nonce = wp_create_nonce('import-export-standalone-nonce');
 	if ($action == 'import') {
 		echo '<iframe name="import" src="' . LEAFLET_PLUGIN_URL . 'inc/import-export/start.php?action_iframe=import&_wpnonce=' . $import_export_standalone_nonce . '" width="100%" height="850" marginwidth="0" marginheight="0"></iframe>'.PHP_EOL;

@@ -27,7 +27,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 	echo sprintf(__('The plugin "Leaflet Maps Marker" is inactive on this site and therefore this API link is not working.<br/><br/>Please contact the site owner (%1s) who can activate this plugin again.','lmm'), antispambot(get_bloginfo('admin_email')) );
 } else {
 	$import_export_standalone_nonce = isset($_GET['_wpnonce']) ? $_GET['_wpnonce'] : '';
-	if (! wp_verify_nonce($import_export_standalone_nonce, 'import-export-standalone-nonce') ) die("".__('Security check failed - please call this function from the according Leaflet Maps Marker admin page!','lmm')."");
+	if (! wp_verify_nonce($import_export_standalone_nonce, 'import-export-standalone-nonce') ) die("".__('Security check failed - please call this function from the according admin page!','lmm')."");
 
 	global $wpdb, $current_user;
 	$table_name_markers = $wpdb->prefix.'leafletmapsmarker_markers';

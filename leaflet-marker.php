@@ -44,7 +44,7 @@ $markerid = isset($_GET['markerid']) ? $_GET['markerid'] : ''; //info: for switc
 
 if (!empty($action)) {
 $markernonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : (isset($_GET['_wpnonce']) ? $_GET['_wpnonce'] : '');
-if (! wp_verify_nonce($markernonce, 'marker-nonce') ) die('<br/>'.__('Security check failed - please call this function from the according Leaflet Maps Marker admin page!','lmm').'');
+if (! wp_verify_nonce($markernonce, 'marker-nonce') ) die('<br/>'.__('Security check failed - please call this function from the according admin page!','lmm').'');
   $layer = isset($_POST['layer']) ? intval($_POST['layer']) : 0;
   if ($action == 'add') {
 	  if ( ($lat_check != NULL) && ($lon_check != NULL) ) {

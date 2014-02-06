@@ -333,7 +333,7 @@ if ( $action == NULL ) {
 		}
 	}
 } else {
-	if (!wp_verify_nonce( $_POST['_wpnonce'], 'pro-upgrade-nonce') ) { wp_die('<br/>'.__('Security check failed - please call this function from the according Leaflet Maps Marker admin page!','lmm').''); };
+	if (!wp_verify_nonce( $_POST['_wpnonce'], 'pro-upgrade-nonce') ) { wp_die('<br/>'.__('Security check failed - please call this function from the according admin page!','lmm').''); };
 	if ($action == 'upgrade_to_pro_version') {
 		include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 		add_filter( 'https_ssl_verify', '__return_false' ); //info: otherwise SSL error on localhost installs.
