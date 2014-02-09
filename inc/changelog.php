@@ -47,7 +47,7 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.5') . 
 support for conditional SSL loading of Javascript for Google Maps to increase performance (thx John!)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-icons on marker maps on backend are now also draggable (thx Sascha for the hint!)
+icons on marker maps and layer maps center icon on backend are now also draggable (thx Sascha for the hint!)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
