@@ -32,6 +32,35 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 
 /*****************************************************************************************/
 
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.6') . '</strong> - ' . $cl_text_b . ' xx.02.2014 (<a href="http://www.mapsmarker.com/v3.8.6" target="_blank">' . $cl_text_c . '</a>):</p>
+<table>
+<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for dynamic switching between simplified and advanced editor (no more reloads needed</a>
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+updated marker edit page (optimized marker icons display, less whitespace for better workflow, added "Advanced settings" row)
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+checkbox for multi layer maps is now also visible by default on layer edit pages
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+single quotes in marker map names were escaped (thx Eric!)
+</td></tr>
+<tr><td colspan="2">
+<p><strong>' . $cl_text_d . '</a></p></strong>
+<p>' . sprintf($cl_text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated German translation
+</td></tr>
+<tr><td colspan="2">
+<p><strong>' . $cl_text_f . '</a></p></strong>
+<p>' . $cl_text_g . '</p>
+</td></tr>	
+</table>'.PHP_EOL;
+echo '<p><hr noshade size="1"/></p>';
+
+if ( ( $lmm_version_old < '3.8.5' ) && ( $lmm_version_old > '0' ) ) {
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.5') . '</strong> - ' . $cl_text_b . ' 10.02.2014 (<a href="http://www.mapsmarker.com/v3.8.5" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
@@ -75,6 +104,7 @@ updated Romanian translation thanks to Arian, <a href="http://administrare-canti
 updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolara.com" target="_blank">http://www.alvarolara.com</a>, Victor Guevara, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a> and Ricardo Viteri, <a href="http://www.labviteri.com" target="_blank">http://www.labviteri.com</a>
 </td></tr>
 </table>'.PHP_EOL;
+}
 
 if ( ( $lmm_version_old < '3.8.4' ) && ( $lmm_version_old > '0' ) ) {
 echo '<p><hr noshade size="1"/></p>';
