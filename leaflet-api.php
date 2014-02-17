@@ -573,7 +573,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 								if ( $lmm_options['api_permissions_add'] == TRUE ) {
 									if ($type == 'marker') {
 										$markername = isset($_POST['markername']) ? $_POST['markername'] : (isset($_GET['markername']) ? $_GET['markername'] : '');
-										$markername_quotes = str_replace("\\","/", str_replace("\"", "'", $markername)); //info: backslash breaks GeoJSON
+										$markername_quotes = str_replace("\\\\","/", str_replace("\"", "'", $markername)); //info: backslash breaks GeoJSON
 										$mpopuptext = isset($_POST['popuptext']) ? str_replace('"', '\'', preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$_POST['popuptext'])) : (isset($_GET['popuptext']) ? str_replace('"', '\'', preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$_GET['popuptext'])) : '');
 
 										$basemap = isset($_POST['basemap']) && in_array($_POST['basemap'], array('osm_mapnik','mapquest_osm','mapquest_aerial','googleLayer_roadmap','googleLayer_satellite','googleLayer_hybrid','googleLayer_terrain','bingaerial','bingaerialwithlabels','bingroad','ogdwien_basemap','ogdwien_satellite','cloudmade','cloudmade2','cloudmade3','mapbox','mapbox2','mapbox3','custom_basemap','custom_basemap2','custom_basemap3','empty_basemap')) ? $_POST['basemap'] : (isset($_GET['basemap']) && in_array($_GET['basemap'], array('osm_mapnik','mapquest_osm','mapquest_aerial','googleLayer_roadmap','googleLayer_satellite','googleLayer_hybrid','googleLayer_terrain','bingaerial','bingaerialwithlabels','bingroad','ogdwien_basemap','ogdwien_satellite','cloudmade','cloudmade2','cloudmade3','mapbox','mapbox2','mapbox3','custom_basemap','custom_basemap2','custom_basemap3','empty_basemap')) ? $_GET['basemap'] : $lmm_options[ 'standard_basemap' ]);
@@ -802,7 +802,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										} //info: end add marker
 									} else if ($type == 'layer') {
 										$name = isset($_POST['name']) ? $_POST['name'] : (isset($_GET['name']) ? $_GET['name'] : '');
-										$name_quotes = str_replace("\"", "'", $name);
+										$name_quotes = str_replace("\\\\", "/", str_replace("\"", "'", $name));
 										$basemap = isset($_POST['basemap']) && in_array($_POST['basemap'], array('osm_mapnik','mapquest_osm','mapquest_aerial','googleLayer_roadmap','googleLayer_satellite','googleLayer_hybrid','googleLayer_terrain','bingaerial','bingaerialwithlabels','bingroad','ogdwien_basemap','ogdwien_satellite','cloudmade','cloudmade2','cloudmade3','mapbox','mapbox2','mapbox3','custom_basemap','custom_basemap2','custom_basemap3','empty_basemap')) ? $_POST['basemap'] : (isset($_GET['basemap']) && in_array($_GET['basemap'], array('osm_mapnik','mapquest_osm','mapquest_aerial','googleLayer_roadmap','googleLayer_satellite','googleLayer_hybrid','googleLayer_terrain','bingaerial','bingaerialwithlabels','bingroad','ogdwien_basemap','ogdwien_satellite','cloudmade','cloudmade2','cloudmade3','mapbox','mapbox2','mapbox3','custom_basemap','custom_basemap2','custom_basemap3','empty_basemap')) ? $_GET['basemap'] : $lmm_options[ 'standard_basemap' ]);
 										$layerzoom = isset($_POST['layerzoom']) ? intval($_POST['layerzoom']) : (isset($_GET['layerzoom']) ? intval($_GET['layerzoom']) : intval($lmm_options[ 'defaults_layer_zoom' ]));
 										$mapwidth = isset($_POST['mapwidth']) ? $_POST['mapwidth'] : (isset($_GET['mapwidth']) ? $_GET['mapwidth'] : intval($lmm_options[ 'defaults_layer_mapwidth' ]));

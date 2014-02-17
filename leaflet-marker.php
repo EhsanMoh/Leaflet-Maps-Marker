@@ -313,13 +313,13 @@ if ( $edit_status == 'updated') {
 				</td>
 			</tr>
 			<tr>
-				<td class="lmm-border"><p style="margin-bottom:0px;"><label for="mapwidth"><strong><?php _e('Map size','lmm') ?></strong></label><br/>
-					<?php _e('Width','lmm') ?>:
+				<td class="lmm-border"><p style="margin-bottom:0px;"><strong><?php _e('Map size','lmm') ?></strong><br/>
+					<label for="mapwidth"><?php _e('Width','lmm') ?>:</label>
 					<input size="3" maxlength="4" type="text" id="mapwidth" name="mapwidth" value="<?php echo $mapwidth ?>" />
 					<input id="mapwidthunit_px" type="radio" name="mapwidthunit" value="px" <?php checked($mapwidthunit, 'px'); ?>>
 					<label for="mapwidthunit_px">px</label>&nbsp;&nbsp;&nbsp;
 					<input id="mapwidthunit_percent" type="radio" name="mapwidthunit" value="%" <?php checked($mapwidthunit, '%'); ?>><label for="mapwidthunit_percent">%</label><br/>
-					<?php _e('Height','lmm') ?>:
+					<label for="mapheight"><?php _e('Height','lmm') ?>:</label>
 					<input size="3" maxlength="4" type="text" id="mapheight" name="mapheight" value="<?php echo $mapheight ?>" />px
 					
 					<hr style="border:none;color:#edecec;background:#edecec;height:1px;">
@@ -359,7 +359,7 @@ if ( $edit_status == 'updated') {
 					
 					<hr style="border:none;color:#edecec;background:#edecec;height:1px;">
 					
-					<div style="float:right;"><?php _e('display panel','lmm') ?>&nbsp;&nbsp;<input type="checkbox" name="gpx_panel" id="gpx_panel" disabled="disabled"></div>
+					<div style="float:right;"><label for="gpx_panel"><?php _e('display panel','lmm') ?></label>&nbsp;&nbsp;<input type="checkbox" name="gpx_panel" id="gpx_panel" disabled="disabled"></div>
 					<label for="gpx_url"><strong><?php _e('URL to GPX track','lmm') ?></strong></label><br/>
 					<input style="width:229px;" type="text" id="gpx_url" name="gpx_url" value="<?php echo __(' Feature available in pro version only','lmm'); ?>" disabled="disabled" /><br/>
 					<?php echo '<small>' . __('add','lmm') . ' | ' . __('convert','lmm') . ' | ' . __('merge','lmm') . ' | ' . __('settings','lmm') . ' | ' . __('fit bounds','lmm') . '</small>'; ?>
@@ -374,7 +374,7 @@ if ( $edit_status == 'updated') {
 					
 					<hr style="border:none;color:#edecec;background:#edecec;height:1px;">
 					
-					<strong><?php _e('Display panel','lmm') ?></strong>&nbsp;&nbsp;<input type="checkbox" name="panel" id="panel" <?php checked($panel, 1 ); ?>><br/>
+					<strong><label for="panel"><?php _e('Display panel','lmm') ?></label></strong>&nbsp;&nbsp;<input type="checkbox" name="panel" id="panel" <?php checked($panel, 1 ); ?>><br/>
 					<small><?php _e('If checked, panel on top of map is displayed','lmm') ?></small>
 					</p>
 					</div>
@@ -493,6 +493,7 @@ if ( $edit_status == 'updated') {
 							}
 						}
 						echo '<div style="text-align:center;float:left;line-height:0px;padding:17px 5px 0 5px;" id="showlessicons"><a style="cursor:pointer;">' . __('show fewer icons','lmm') . '</a></div>';
+						echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade" title="' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '"><img style="margin:3px 0 0 7px;" src="' . LEAFLET_PLUGIN_URL . 'inc/img/pro-feature-filter-icons.png"></a>';
 						echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade" title="' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '"><img style="margin:3px 0 0 7px;" src="' . LEAFLET_PLUGIN_URL . 'inc/img/pro-feature-upload-icons.png"></a>';
 						echo '</div>';
 				
@@ -504,6 +505,7 @@ if ( $edit_status == 'updated') {
 							if ($row == $icon) { $opacity = '1'; $background = '#5e5d5d'; } else { $opacity = '0.4'; $background = 'none'; }
 							echo '<div class="div-marker-icon div-marker-icon-' . $filename_without_dots . '" style="opacity:' . $opacity . ';background:' . $background . ';"><label for="'.$row.'"><img src="' . LEAFLET_PLUGIN_ICONS_URL . '/' . $row . '" title="' . esc_attr__('filename','lmm') . ': ' . $row . ', ' . esc_attr__('CSS classname','lmm') . ': lmm_marker_icon_' . substr($row, 0, -4) . '" alt="' . $row . '" width="' . $lmm_options['defaults_marker_icon_iconsize_x'] . '" height="' . $lmm_options['defaults_marker_icon_iconsize_y'] . '" /></label><br/><input class="marker-icon-radio-button" id="'.$row.'" style="margin:1px 0 0 1px;display:none;" type="radio" name="icon" value="'.$row.'"'.($row == $icon ? ' checked' : '').'></div>';
 						}
+						echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade" title="' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '"><img style="margin:3px 0 0 7px;" src="' . LEAFLET_PLUGIN_URL . 'inc/img/pro-feature-filter-icons.png"></a>';
 						echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade" title="' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '"><img style="margin:3px 0 0 7px;" src="' . LEAFLET_PLUGIN_URL . 'inc/img/pro-feature-upload-icons.png"></a>';
 					}		
 					?>
@@ -512,7 +514,7 @@ if ( $edit_status == 'updated') {
 			<tr>
 				<td class="lmm-border"><p><label for="popuptext"><strong><?php _e('Popup text','lmm') ?></strong></label>
 				<br /><br />
-				<?php _e('open popup','lmm') ?>&nbsp;&nbsp;<input type="checkbox" name="openpopup" id="openpopup" <?php checked($openpopup, 1 ); ?>>
+				<label for="openpopup"><?php _e('open popup','lmm') ?></label>&nbsp;&nbsp;<input type="checkbox" name="openpopup" id="openpopup" <?php checked($openpopup, 1 ); ?>>
 				<br/><small>
 				<?php _e('If unchecked, the popup will only be visible after clicking on the marker on marker- or layer-maps.','lmm') ?>
 				</small>
@@ -814,16 +816,16 @@ var marker,selectlayer,googleLayer_roadmap,googleLayer_satellite,googleLayer_hyb
 	$wms10_subdomains = ((isset($lmm_options[ 'wms_wms10_subdomains_enabled' ]) == TRUE ) && ($lmm_options[ 'wms_wms10_subdomains_enabled' ] == 'yes' )) ? ", subdomains: [" . htmlspecialchars_decode($lmm_options[ 'wms_wms10_subdomains_names' ], ENT_QUOTES) . "]" :  "";
 
 	//info: define wms legends
-	$wms_attribution = addslashes($lmm_options[ 'wms_wms_attribution' ]) . ( ($lmm_options[ 'wms_wms_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms2_attribution = addslashes($lmm_options[ 'wms_wms2_attribution' ]) . ( ($lmm_options[ 'wms_wms2_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms2_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms3_attribution = addslashes($lmm_options[ 'wms_wms3_attribution' ]) . ( ($lmm_options[ 'wms_wms3_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms3_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms4_attribution = addslashes($lmm_options[ 'wms_wms4_attribution' ]) . ( ($lmm_options[ 'wms_wms4_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms4_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms5_attribution = addslashes($lmm_options[ 'wms_wms5_attribution' ]) . ( ($lmm_options[ 'wms_wms5_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms5_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms6_attribution = addslashes($lmm_options[ 'wms_wms6_attribution' ]) . ( ($lmm_options[ 'wms_wms6_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms6_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms7_attribution = addslashes($lmm_options[ 'wms_wms7_attribution' ]) . ( ($lmm_options[ 'wms_wms7_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms7_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms8_attribution = addslashes($lmm_options[ 'wms_wms8_attribution' ]) . ( ($lmm_options[ 'wms_wms8_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms8_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms9_attribution = addslashes($lmm_options[ 'wms_wms9_attribution' ]) . ( ($lmm_options[ 'wms_wms9_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms9_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
-	$wms10_attribution = addslashes($lmm_options[ 'wms_wms10_attribution' ]) . ( ($lmm_options[ 'wms_wms10_legend_enabled' ] == 'yes' ) ? ' (<a href="' . $lmm_options[ 'wms_wms10_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms_attribution = addslashes($lmm_options[ 'wms_wms_attribution' ]) . ( (($lmm_options[ 'wms_wms_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms2_attribution = addslashes($lmm_options[ 'wms_wms2_attribution' ]) . ( (($lmm_options[ 'wms_wms2_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms2_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms2_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms3_attribution = addslashes($lmm_options[ 'wms_wms3_attribution' ]) . ( (($lmm_options[ 'wms_wms3_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms3_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms3_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms4_attribution = addslashes($lmm_options[ 'wms_wms4_attribution' ]) . ( (($lmm_options[ 'wms_wms4_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms4_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms4_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms5_attribution = addslashes($lmm_options[ 'wms_wms5_attribution' ]) . ( (($lmm_options[ 'wms_wms5_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms5_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms5_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms6_attribution = addslashes($lmm_options[ 'wms_wms6_attribution' ]) . ( (($lmm_options[ 'wms_wms6_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms6_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms6_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms7_attribution = addslashes($lmm_options[ 'wms_wms7_attribution' ]) . ( (($lmm_options[ 'wms_wms7_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms7_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms7_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms8_attribution = addslashes($lmm_options[ 'wms_wms8_attribution' ]) . ( (($lmm_options[ 'wms_wms8_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms8_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms8_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms9_attribution = addslashes($lmm_options[ 'wms_wms9_attribution' ]) . ( (($lmm_options[ 'wms_wms9_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms9_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms9_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
+	$wms10_attribution = addslashes($lmm_options[ 'wms_wms10_attribution' ]) . ( (($lmm_options[ 'wms_wms10_legend_enabled' ] == 'yes' ) && ($lmm_options[ 'wms_wms10_legend' ] != NULL )) ? ' (<a href="' . $lmm_options[ 'wms_wms10_legend' ] . '" target=&quot;_blank&quot;>' . __('Legend','lmm') . '</a>)' : '') . '';
 	?>
 
 	//info: define wms layers

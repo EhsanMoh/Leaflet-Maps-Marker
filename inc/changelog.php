@@ -35,13 +35,22 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.6') . '</strong> - ' . $cl_text_b . ' xx.02.2014 (<a href="http://www.mapsmarker.com/v3.8.6" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for dynamic switching between simplified and advanced editor (no more reloads needed</a>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for dynamic switching between simplified and advanced editor (no more reloads needed)</a>
+</td></tr>
+<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for filtering of marker icons on backend (based on filename)</a>
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 updated marker edit page (optimized marker icons display, less whitespace for better workflow, added "Advanced settings" row)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 checkbox for multi layer maps is now also visible by default on layer edit pages
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+WMS legend link is not added to WMS attribution if legend link is empty
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+optimized input on backend by adding labels to all form elements
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 single quotes in marker map names were escaped (thx Eric!)
