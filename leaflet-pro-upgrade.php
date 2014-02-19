@@ -291,6 +291,8 @@ if ( $action == NULL ) {
 					<li><a class="pro-upgrade-external-links" href="http://www.mapsmarker.com/v1.5.1p" target="_blank">' . __('support for duplicating markers','lmm') . '</a></li>
 					<li><a class="pro-upgrade-external-links" href="http://www.mapsmarker.com/v1.5.7p" target="_blank">' . __('support for dynamic switching between simplified and advanced editor (no more reloads needed)','lmm') . '</a></li>
 					<li><a class="pro-upgrade-external-links" href="http://www.mapsmarker.com/v1.5.7p" target="_blank">' . __('support for filtering of marker icons on backend (based on filename)','lmm') . '</a></li>
+					<li><a class="pro-upgrade-external-links" href="http://www.mapsmarker.com/v1.5.7p" target="_blank">' . __('support for changing marker IDs and layer IDs from the tools page','lmm') . '</a></li>
+					<li><a class="pro-upgrade-external-links" href="http://www.mapsmarker.com/v1.5.7p" target="_blank">' . __('support for bulk updates of marker maps on the tools page for selected layers only','lmm') . '</a></li>
 				</ul>
 				</div>
 				<p><a href="#top" class="upgrade-top-link">' . __('back to top to start free 30-day-trial','lmm') . '</a></p>

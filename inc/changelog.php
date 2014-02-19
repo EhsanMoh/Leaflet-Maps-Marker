@@ -40,6 +40,15 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.6') . 
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for filtering of marker icons on backend (based on filename)</a>
 </td></tr>
+<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for changing marker IDs and layer IDs from the tools page</a>
+</td></tr>
+<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for bulk updates of marker maps on the tools page for selected layers only</a>
+</td></tr>
+<tr><td>' . $new . '</td><td>
+<a href="https://www.mapsmarker.com/order" target="_blank">store on mapsmarker.com</a> now also accepts Diners Club credit cards
+</td></tr>
 <tr><td>' . $changed . '</td><td>
 updated marker edit page (optimized marker icons display, less whitespace for better workflow, added "Advanced settings" row)
 </td></tr>

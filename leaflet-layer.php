@@ -418,10 +418,10 @@ if ( $edit_status == 'updated') {
 				<strong><?php _e('Map size','lmm') ?></strong><br/>
 				<label for="mapwidth"><?php _e('Width','lmm') ?>:</label>
 				<input size="3" maxlength="4" type="text" id="mapwidth" name="mapwidth" value="<?php echo $mapwidth ?>" style="margin-left:5px;height:24px;" />
-				<input id="mapwidthunit_px" type="radio" name="mapwidthunit" value="px" <?php checked($mapwidthunit, 'px'); ?>><label for="mapwidthunit_px">px</label>&nbsp;&nbsp;&nbsp;
+				<input id="mapwidthunit_px" type="radio" name="mapwidthunit" value="px" <?php checked($mapwidthunit, 'px'); ?>><label for="mapwidthunit_px" title="<?php esc_attr_e('pixel','lmm'); ?>">px</label>&nbsp;&nbsp;&nbsp;
 				<input id="mapwidthunit_percent" type="radio" name="mapwidthunit" value="%" <?php checked($mapwidthunit, '%'); ?>><label for="mapwidthunit_percent">%</label><br/>
 				<label for="mapheight"><?php _e('Height','lmm') ?>:</label>
-				<input size="3" maxlength="4" type="text" id="mapheight" name="mapheight" value="<?php echo $mapheight ?>" style="height:24px;" />px
+				<input size="3" maxlength="4" type="text" id="mapheight" name="mapheight" value="<?php echo $mapheight ?>" style="height:24px;" /> <span title="<?php esc_attr_e('pixel','lmm'); ?>">px</span>
 				
 				<hr style="border:none;color:#edecec;background:#edecec;height:1px;">
 				
@@ -634,32 +634,30 @@ if ( $edit_status == 'updated') {
 					_e('Please select the layers, whose markers you would like to display on this multi layer map. Please note that the following features are not supported for multi layer maps: adding markers directly, access of all assigned markers via GeoJSON (please use GeoJSON-feeds for individual layers instead) and dynamic preview in backend (select layers instead, click save and the edit button again). Please also do not change an existing layer map with assigned markers to a multi layer map, as those assigned markers will not be displayed on the multi layer map.','lmm').PHP_EOL;
 					$mlm_checked_all = ( in_array('all', $multi_layer_map_list_exploded) ) ? ' checked="checked"' : '';
 					echo '<br/><br/><input id="mlm-all" type="checkbox" id="mlm-all" name="mlm-all" ' . $mlm_checked_all . '> <label for="mlm-all">' . __('display all markers','lmm') . '</label><br/><br/><strong>' . __('Display markers from selected layers only','lmm') . '</strong><br/>';
-					if ($current_editor != 'simplified') { //info: to save mysql queries with simplified editor enabled
-						foreach ($layerlist as $mlmrow){
-							if ($markercount_toggle == 'show') { //info: to prevent to many mysql queries
-								$mlm_markercount = $wpdb->get_var('SELECT count(*) FROM '.$table_name_layers.' as l INNER JOIN '.$table_name_markers.' AS m ON l.id=m.layer WHERE l.id='.$mlmrow['lid']);
-							} else { 
-								$mlm_markercount = 'hide';
-							}
-							if ( in_array($mlmrow['lid'], $multi_layer_map_list_exploded) ) {
-								$mlm_checked{$mlmrow['lid']} = ' checked="checked"';
+					foreach ($layerlist as $mlmrow){
+						if ($markercount_toggle == 'show') { //info: to prevent to many mysql queries
+							$mlm_markercount = $wpdb->get_var('SELECT count(*) FROM '.$table_name_layers.' as l INNER JOIN '.$table_name_markers.' AS m ON l.id=m.layer WHERE l.id='.$mlmrow['lid']);
+						} else { 
+							$mlm_markercount = 'hide';
+						}
+						if ( in_array($mlmrow['lid'], $multi_layer_map_list_exploded) ) {
+							$mlm_checked{$mlmrow['lid']} = ' checked="checked"';
+						} else {
+							$mlm_checked{$mlmrow['lid']} = '';
+						}
+						if ( ($id != $mlmrow['lid']) || ($mlm_markercount != 0) ) { //info: make current layer selectable for MLM if has markers only
+							if ($markercount_toggle == 'show') { 
+								echo '<input type="checkbox" id="mlm-'.$mlmrow['lid'].'" name="mlm-'.$mlmrow['lid'].'" ' . $mlm_checked{$mlmrow['lid']} . '> <label for="mlm-'.$mlmrow['lid'].'">' . stripslashes(htmlspecialchars($mlmrow['lname'])) . ' (' . $mlm_markercount . ' ' .  __('marker','lmm') . ', ID ' . $mlmrow['lid'] . ' - <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&id='.$mlmrow['lid'].'" title="' . esc_attr__('show map','lmm') . '" target="_blank">' . __('show map','lmm') . '</a>)</label><br/>';
 							} else {
-								$mlm_checked{$mlmrow['lid']} = '';
-							}
-							if ( ($id != $mlmrow['lid']) || ($mlm_markercount != 0) ) { //info: make current layer selectable for MLM if has markers only
-								if ($markercount_toggle == 'show') { 
-									echo '<input type="checkbox" id="mlm-'.$mlmrow['lid'].'" name="mlm-'.$mlmrow['lid'].'" ' . $mlm_checked{$mlmrow['lid']} . '> <label for="mlm-'.$mlmrow['lid'].'">' . stripslashes(htmlspecialchars($mlmrow['lname'])) . ' (' . $mlm_markercount . ' ' .  __('marker','lmm') . ', ID ' . $mlmrow['lid'] . ' - <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&id='.$mlmrow['lid'].'" title="' . esc_attr__('show map','lmm') . '" target="_blank">' . __('show map','lmm') . '</a>)</label><br/>';
+								if ($isedit) {
+									$show_markercount_link = LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&id=' . $id . '&markercount_toggle=show';
 								} else {
-									if ($isedit) {
-										$show_markercount_link = LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&id=' . $id . '&markercount_toggle=show';
-									} else {
-										$show_markercount_link = LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&markercount_toggle=show';
-									}
-									echo '<input type="checkbox" id="mlm-'.$mlmrow['lid'].'" name="mlm-'.$mlmrow['lid'].'" ' . $mlm_checked{$mlmrow['lid']} . '> <label for="mlm-'.$mlmrow['lid'].'">' . stripslashes(htmlspecialchars($mlmrow['lname'])) . ' (<a href="' . $show_markercount_link . '" title="' . esc_attr__('hidden by default for a better performance','lmm') . '">' .  __('show marker count','lmm') . '</a>), ID ' . $mlmrow['lid'] . ' - <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&id='.$mlmrow['lid'].'" title="' . esc_attr__('show map','lmm') . '" target="_blank">' . __('show map','lmm') . '</a></label><br/>';
+									$show_markercount_link = LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&markercount_toggle=show';
 								}
+								echo '<input type="checkbox" id="mlm-'.$mlmrow['lid'].'" name="mlm-'.$mlmrow['lid'].'" ' . $mlm_checked{$mlmrow['lid']} . '> <label for="mlm-'.$mlmrow['lid'].'">' . stripslashes(htmlspecialchars($mlmrow['lname'])) . ' (<a href="' . $show_markercount_link . '" title="' . esc_attr__('hidden by default for a better performance','lmm') . '">' .  __('show marker count','lmm') . '</a>), ID ' . $mlmrow['lid'] . ' - <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_layer&id='.$mlmrow['lid'].'" title="' . esc_attr__('show map','lmm') . '" target="_blank">' . __('show map','lmm') . '</a></label><br/>';
 							}
-						};
-					}
+						}
+					};
 					echo '</div>'.PHP_EOL;
 					?>
 				</td>

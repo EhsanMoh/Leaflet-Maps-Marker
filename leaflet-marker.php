@@ -316,10 +316,10 @@ if ( $edit_status == 'updated') {
 				<td class="lmm-border"><p style="margin-bottom:0px;"><strong><?php _e('Map size','lmm') ?></strong><br/>
 					<label for="mapwidth"><?php _e('Width','lmm') ?>:</label>
 					<input size="3" maxlength="4" type="text" id="mapwidth" name="mapwidth" value="<?php echo $mapwidth ?>" style="margin-left:5px;height:24px;" />
-					<input id="mapwidthunit_px" type="radio" name="mapwidthunit" value="px" <?php checked($mapwidthunit, 'px'); ?>><label for="mapwidthunit_px">px</label>&nbsp;&nbsp;&nbsp;
+					<input id="mapwidthunit_px" type="radio" name="mapwidthunit" value="px" <?php checked($mapwidthunit, 'px'); ?>><label for="mapwidthunit_px" title="<?php esc_attr_e('pixel','lmm'); ?>">px</label>&nbsp;&nbsp;&nbsp;
 					<input id="mapwidthunit_percent" type="radio" name="mapwidthunit" value="%" <?php checked($mapwidthunit, '%'); ?>><label for="mapwidthunit_percent">%</label><br/>
 					<label for="mapheight"><?php _e('Height','lmm') ?>:</label>
-					<input size="3" maxlength="4" type="text" id="mapheight" name="mapheight" value="<?php echo $mapheight ?>" style="height:24px;" />px
+					<input size="3" maxlength="4" type="text" id="mapheight" name="mapheight" value="<?php echo $mapheight ?>" style="height:24px;" /> <span title="<?php esc_attr_e('pixel','lmm'); ?>">px</span>
 					
 					<hr style="border:none;color:#edecec;background:#edecec;height:1px;">
 					
