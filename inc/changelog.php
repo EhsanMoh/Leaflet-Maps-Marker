@@ -47,6 +47,9 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.6') . 
 <a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for bulk updates of marker maps on the tools page for selected layers only</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
+more secure authentication method for MapsMarker API <strong>(old method with public key only is not supported anymore!)</strong>
+</td></tr>
+<tr><td>' . $new . '</td><td>
 <a href="https://www.mapsmarker.com/order" target="_blank">store on mapsmarker.com</a> now also accepts Diners Club credit cards
 </td></tr>
 <tr><td>' . $changed . '</td><td>

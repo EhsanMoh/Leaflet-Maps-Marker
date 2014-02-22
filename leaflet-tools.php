@@ -192,6 +192,8 @@ if (!empty($action)) {
 	<li>- <a href="#bulk-update-layers" style="text-decoration:none;">' . sprintf( esc_attr__('Bulk updates for all %1$s existing layer maps','lmm'), $layercount_all) . '</a></li>
 	<li>- <a href="#change-marker-id" style="text-decoration:none;">' . __('Change marker ID','lmm') . '</a></li>
 	<li>- <a href="#change-layer-id" style="text-decoration:none;">' . __('Change layer ID','lmm') . '</a></li>
+	<li>- <a href="#api-url-generator" style="text-decoration:none;">' . __('API URL generator','lmm') . '</a></li>
+	<li>- <a href="#api-url-tester" style="text-decoration:none;">' . __('API URL tester','lmm') . '</a></li>
 	<li>- <a href="#delete-selected-markers" style="text-decoration:none;">' . __('Delete all markers from a layer','lmm') . '</a></li>
 	<li>- <a href="#delete-all-markers" style="text-decoration:none;">' . sprintf( esc_attr__('Delete all %1$s markers from all %2$s layers','lmm'), $markercount_all, $layercount_all) . '</a></li>
 	</ul>';
@@ -960,6 +962,175 @@ if (!empty($action)) {
 		</tr>
 	</table>
 	</form>
+	<p><a href="#top" style="text-decoration:none;"><?php _e('back to top','lmm'); ?></a></p>
+
+	<a name="api-url-generator"></a>
+	<br/><br/>
+	<table class="widefat fixed" style="width:auto;">
+		<tr style="background-color:#d6d5d5;">
+			<td colspan="2"><strong><?php _e('API URL generator','lmm') ?></strong> <?php echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#lmm-misc-section9">(' . __('MapsMarker API settings','lmm') . ')</a>'; ?></td>
+		</tr>
+		<tr>
+			<td style="vertical-align:middle;">
+				<?php _e('This tool will generate a secure, expiring URL','lmm') ?>:
+				<select id="api-url-generator-expiration" style="margin-left:80px;">
+					<option value="60"><?php _e('expire in','lmm'); ?> 1 <?php _e('Minute','lmm'); ?></option>
+					<option value="3600"><?php _e('expire in','lmm'); ?> 1 <?php _e('Hour','lmm'); ?></option>
+					<option value="86400"><?php _e('expire in','lmm'); ?> 1 <?php _e('Day','lmm'); ?></option>
+					<option value="604800"><?php _e('expire in','lmm'); ?> 1 <?php _e('Week','lmm'); ?></option>
+					<option value="2628000"><?php _e('expire in','lmm'); ?> 1 <?php _e('Month','lmm'); ?></option>
+					<option value="31449600"><?php _e('expire in','lmm'); ?> 1 <?php _e('Year','lmm'); ?></option>
+					<option value="157248000"><?php _e('expire in','lmm'); ?> 5 <?php _e('Years','lmm'); ?></option>
+					<option value="314496000"><?php _e('expire in','lmm'); ?> 10 <?php _e('Years','lmm'); ?></option>
+					<option value="3144960000"><?php _e('expire in','lmm'); ?> 100 <?php _e('Years','lmm'); ?></option>
+				</select><br/>
+				<textarea type="text" id="api-url-generator-generated-url" style="width:550px;height:85px;"></textarea>
+			</td>
+			<td style="vertical-align:middle;">
+				<?php 
+				if ( ($lmm_options['api_key'] == NULL) || ($lmm_options['api_key_private'] == NULL) ) {
+					echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#lmm-misc-section9">' . __('Error: you have to set a public and private API key first!','lmm') . '</a>';
+				} else {
+					echo '<input id="api_url_generator-submit" type="submit" class="submit button-primary" value="' . __('Generate URL','lmm') . '"/>';
+				} 
+				?>
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+	/*
+	CryptoJS v3.1.2
+	code.google.com/p/crypto-js
+	(c) 2009-2013 by Jeff Mott. All rights reserved.
+	code.google.com/p/crypto-js/wiki/License
+	*/
+	var CryptoJS=CryptoJS||function(g,l){var e={},d=e.lib={},m=function(){},k=d.Base={extend:function(a){m.prototype=this;var c=new m;a&&c.mixIn(a);c.hasOwnProperty("init")||(c.init=function(){c.$super.init.apply(this,arguments)});c.init.prototype=c;c.$super=this;return c},create:function(){var a=this.extend();a.init.apply(a,arguments);return a},init:function(){},mixIn:function(a){for(var c in a)a.hasOwnProperty(c)&&(this[c]=a[c]);a.hasOwnProperty("toString")&&(this.toString=a.toString)},clone:function(){return this.init.prototype.extend(this)}},
+	p=d.WordArray=k.extend({init:function(a,c){a=this.words=a||[];this.sigBytes=c!=l?c:4*a.length},toString:function(a){return(a||n).stringify(this)},concat:function(a){var c=this.words,q=a.words,f=this.sigBytes;a=a.sigBytes;this.clamp();if(f%4)for(var b=0;b<a;b++)c[f+b>>>2]|=(q[b>>>2]>>>24-8*(b%4)&255)<<24-8*((f+b)%4);else if(65535<q.length)for(b=0;b<a;b+=4)c[f+b>>>2]=q[b>>>2];else c.push.apply(c,q);this.sigBytes+=a;return this},clamp:function(){var a=this.words,c=this.sigBytes;a[c>>>2]&=4294967295<<
+	32-8*(c%4);a.length=g.ceil(c/4)},clone:function(){var a=k.clone.call(this);a.words=this.words.slice(0);return a},random:function(a){for(var c=[],b=0;b<a;b+=4)c.push(4294967296*g.random()|0);return new p.init(c,a)}}),b=e.enc={},n=b.Hex={stringify:function(a){var c=a.words;a=a.sigBytes;for(var b=[],f=0;f<a;f++){var d=c[f>>>2]>>>24-8*(f%4)&255;b.push((d>>>4).toString(16));b.push((d&15).toString(16))}return b.join("")},parse:function(a){for(var c=a.length,b=[],f=0;f<c;f+=2)b[f>>>3]|=parseInt(a.substr(f,
+	2),16)<<24-4*(f%8);return new p.init(b,c/2)}},j=b.Latin1={stringify:function(a){var c=a.words;a=a.sigBytes;for(var b=[],f=0;f<a;f++)b.push(String.fromCharCode(c[f>>>2]>>>24-8*(f%4)&255));return b.join("")},parse:function(a){for(var c=a.length,b=[],f=0;f<c;f++)b[f>>>2]|=(a.charCodeAt(f)&255)<<24-8*(f%4);return new p.init(b,c)}},h=b.Utf8={stringify:function(a){try{return decodeURIComponent(escape(j.stringify(a)))}catch(c){throw Error("Malformed UTF-8 data");}},parse:function(a){return j.parse(unescape(encodeURIComponent(a)))}},
+	r=d.BufferedBlockAlgorithm=k.extend({reset:function(){this._data=new p.init;this._nDataBytes=0},_append:function(a){"string"==typeof a&&(a=h.parse(a));this._data.concat(a);this._nDataBytes+=a.sigBytes},_process:function(a){var c=this._data,b=c.words,f=c.sigBytes,d=this.blockSize,e=f/(4*d),e=a?g.ceil(e):g.max((e|0)-this._minBufferSize,0);a=e*d;f=g.min(4*a,f);if(a){for(var k=0;k<a;k+=d)this._doProcessBlock(b,k);k=b.splice(0,a);c.sigBytes-=f}return new p.init(k,f)},clone:function(){var a=k.clone.call(this);
+	a._data=this._data.clone();return a},_minBufferSize:0});d.Hasher=r.extend({cfg:k.extend(),init:function(a){this.cfg=this.cfg.extend(a);this.reset()},reset:function(){r.reset.call(this);this._doReset()},update:function(a){this._append(a);this._process();return this},finalize:function(a){a&&this._append(a);return this._doFinalize()},blockSize:16,_createHelper:function(a){return function(b,d){return(new a.init(d)).finalize(b)}},_createHmacHelper:function(a){return function(b,d){return(new s.HMAC.init(a,
+	d)).finalize(b)}}});var s=e.algo={};return e}(Math);
+	(function(){var g=CryptoJS,l=g.lib,e=l.WordArray,d=l.Hasher,m=[],l=g.algo.SHA1=d.extend({_doReset:function(){this._hash=new e.init([1732584193,4023233417,2562383102,271733878,3285377520])},_doProcessBlock:function(d,e){for(var b=this._hash.words,n=b[0],j=b[1],h=b[2],g=b[3],l=b[4],a=0;80>a;a++){if(16>a)m[a]=d[e+a]|0;else{var c=m[a-3]^m[a-8]^m[a-14]^m[a-16];m[a]=c<<1|c>>>31}c=(n<<5|n>>>27)+l+m[a];c=20>a?c+((j&h|~j&g)+1518500249):40>a?c+((j^h^g)+1859775393):60>a?c+((j&h|j&g|h&g)-1894007588):c+((j^h^
+	g)-899497514);l=g;g=h;h=j<<30|j>>>2;j=n;n=c}b[0]=b[0]+n|0;b[1]=b[1]+j|0;b[2]=b[2]+h|0;b[3]=b[3]+g|0;b[4]=b[4]+l|0},_doFinalize:function(){var d=this._data,e=d.words,b=8*this._nDataBytes,g=8*d.sigBytes;e[g>>>5]|=128<<24-g%32;e[(g+64>>>9<<4)+14]=Math.floor(b/4294967296);e[(g+64>>>9<<4)+15]=b;d.sigBytes=4*e.length;this._process();return this._hash},clone:function(){var e=d.clone.call(this);e._hash=this._hash.clone();return e}});g.SHA1=d._createHelper(l);g.HmacSHA1=d._createHmacHelper(l)})();
+	(function(){var g=CryptoJS,l=g.enc.Utf8;g.algo.HMAC=g.lib.Base.extend({init:function(e,d){e=this._hasher=new e.init;"string"==typeof d&&(d=l.parse(d));var g=e.blockSize,k=4*g;d.sigBytes>k&&(d=e.finalize(d));d.clamp();for(var p=this._oKey=d.clone(),b=this._iKey=d.clone(),n=p.words,j=b.words,h=0;h<g;h++)n[h]^=1549556828,j[h]^=909522486;p.sigBytes=b.sigBytes=k;this.reset()},reset:function(){var e=this._hasher;e.reset();e.update(this._iKey)},update:function(e){this._hasher.update(e);return this},finalize:function(e){var d=
+	this._hasher;e=d.finalize(e);d.reset();return d.finalize(this._oKey.clone().concat(e))}})})();
+	/*
+	CryptoJS v3.1.2
+	code.google.com/p/crypto-js
+	(c) 2009-2013 by Jeff Mott. All rights reserved.
+	code.google.com/p/crypto-js/wiki/License
+	*/
+	(function(){var h=CryptoJS,j=h.lib.WordArray;h.enc.Base64={stringify:function(b){var e=b.words,f=b.sigBytes,c=this._map;b.clamp();b=[];for(var a=0;a<f;a+=3)for(var d=(e[a>>>2]>>>24-8*(a%4)&255)<<16|(e[a+1>>>2]>>>24-8*((a+1)%4)&255)<<8|e[a+2>>>2]>>>24-8*((a+2)%4)&255,g=0;4>g&&a+0.75*g<f;g++)b.push(c.charAt(d>>>6*(3-g)&63));if(e=c.charAt(64))for(;b.length%4;)b.push(e);return b.join("")},parse:function(b){var e=b.length,f=this._map,c=f.charAt(64);c&&(c=b.indexOf(c),-1!=c&&(e=c));for(var c=[],a=0,d=0;d<
+	e;d++)if(d%4){var g=f.indexOf(b.charAt(d-1))<<2*(d%4),h=f.indexOf(b.charAt(d))>>>6-2*(d%4);c[a>>>2]|=(g|h)<<24-8*(a%4);a++}return j.create(c,a)},_map:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="}})();
+
+	function lmm_apiCalculateSig(stringToSign, privateKey) {
+		var hash = CryptoJS.HmacSHA1(stringToSign, privateKey);
+		var base64 = hash.toString(CryptoJS.enc.Base64);
+		return encodeURIComponent(base64);
+	}	
+	jQuery(document).ready(function () {
+		jQuery("#api_url_generator-submit").click(function (e) {
+			e.preventDefault();
+			var publicKey, privateKey, expiration, stringToSign, url, sig;
+			publicKey = '<?php echo $lmm_options['api_key']; ?>';
+			privateKey = '<?php echo $lmm_options['api_key_private']; ?>';
+			expiration = parseInt(jQuery("#api-url-generator-expiration").val());
+			var d = new Date;
+			var unixtime = parseInt(d.getTime() / 1000);
+			var future_unixtime =  unixtime + expiration;
+			stringToSign = publicKey + ":" + future_unixtime;
+			sig = lmm_apiCalculateSig(stringToSign, privateKey);
+			url = "<?php echo LEAFLET_PLUGIN_URL; ?>leaflet-api.php?key=" + publicKey + "&signature=" + sig + "&expires=" + future_unixtime;
+			jQuery('#api-url-generator-generated-url').val(url);
+			return false;
+		});
+	});
+	</script>
+	<p><a href="#top" style="text-decoration:none;"><?php _e('back to top','lmm'); ?></a></p>
+
+	<a name="api-url-tester"></a>
+	<br/><br/>
+	<table class="widefat fixed" style="width:auto;">
+		<tr style="background-color:#d6d5d5;">
+			<td colspan="2"><strong><?php _e('API URL tester','lmm') ?></strong> <?php echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#lmm-misc-section9">(' . __('MapsMarker API settings','lmm') . ')</a>'; ?></td>
+		</tr>
+		<tr>
+			<td style="vertical-align:middle;">
+				<?php _e('This tool tests the authentication/signature','lmm') ?>:		
+				<select id="api-url-tester-method" style="margin-left:80px;">
+					<option value="GET">GET</option>
+					<option value="POST">POST</option>
+				</select><br />
+				<textarea type="text" id="api-url-tester-url" style="width:550px;height:85px;"></textarea>
+				<div id="api-url-tester-loading" style="display:none">
+					<?php _e('Loading...','lmm'); ?>
+				</div>
+				<div id="api-url-tester-results">
+					<!-- placeholder for results -->
+				</div>
+			</td>
+			<td style="vertical-align:middle;">
+				<?php 
+				if ( ($lmm_options['api_key'] == NULL) || ($lmm_options['api_key_private'] == NULL) ) {
+					echo '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#lmm-misc-section9">' . __('Error: you have to set a public and private API key first!','lmm') . '</a>';
+				} else {
+					echo '<input id="api_url_tester-submit" type="submit" class="submit button-primary" value="' . __('Test','lmm') . '"/>';
+				} 
+				?>
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery("#api_url_tester-submit").click(function (e) {
+			var $button = jQuery(this);
+			var $loading = jQuery("#api-url-tester-loading");
+			var $results = jQuery("#api-url-tester-results");
+			var url = jQuery('#api-url-tester-url').val();
+			var method = jQuery('#api-url-tester-method').val();
+			apiTesterAjaxRequest = jQuery.ajax({
+				url       : url + "&callback=",
+				type      : method,
+				dataType  : 'json',
+				data      : {},
+				beforeSend: function (xhr, opts) {
+					$button.attr('disabled', 'disabled');
+					$loading.show();
+				}
+			})
+				.done(function (data, textStatus, xhr) {
+					$button.removeAttr('disabled');
+					$loading.hide();
+					var result_parsed = JSON.parse(xhr.responseText);
+					if (result_parsed.success == false) {
+						if (result_parsed.message == '<?php esc_attr_e('API parameter action has to be set','lmm'); ?>') {
+							$results.html('<?php esc_attr_e('Success','lmm'); ?>: <span style="background:green;color:white;padding:0 5px;"><?php esc_attr_e('true','lmm'); ?></span><br/><?php esc_attr_e('Message','lmm');?>: <?php esc_attr_e('authentication and signature are valid','lmm');?>');
+						} else {
+							$results.html('<?php esc_attr_e('Success','lmm'); ?>: <span style="background:red;color:white;padding:0 5px;"><?php esc_attr_e('false','lmm'); ?></span><br/><?php esc_attr_e('Message','lmm');?>: '+result_parsed.message);
+						}
+					} else {
+						$results.html('<?php esc_attr_e('Success','lmm'); ?>: <span style="background:green;color:white;padding:0 5px;">'+result_parsed.success+'</span><br/><?php esc_attr_e('Message','lmm');?>: '+result_parsed.message);
+					}
+					$results.fadeTo("fast", 1);
+				})
+				.fail(function (jqXHR) {
+					$button.removeAttr('disabled');
+					$loading.hide();
+					$results.fadeTo("fast", 1);
+					var msg;
+					$loading.hide();
+					if (msg == "abort") {
+						msg = "Request cancelled";
+					} else {
+						msg = '<?php esc_attr_e('Success','lmm'); ?>: <span style="background:red;color:white;padding:0 5px;"><?php esc_attr_e('false','lmm'); ?></span><br/><?php esc_attr_e('Message','lmm');?>: '+jqXHR.status + " - " + jqXHR.statusText;
+					}
+					$results.html(msg);
+				});
+			return false;
+		});
+	});
+	</script>
 	<p><a href="#top" style="text-decoration:none;"><?php _e('back to top','lmm'); ?></a></p>
 
 	<a name="delete-selected-markers"></a>
