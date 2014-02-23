@@ -345,7 +345,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -379,7 +379,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -419,7 +419,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -455,7 +455,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -486,7 +486,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -519,7 +519,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -552,7 +552,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -600,7 +600,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -633,7 +633,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>
@@ -710,7 +710,7 @@ if (!empty($action)) {
 					<?php
 						foreach ($layerlist as $row) {
 							$layername_abstract = (strlen($row['name']) >= 21) ? '...': '';
-							echo '<option value="' . $row['id'] . '"' . ($row['id'] == $layer ? ' selected="selected"' : '') . ' title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
+							echo '<option value="' . $row['id'] . '" title="' . sprintf(esc_attr__('Update markers from the following layer only: "%1$s"','lmm'), stripslashes(htmlspecialchars($row['name']))) . '" disabled="disabled">' . mb_substr(stripslashes(htmlspecialchars($row['name'])), 0, 28) . $layername_abstract . ' (ID ' . $row['id'] . ')</option>';
 						}
 					?>
 				</select><br/>

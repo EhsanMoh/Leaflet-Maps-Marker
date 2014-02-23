@@ -9327,6 +9327,15 @@ $this->_settings['clustering_helptext2'] = array(
 			'type'    => 'checkbox-pro',
 			'std'     => 0
 		);
+		$this->_settings['api_permissions_search'] = array(
+			'version' => 'p1.5.7',
+			'pane'    => 'misc',
+			'section' => 'misc-section9',
+			'title'   => '',
+			'desc'    => __('search existing markers/layers','lmm') . ' <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade" title="' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '"><img src="'. LEAFLET_PLUGIN_URL .'inc/img/help-pro-feature.png" width="70" height="15" /></a>',
+			'type'    => 'checkbox-pro',
+			'std'     => 0
+		);		
 		$this->_settings['api_allowed_ip'] = array(
 			'version' => '3.6',
 			'pane'    => 'misc',

@@ -1142,6 +1142,28 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										echo '<data></data>'.PHP_EOL;
 										echo '</mapsmarker>';
 									}
+								/******************************
+								* action search                  *
+								******************************/
+								} else if ($action == 'search') {
+									if ($format == 'json') {
+										header('Content-type: application/json; charset=utf-8');
+										if ($callback != NULL) { echo $callback . '('; }
+										echo '{'.PHP_EOL;
+										echo '"success":false,'.PHP_EOL;
+										echo '"message":"' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com",'.PHP_EOL;
+										echo '"data": { }'.PHP_EOL;
+										echo '}';
+										if ($callback != NULL) { echo ');'; }
+									} else if ($format == 'xml') {
+										header('Content-type: application/xml; charset=utf-8');
+										echo '<?xml version="1.0" encoding="utf8"?>'.PHP_EOL;
+										echo '<mapsmarker>'.PHP_EOL;
+										echo '<success>false</success>'.PHP_EOL;
+										echo '<message>' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com</message>'.PHP_EOL;
+										echo '<data></data>'.PHP_EOL;
+										echo '</mapsmarker>';
+									}
 								} else if ($action == '') {
 									if ($format == 'json') {
 										header('Content-type: application/json; charset=utf-8');
