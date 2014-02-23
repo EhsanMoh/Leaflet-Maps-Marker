@@ -9268,7 +9268,7 @@ $this->_settings['clustering_helptext2'] = array(
 			'version' => '3.6',
 			'pane'    => 'misc',
 			'section' => 'misc-section9',
-			'title'   => __('API key', 'lmm'),
+			'title'   => __('Public API key', 'lmm'),
 			'desc'    => __('Both public and private API keys are needed for API calls!','lmm'),
 			'std'     => '',
 			'type'    => 'text'
@@ -9846,15 +9846,31 @@ $this->_settings['clustering_helptext2'] = array(
 		$options_current = get_option( 'leafletmapsmarker_options' );
 		$options_new = array_merge($options_current, $new_options_defaults);
 		update_option( 'leafletmapsmarker_options', $options_new );
-		}		
-		/* template for plugin updates
-		//info:  set defaults for options introduced in v3.9
+		}
+		//info:  set defaults for options introduced in v3.8.6
 		if (get_option('leafletmapsmarker_version') == '3.8.5' )
 		{
 			$new_options_defaults = array();
 			foreach ( $this->settings as $id => $setting )
 			{
-				if ( $setting['type'] != 'heading' && $setting['type'] != 'helptext' && $setting['type'] != 'helptext-twocolumn' && $setting['type'] != 'checkbox-pro' && $setting['type'] != 'select-pro' && $setting['type'] != 'radio-pro' && $setting['type'] != 'radio-reverse-pro' && $setting['type'] != 'textarea-pro' && $setting['type'] != 'text-pro' && $setting['type'] != 'text-reverse-pro' && $setting['version'] == '3.9
+				if ( $setting['type'] != 'heading' && $setting['type'] != 'helptext' && $setting['type'] != 'helptext-twocolumn' && $setting['type'] != 'checkbox-pro' && $setting['type'] != 'select-pro' && $setting['type'] != 'radio-pro' && $setting['type'] != 'radio-reverse-pro' && $setting['type'] != 'textarea-pro' && $setting['type'] != 'text-pro' && $setting['type'] != 'text-reverse-pro' && $setting['version'] == '3.8.6')
+				{
+				$new_options_defaults[$id] = $setting['std'];
+				}
+			}
+		$options_current = get_option( 'leafletmapsmarker_options' );
+		$options_new = array_merge($options_current, $new_options_defaults);
+		update_option( 'leafletmapsmarker_options', $options_new );
+		}
+		/* template for plugin updates
+		//info:  set defaults for options introduced in v3.9
+		if (get_option('leafletmapsmarker_version') == '3.8.6' )
+		{
+			$new_options_defaults = array();
+			foreach ( $this->settings as $id => $setting )
+			{
+				if ( $setting['type'] != 'heading' && $setting['type'] != 'helptext' && $setting['type'] != 'helptext-twocolumn' && $setting['type'] != 'checkbox-pro' && $setting['type'] != 'select-pro' && $setting['type'] != 'radio-pro' && $setting['type'] != 'radio-reverse-pro' && $setting['type'] != 'textarea-pro' && $setting['type'] != 'text-pro' && $setting['type'] != 'text-reverse-pro' && $setting['version'] == '3.9')
+				{
 				$new_options_defaults[$id] = $setting['std'];
 				}
 			}
