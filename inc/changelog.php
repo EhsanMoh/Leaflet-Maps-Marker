@@ -74,10 +74,6 @@ single quotes in marker map names were escaped (thx Eric!)
 <tr><td>' . $transl . '</td><td>
 updated German translation
 </td></tr>
-<tr><td colspan="2">
-<p><strong>' . $cl_text_f . '</a></p></strong>
-<p>' . $cl_text_g . '</p>
-</td></tr>	
 </table>'.PHP_EOL;
 echo '<p><hr noshade size="1"/></p>';
 
