@@ -78,7 +78,7 @@ function lmm_check_signature() {
 	if (time() >= $expires) {
 		return false; 
 	}
-	$signature = isset($_POST['signature']) ? $_POST['signature'] : (isset($_GET['signature']) ? $_GET['signature'] : '');
+	$signature = isset($_POST['signature']) ? urldecode($_POST['signature']) : (isset($_GET['signature']) ? $_GET['signature'] : '');
 	$is_valid = $signature == $calculated_sig;
 	return $is_valid;
 }
