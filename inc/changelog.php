@@ -32,7 +32,7 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 
 /*****************************************************************************************/
 
-echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.6') . '</strong> - ' . $cl_text_b . ' xx.03.2014 (<a href="http://www.mapsmarker.com/v3.8.6" target="_blank">' . $cl_text_c . '</a>):</p>
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.6') . '</strong> - ' . $cl_text_b . ' 01.03.2014 (<a href="http://www.mapsmarker.com/v3.8.6" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">support for dynamic switching between simplified and advanced editor (no more reloads needed)</a>
@@ -56,7 +56,7 @@ more secure authentication method for <a href="http://www.mapsmarker.com/mapsmar
 <a href="https://www.mapsmarker.com/order" target="_blank">store on mapsmarker.com</a> now also accepts Diners Club credit cards
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-updated marker edit page (optimized marker icons display, less whitespace for better workflow, added "Advanced settings" row)
+optimized marker and layer pages on backend (optimized marker icons display, less whitespace for better workflow, added "Advanced settings" row)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 checkbox for multi layer maps is now also visible by default on layer edit pages
@@ -70,12 +70,33 @@ optimized input on backend by adding labels to all form elements
 <tr><td>' . $fixed . '</td><td>
 single quotes in marker map names were escaped (thx Eric!)
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+database issues when saving maps on selected hosts (thx David!)
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
 <p>' . sprintf($cl_text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
+updated Chinese translation thanks to John Shen, <a href="http://www.synyan.net" target="_blank">http://www.synyan.net</a> and ck
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Czech translation thanks to Viktor Kleiner and Vlad Kuzba, <a href="http://kuzbici.eu" target="_blank">http://kuzbici.eu</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Dutch translation thanks to Patrick Ruers, <a href="http://www.stationskwartiersittard.nl" target="_blank">http://www.stationskwartiersittard.nl</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated French translation thanks to Vincèn Pujol, <a href="http://www.skivr.com" target="_blank">http://www.skivr.com</a> and Rodolphe Quiedeville, <a href="http://rodolphe.quiedeville.org" target="_blank">http://rodolphe.quiedeville.org</a>, Fx Benard, <a href="http://wp-translator.com" target="_blank">http://wp-translator.com</a>, cazal cédric, <a href="http://www.cedric-cazal.com" target="_blank">http://www.cedric-cazal.com</a> and Fabian Hurelle, <a href="http://hurelle.fr" target="_blank">http://hurelle.fr</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
 updated German translation
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Romanian translation thanks to Arian, <a href="http://administrare-cantine.ro" target="_blank">http://administrare-cantine.ro</a> and Daniel Codrea, <a href="http://www.inadcod.com" target="_blank">http://www.inadcod.com</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Slovak translation thanks to Zdenko Podobny
 </td></tr>
 </table>'.PHP_EOL;
 echo '<p><hr noshade size="1"/></p>';
