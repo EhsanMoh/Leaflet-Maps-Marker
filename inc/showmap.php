@@ -165,7 +165,14 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 	} else {
 	//info: starting output on frontend
 	$lmm_out = '';
-	$lmm_out .= '<div id="lmm_'.$uid.'" style="width:' . $mapwidth.$mapwidthunit . ';" class="mapsmarker">'.PHP_EOL;
+	if (!empty($layer)) { 
+		$css_classes = 'layermap layer-'. intval($layer); 
+	} else if (!empty($marker))  {
+		$css_classes = 'markermap marker-'. intval($marker); 
+	} else {
+		$css_classes = '';
+	}
+	$lmm_out .= '<div id="lmm_'.$uid.'" style="width:' . $mapwidth.$mapwidthunit . ';" class="mapsmarker ' . $css_classes . '">'.PHP_EOL;
 	//info: panel for layer/marker name and API URLs
 	if ($panel == 1) {
 		$lmm_out .= '<div id="lmm_panel_'.$uid.'" class="lmm-panel" style="background: ' . ((!empty($marker)) ? addslashes($lmm_options[ 'defaults_marker_panel_background_color' ]) : (!empty($layer)) ? addslashes($lmm_options[ 'defaults_layer_panel_background_color' ]) : '') . ';">'.PHP_EOL;
