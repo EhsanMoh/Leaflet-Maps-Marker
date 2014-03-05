@@ -323,9 +323,6 @@ if (!empty($action)) {
 				<input id="markermaps_bingroad" type="radio" name="basemap" value="bingroad" /> <label for="markermaps_bingroad"><?php echo $lmm_options['default_basemap_name_bingroad']; ?></label><br />
 				<input id="markermaps_ogdwien_basemap" type="radio" name="basemap" value="ogdwien_basemap" /> <label for="markermaps_ogdwien_basemap"><?php echo $lmm_options['default_basemap_name_ogdwien_basemap']; ?></label><br />
 				<input id="markermaps_ogdwien_satellite" type="radio" name="basemap" value="ogdwien_satellite" /> <label for="markermaps_ogdwien_satellite"><?php echo $lmm_options['default_basemap_name_ogdwien_satellite']; ?></label><br />
-				<input id="markermaps_cloudmade" type="radio" name="basemap" value="cloudmade" /> <label for="markermaps_cloudmade"><?php echo $lmm_options['cloudmade_name']; ?></label><br />
-				<input id="markermaps_cloudmade2" type="radio" name="basemap" value="cloudmade2" /> <label for="markermaps_cloudmade2"><?php echo $lmm_options['cloudmade2_name']; ?></label><br />
-				<input id="markermaps_cloudmade3" type="radio" name="basemap" value="cloudmade3" /> <label for="markermaps_cloudmade3"><?php echo $lmm_options['cloudmade3_name']; ?></label><br />
 				<input id="markermaps_mapbox" type="radio" name="basemap" value="mapbox" /> <label for="markermaps_mapbox"><?php echo $lmm_options['mapbox_name']; ?></label><br />
 				<input id="markermaps_mapbox2" type="radio" name="basemap" value="mapbox2" /> <label for="markermaps_mapbox2"><?php echo $lmm_options['mapbox2_name']; ?></label><br />
 				<input id="markermaps_mapbox3" type="radio" name="basemap" value="mapbox3" /> <label for="markermaps_mapbox3"><?php echo $lmm_options['mapbox3_name']; ?></label><br />
@@ -749,9 +746,6 @@ if (!empty($action)) {
 				<input id="layermaps_bingroad" type="radio" name="basemap-layer" value="bingroad" /> <label for="layermaps_bingroad"><?php echo $lmm_options['default_basemap_name_bingroad']; ?></label><br />
 				<input id="layermaps_ogdwien_basemap" type="radio" name="basemap-layer" value="ogdwien_basemap" /> <label for="layermaps_ogdwien_basemap"><?php echo $lmm_options['default_basemap_name_ogdwien_basemap']; ?></label><br />
 				<input id="layermaps_ogdwien_satellite" type="radio" name="basemap-layer" value="ogdwien_satellite" /> <label for="layermaps_ogdwien_satellite"><?php echo $lmm_options['default_basemap_name_ogdwien_satellite']; ?></label><br />
-				<input id="layermaps_cloudmade" type="radio" name="basemap-layer" value="cloudmade" /> <label for="layermaps_cloudmade"><?php echo $lmm_options['cloudmade_name']; ?></label><br />
-				<input id="layermaps_cloudmade2" type="radio" name="basemap-layer" value="cloudmade2" /> <label for="layermaps_cloudmade2"><?php echo $lmm_options['cloudmade2_name']; ?></label><br />
-				<input id="layermaps_cloudmade3" type="radio" name="basemap-layer" value="cloudmade3" /> <label for="layermaps_cloudmade3"><?php echo $lmm_options['cloudmade3_name']; ?></label><br />
 				<input id="layermaps_mapbox" type="radio" name="basemap-layer" value="mapbox" /> <label for="layermaps_mapbox"><?php echo $lmm_options['mapbox_name']; ?></label><br />
 				<input id="layermaps_mapbox2" type="radio" name="basemap-layer" value="mapbox2" /> <label for="layermaps_mapbox2"><?php echo $lmm_options['mapbox2_name']; ?></label><br />
 				<input id="layermaps_mapbox3" type="radio" name="basemap-layer" value="mapbox3" /> <label for="layermaps_mapbox3"><?php echo $lmm_options['mapbox3_name']; ?></label><br />

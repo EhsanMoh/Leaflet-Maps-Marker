@@ -36,16 +36,16 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.7') . '</strong> - ' . $cl_text_b . ' xx.03.2014 (<a href="http://www.mapsmarker.com/v3.8.7" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"></a>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">allow admins to change createdby and createdon information for marker and layer maps</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
 add css classes markermap/layermap and marker-ID/layer-ID to each map div for better custom styling
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+remove support for Cloudmade basemaps as free tile service is discontinued (->changing basemap to OSM for maps using Cloudmade)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
-
+Maps Marker API: validity check for post requests for createdon/updatedon parameter failed (thx Sascha!)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>

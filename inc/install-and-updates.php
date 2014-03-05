@@ -774,6 +774,22 @@ if (get_option('leafletmapsmarker_version') == '3.8.5' ) {
 /* template for plugin updates
 if (get_option('leafletmapsmarker_version') == 'x.xbefore' ) {
 	delete_transient( 'leafletmapsmarker_install_update_cache_vxxbefore'); //2do: update to version from line above
+
+	//2do remove from template
+	//info: as cloudmade retired its free tiling service
+	$cloudmade_update_1 = "UPDATE `" . $table_name_markers . "` SET basemap = 'osm_mapnik' WHERE basemap = 'cloudmade';";
+	$wpdb->query($cloudmade_update_1);
+	$cloudmade_update_2 = "UPDATE `" . $table_name_layers . "` SET basemap = 'osm_mapnik' WHERE basemap = 'cloudmade';";
+	$wpdb->query($cloudmade_update_2);
+	$cloudmade_update_3 = "UPDATE `" . $table_name_markers . "` SET basemap = 'osm_mapnik' WHERE basemap = 'cloudmade2';";
+	$wpdb->query($cloudmade_update_3);
+	$cloudmade_update_4 = "UPDATE `" . $table_name_layers . "` SET basemap = 'osm_mapnik' WHERE basemap = 'cloudmade2';";
+	$wpdb->query($cloudmade_update_4);
+	$cloudmade_update_5 = "UPDATE `" . $table_name_markers . "` SET basemap = 'osm_mapnik' WHERE basemap = 'cloudmade3';";
+	$wpdb->query($cloudmade_update_5);
+	$cloudmade_update_6 = "UPDATE `" . $table_name_layers . "` SET basemap = 'osm_mapnik' WHERE basemap = 'cloudmade3';";
+	$wpdb->query($cloudmade_update_6);
+
 	//2do - optional: add code for sql updates (no ddl - done by dbdelta!)
 	//2do - mandatory if new options in class-leaflet-options.php were added & update /inc/class-leaflet-options.php update routine
 	$save_defaults_for_new_options = new Class_leaflet_options();
