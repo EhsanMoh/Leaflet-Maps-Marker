@@ -277,7 +277,7 @@ if ( $edit_status == 'updated') {
 		?>
         <h3 style="font-size:23px;"><?php ($isedit === true) ? _e('Edit marker','lmm') : _e('Add new marker','lmm') ?>
 		<?php echo ($isedit === true) ? '"' . stripslashes($markername) . '" (ID '.$id.')' : '' ?>
-		<input style="font-weight:bold;margin-left:10px;" type="submit" name="marker" class="submit button-primary" value="<?php ($isedit === true) ? _e('update','lmm') : _e('publish','lmm') ?>" />
+		<input id="submit_top" style="font-weight:bold;margin-left:10px;" type="submit" name="marker" class="submit button-primary" value="<?php ($isedit === true) ? _e('update','lmm') : _e('publish','lmm') ?>" />
 	</h3>
 
 		<table class="widefat">
@@ -527,6 +527,7 @@ if ( $edit_status == 'updated') {
 				</p>
 				</td>
 				<td class="lmm-border">
+				<script type="text/javascript">var unsaved = false;</script>
 				<?php
 					if ( version_compare( $wp_version, '3.3', '>=' ) )
 					{
@@ -541,8 +542,9 @@ if ( $edit_status == 'updated') {
 								'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php?defaults_marker_popups_maxwidth=' . $defaults_marker_popups_maxwidth . '&defaults_marker_popups_image_max_width=' . $defaults_marker_popups_image_max_width . '',
 								'theme_advanced_statusbar_location' => 'bottom',
 								'setup' => 'function(ed) {
-										ed.onKeyDown.add(function(ed, e) {
+										ed.onKeyUp.add(function(ed, e) {
 											marker._popup.setContent(ed.getContent());
+											unsaved = true;
 										});
 									}'
 								 ),
@@ -697,7 +699,7 @@ if ( $edit_status == 'updated') {
 		</table>
 
 	<table><tr><td>
-	<input style="font-weight:bold;<?php echo $margin_top = ($isedit === false) ? 'margin-top:17px;' : '' ?>" type="submit" name="marker" class="submit button-primary" value="<?php ($isedit === true) ? _e('update','lmm') : _e('publish','lmm') ?>" />
+	<input id="submit_bottom" style="font-weight:bold;<?php echo $margin_top = ($isedit === false) ? 'margin-top:17px;' : '' ?>" type="submit" name="marker" class="submit button-primary" value="<?php ($isedit === true) ? _e('update','lmm') : _e('publish','lmm') ?>" />
 	</form>
 	</td>
 	<td>
@@ -716,7 +718,7 @@ if ( $edit_status == 'updated') {
 			<input type="hidden" name="action" value="delete" />
 				<?php $confirm = sprintf( esc_attr__('Do you really want to delete marker %1$s (ID %2$s)?','lmm'), $markername, $id) ?>
 				<div class="submit" style="margin:0 0 0 40px;">
-				<input class="submit button-secondary lmm-nav-secondary" style="color:#FF0000;" type="submit" name="marker" value="<?php _e('delete', 'lmm') ?>" onclick="return confirm('<?php echo $confirm ?>')" />
+				<input id="delete" class="submit button-secondary lmm-nav-secondary" style="color:#FF0000;" type="submit" name="marker" value="<?php _e('delete', 'lmm') ?>" onclick="return confirm('<?php echo $confirm ?>')" />
 				</div>
 		</form>
 	</td>
@@ -1174,6 +1176,19 @@ var marker,selectlayer,googleLayer_roadmap,googleLayer_satellite,googleLayer_hyb
 			$('.div-marker-icon-default').css("background","#5e5d5d");
 		}
 	});
+	//info: warn on unsaved changes when leaving page
+	$(":input, textarea").change(function(){
+		unsaved = true;
+	});
+	$('#submit_top, #submit_bottom, #delete').click(function() {
+		unsaved = false;
+	});
+	function unloadPage(){ 
+		if(unsaved){
+			return "<?php esc_attr_e('You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?','lmm'); ?>";
+		}
+	}
+	window.onbeforeunload = unloadPage;
 })(jQuery)
 
 //info: Google address autocomplete
