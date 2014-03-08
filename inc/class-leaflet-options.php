@@ -2206,15 +2206,6 @@ class Class_leaflet_options {
 			'type'    => 'checkbox',
 			'std'     => 0
 		);
-		$this->_settings['defaults_layer_listmarkers_extracss'] = array(
-			'version' => '3.1',
-			'pane'    => 'mapdefaults',
-			'section' => 'mapdefaults-section9',
-			'title'   => __( 'Extra CSS for table cells', 'lmm' ),
-			'desc'    => __( 'example: <strong>padding:20px 0 !important;</strong> increases the default padding between list entries', 'lmm' ),
-			'std'     => '',
-			'type'    => 'text'
-		);
 		/*
 		* Interaction options
 		* formerly "General map settings" and moved to "Basemaps" from "Misc" tab

@@ -59,6 +59,9 @@ increased minimum required WordPress version from 3.0 to 3.3 (upgrade to latest 
 <tr><td>' . $changed . '</td><td>
 layer center pin on backend now always stays on top of markers and is now a bit transparent (thx Sascha!)
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+removed option "extra CSS for table cells" for list of markers
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 Maps Marker API: validity check for post requests for createdon/updatedon parameter failed (thx Sascha!)
 </td></tr>
