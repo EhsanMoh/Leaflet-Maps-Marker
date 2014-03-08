@@ -48,7 +48,13 @@ add css classes markermap/layermap and marker-ID/layer-ID to each map div for be
 display an alert for unsaved changes before leaving marker and layer edit pages
 </td></tr>
 <tr><td>' . $changed . '</td><td>
+switch to persistent javascript variable names instead of random numbers on frontend (thx Sascha!)
+</td></tr>
+<tr><td>' . $changed . '</td><td>
 remove support for Cloudmade basemaps as free tile service is discontinued (->changing basemap to OSM for maps using Cloudmade)
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+increased minimum required WordPress version from 3.0 to 3.3 (upgrade to latest version 3.8.1 is advised anyway)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 layer center pin on backend now always stays on top of markers and is now a bit transparent (thx Sascha!)

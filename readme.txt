@@ -6,7 +6,7 @@ Tags:              Google Maps, OpenStreetMap, OSM, bing maps, googlemaps, googl
 Author URI:        http://www.harm.co.at
 Author:            Robert Harm
 Donate link:       http://www.mapsmarker.com/donations
-Requires at least: 3.0
+Requires at least: 3.3
 Tested up to:      3.8.1
 Stable tag:        3.8.6
 License:           GPLv2

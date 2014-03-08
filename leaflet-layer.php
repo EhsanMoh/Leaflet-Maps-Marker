@@ -1301,8 +1301,6 @@ var markers = {};
 	  selectlayer.setView(newlocation,selectlayer.getZoom());
   });
   var mapElement = $('#selectlayer'), mapWidth = $('#mapwidth'), mapHeight = $('#mapheight'), layerviewlat = $('#layerviewlat'), layerviewlon = $('#layerviewlon'), panel = $('#lmm-panel'), lmm = $('#lmm'), layername = $('#layername'), listmarkers = $('#lmm-listmarkers'), listmarkers_table = $('#lmm-listmarkers-table'), multi_layer_map = $('#lmm-multi_layer_map'), zoom = $('#layerzoom');
-	//info: bugfix causing maps not to show up in WP 3.0 and errors in WP <3.3
-	<?php if ( version_compare( $wp_version, '3.3', '>=' ) ) { ?>
 	//info: change zoom level when changing form field
 	zoom.on('blur', function(e) {
 		if(isNaN(zoom.val())) {
@@ -1319,7 +1317,6 @@ var markers = {};
 			document.getElementById('lmm-panel-text').innerHTML = '&nbsp;';
 		};
 	});
-	<?php } ?>
 	mapWidth.blur(function() {
 		if(!isNaN(mapWidth.val())) {
 			lmm.css("width",mapWidth.val()+$('input:radio[name=mapwidthunit]:checked').val());
@@ -1404,6 +1401,12 @@ var markers = {};
 	//info: warn on unsaved changes when leaving page
 	var unsaved = false;
 	$(":input, textarea").change(function(){
+		unsaved = true;
+	});
+	selectlayer.on('zoomend click', function(e) {
+			unsaved = true;
+	});
+	mapcentermarker.on('dragend', function(e) {
 		unsaved = true;
 	});
 	$('#submit_top, #submit_bottom, #delete, #delete_layer_and_markers').click(function() {

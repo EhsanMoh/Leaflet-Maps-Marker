@@ -529,53 +529,26 @@ if ( $edit_status == 'updated') {
 				<td class="lmm-border">
 				<script type="text/javascript">var unsaved = false;</script>
 				<?php
-					if ( version_compare( $wp_version, '3.3', '>=' ) )
-					{
-						$defaults_marker_popups_maxwidth = intval($lmm_options['defaults_marker_popups_maxwidth'] + 1);
-						$defaults_marker_popups_image_max_width = intval($lmm_options['defaults_marker_popups_image_max_width']);
-						$settings = array(
-								'wpautop' => true,
-								'tinymce' => array(
-								'theme_advanced_buttons1' => 'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,|,link,unlink,|,ltr,rtl',
-								'theme' => 'advanced',
-								'height' => '250',
-								'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php?defaults_marker_popups_maxwidth=' . $defaults_marker_popups_maxwidth . '&defaults_marker_popups_image_max_width=' . $defaults_marker_popups_image_max_width . '',
-								'theme_advanced_statusbar_location' => 'bottom',
-								'setup' => 'function(ed) {
-										ed.onKeyUp.add(function(ed, e) {
-											marker._popup.setContent(ed.getContent());
-											unsaved = true;
-										});
-									}'
-								 ),
-								'quicktags' => array(
-									'buttons' => 'strong,em,link,block,del,ins,img,code,close'));
-						wp_editor( stripslashes(preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$popuptext)), 'popuptext', $settings);
-					}
-					else //info: for WP 3.0, 3.1. 3.2
-					{
-						if (function_exists( 'wp_tiny_mce' ) ) {
-							add_filter( 'teeny_mce_before_init', create_function( '$a', '
-							$a["theme_advanced_buttons1"] = "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,|,outdent,indent,blockquote,|,bullist,numlist,|,link,unlink,image,|,code";
-							$a["theme"] = "advanced";
-							$a["skin"] = "wp_theme";
-							$a["height"] = "250";
-							$a["width"] = "640";
-							$a["onpageload"] = "";
-							$a["mode"] = "exact";
-							$a["elements"] = "popuptext";
-							$a["editor_selector"] = "mceEditor";
-							$a["plugins"] = "inlinepopups";
-							$a["forced_root_block"] = "p";
-							$a["force_br_newlines"] = true;
-							$a["force_p_newlines"] = false;
-							$a["convert_newlines_to_brs"] = true;
-							$a["theme_advanced_statusbar_location"] = "bottom";
-							return $a;'));
-							wp_tiny_mce(true);
-						}
-					echo '<textarea id="popuptext" name="popuptext">' . stripslashes($popuptext) . '</textarea>';
-					}
+					$defaults_marker_popups_maxwidth = intval($lmm_options['defaults_marker_popups_maxwidth'] + 1);
+					$defaults_marker_popups_image_max_width = intval($lmm_options['defaults_marker_popups_image_max_width']);
+					$settings = array(
+							'wpautop' => true,
+							'tinymce' => array(
+							'theme_advanced_buttons1' => 'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,|,link,unlink,|,ltr,rtl',
+							'theme' => 'advanced',
+							'height' => '250',
+							'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php?defaults_marker_popups_maxwidth=' . $defaults_marker_popups_maxwidth . '&defaults_marker_popups_image_max_width=' . $defaults_marker_popups_image_max_width . '',
+							'theme_advanced_statusbar_location' => 'bottom',
+							'setup' => 'function(ed) {
+									ed.onKeyUp.add(function(ed, e) {
+										marker._popup.setContent(ed.getContent());
+										unsaved = true;
+									});
+								}'
+							 ),
+							'quicktags' => array(
+								'buttons' => 'strong,em,link,block,del,ins,img,code,close'));
+					wp_editor( stripslashes(preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$popuptext)), 'popuptext', $settings);
 				?>
 				<small>
 					<?php
@@ -646,10 +619,6 @@ if ( $edit_status == 'updated') {
 					?>
 					
 					<hr style="border:none;color:#edecec;background:#edecec;height:1px;">
-					
-					<?php
-					global $wp_version;
-					if ( version_compare( $wp_version, '3.3', '>=' ) ) { ?>
 					<script type="text/javascript">
 						var $j = jQuery.noConflict();
 						$j(function() {
@@ -667,7 +636,6 @@ if ( $edit_status == 'updated') {
 							showSecond: true,
 						});});
 					</script>
-					<?php }; ?>
 					<label for="kml_timestamp"><strong><?php _e('Timestamp for KML animation','lmm') ?>:</strong></label> <a tabindex="104" href="http://www.mapsmarker.com/kml-timestamp" target="_blank"><img src="<?php echo LEAFLET_PLUGIN_URL; ?>inc/img/icon-question-mark.png" title="<?php esc_attr_e('Click here for more information on animations in KML/Google Earth','lmm'); ?>" width="12" height="12" border="0"/></a><br/>
 					<input type="text" id="kml_timestamp" name="kml_timestamp" value="<?php echo $kml_timestamp ; ?>" style="width:166px;background-image:url(<?php echo LEAFLET_PLUGIN_URL; ?>inc/img/icon-calendar.png);background-position:143px center;background-repeat:no-repeat;" /><br/>
 					<small><?php _e('If empty, marker creation date will be used','lmm') ?></small>
@@ -1178,6 +1146,12 @@ var marker,selectlayer,googleLayer_roadmap,googleLayer_satellite,googleLayer_hyb
 	});
 	//info: warn on unsaved changes when leaving page
 	$(":input, textarea").change(function(){
+		unsaved = true;
+	});
+	selectlayer.on('zoomend click', function(e) {
+		unsaved = true;
+	});
+	marker.on('dragend', function(e) {
 		unsaved = true;
 	});
 	$('#submit_top, #submit_bottom, #delete').click(function() {

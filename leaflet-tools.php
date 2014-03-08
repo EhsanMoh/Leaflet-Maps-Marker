@@ -215,31 +215,15 @@ if (!empty($action)) {
 			<td style="vertical-align:top;">
 				<p><?php _e('Below you find you current settings. Use copy and paste to make a backup or restore.','lmm'); ?></p>
 				<?php
-				global $wp_version;
-				if ( version_compare( $wp_version, '3.3', '>=' ) ) {
-						$settings_tinymce = array(
-						'wpautop' => false,
-						'media_buttons' => false,
-						'tinymce' => array(
-						 ),
-						'quicktags' => false
-						);
-						wp_editor( $serialized_options, 'settings-array', $settings_tinymce);
-				} else {
-					if (function_exists( 'wp_tiny_mce' ) ) {
-						add_filter( 'teeny_mce_before_init', create_function( '$a', '
-						$a["height"] = "110";
-						$a["width"] = "640";
-						$a["editor_selector"] = "mceEditor";
-						$a["force_br_newlines"] = false;
-						$a["force_p_newlines"] = false;
-						$a["convert_newlines_to_brs"] = false;
-						return $a;'));
-						wp_tiny_mce(true);
-					}
-					echo '<textarea id="settings-array" name="settings-array">' . $serialized_options . '</textarea>';
-				}
-				echo '<div style="margin:10px 0;"><strong><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade">' . __('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '</a></strong></div>';
+					$settings_tinymce = array(
+					'wpautop' => false,
+					'media_buttons' => false,
+					'tinymce' => array(
+					 ),
+					'quicktags' => false
+					);
+					wp_editor( $serialized_options, 'settings-array', $settings_tinymce);
+					echo '<div style="margin:10px 0;"><strong><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade">' . __('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '</a></strong></div>';
 				?>
 				<script type="text/javascript">
 					(function($) {
@@ -649,50 +633,23 @@ if (!empty($action)) {
 			<td style="vertical-align:middle;" class="lmm-border">
 				<?php
 					global $wp_version;
-					if ( version_compare( $wp_version, '3.3', '>=' ) )
-					{
-						$settings = array(
-								'wpautop' => true,
-								'tinymce' => array(
-								'theme_advanced_buttons1' => 'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,|,link,unlink,|,ltr,rtl',
-								'theme' => 'advanced',
-								'height' => '300',
-								'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php',
-								'theme_advanced_statusbar_location' => 'bottom',
-								'setup' => 'function(ed) {
-										ed.onKeyDown.add(function(ed, e) {
-											marker._popup.setContent(ed.getContent());
-										});
-									}'
-								 ),
-								'quicktags' => array(
-									'buttons' => 'strong,em,link,block,del,ins,img,code,close'));
-						wp_editor( '', 'popuptext', $settings);
-					}
-					else //info: for WP 3.0, 3.1. 3.2
-					{
-						if (function_exists( 'wp_tiny_mce' ) ) {
-							add_filter( 'teeny_mce_before_init', create_function( '$a', '
-							$a["theme_advanced_buttons1"] = "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,|,outdent,indent,blockquote,|,bullist,numlist,|,link,unlink,image,|,code";
-							$a["theme"] = "advanced";
-							$a["skin"] = "wp_theme";
-							$a["height"] = "250";
-							$a["width"] = "640";
-							$a["onpageload"] = "";
-							$a["mode"] = "exact";
-							$a["elements"] = "popuptext";
-							$a["editor_selector"] = "mceEditor";
-							$a["plugins"] = "inlinepopups";
-							$a["forced_root_block"] = "p";
-							$a["force_br_newlines"] = true;
-							$a["force_p_newlines"] = false;
-							$a["convert_newlines_to_brs"] = true;
-							$a["theme_advanced_statusbar_location"] = "bottom";
-							return $a;'));
-							wp_tiny_mce(true);
-						}
-					echo '<textarea id="popuptext" name="popuptext"></textarea>';
-					}
+					$settings = array(
+							'wpautop' => true,
+							'tinymce' => array(
+							'theme_advanced_buttons1' => 'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,|,link,unlink,|,ltr,rtl',
+							'theme' => 'advanced',
+							'height' => '300',
+							'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php',
+							'theme_advanced_statusbar_location' => 'bottom',
+							'setup' => 'function(ed) {
+									ed.onKeyDown.add(function(ed, e) {
+										marker._popup.setContent(ed.getContent());
+									});
+								}'
+							 ),
+							'quicktags' => array(
+								'buttons' => 'strong,em,link,block,del,ins,img,code,close'));
+					wp_editor( '', 'popuptext', $settings);
 				?>
 			</td>
 			<td style="vertical-align:middle;text-align:center;" class="lmm-border">
