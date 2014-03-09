@@ -1456,13 +1456,13 @@ class Class_leaflet_options {
 			'std'     => '160',
 			'type'    => 'text-deletable'
 		);
-		$this->_settings['defaults_marker_popups_image_max_width'] = array(
-			'version' => '2.7.1',
+		$this->_settings['defaults_marker_popups_image_css'] = array(
+			'version' => '3.8.7',
 			'pane'    => 'mapdefaults',
 			'section' => 'mapdefaults-section6',
-			'title'   => __('maximum image width (px)','lmm'),
-			'desc'    => __( 'Reduce image width in popups automatically to the given value in pixel (only if is wider). The height of the images gets reduced by the according ratio automatically (this feature only works if your theme supports the wp_head()-hook).', 'lmm' ),
-			'std'     => '230',
+			'title'   => __('CSS for images in popups','lmm'),
+			'desc'    => __( 'Gets added to .leaflet-popup-content img {...} - use max-width to reduce the image width in popups automatically to the given value in pixel (only if it is wider). The height of the images gets reduced by the according ratio automatically.', 'lmm' ),
+			'std'     => 'max-width:250px !important; height:auto; margin: 0px !important; padding: 0px !important; box-shadow:none !important; width:auto !important;',
 			'type'    => 'text'
 		);
 		$this->_settings['defaults_marker_popups_autopan'] = array(

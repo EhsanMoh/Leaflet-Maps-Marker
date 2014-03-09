@@ -875,7 +875,7 @@ resizeMap();".PHP_EOL;
 		wp_enqueue_style('leafletmapsmarker-ie-only');
 		$wp_styles->add_data('leafletmapsmarker-ie-only', 'conditional', 'lt IE 9');
 		//info: override max image width in popups
-		$lmm_custom_css = ".leaflet-popup-content img { max-width:" . intval($lmm_options['defaults_marker_popups_image_max_width']) . "px !important; height:auto; margin: 0px !important; padding: 0px !important; box-shadow:none !important; width:auto !important; }";
+		$lmm_custom_css = ".leaflet-popup-content img { " . $lmm_options['defaults_marker_popups_image_css'] . " }";
 			wp_add_inline_style('leafletmapsmarker',$lmm_custom_css);
 	}
   } //info: end (!is_feed())

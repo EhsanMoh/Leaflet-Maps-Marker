@@ -48,6 +48,9 @@ add css classes markermap/layermap and marker-ID/layer-ID to each map div for be
 display an alert for unsaved changes before leaving marker and layer edit pages
 </td></tr>
 <tr><td>' . $changed . '</td><td>
+replaced option "maximum width for images in popups" with option "CSS for images in popups" (<strong>action is needed if you changed maximum width for images in popups!</strong>)
+</td></tr>
+<tr><td>' . $changed . '</td><td>
 switch to persistent javascript variable names instead of random numbers on frontend (thx Sascha!)
 </td></tr>
 <tr><td>' . $changed . '</td><td>

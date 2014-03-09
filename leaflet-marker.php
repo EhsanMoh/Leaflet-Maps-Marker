@@ -530,14 +530,14 @@ if ( $edit_status == 'updated') {
 				<script type="text/javascript">var unsaved = false;</script>
 				<?php
 					$defaults_marker_popups_maxwidth = intval($lmm_options['defaults_marker_popups_maxwidth'] + 1);
-					$defaults_marker_popups_image_max_width = intval($lmm_options['defaults_marker_popups_image_max_width']);
+					$defaults_marker_popups_image_css = urlencode($lmm_options['defaults_marker_popups_image_css']);
 					$settings = array(
 							'wpautop' => true,
 							'tinymce' => array(
 							'theme_advanced_buttons1' => 'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,|,link,unlink,|,ltr,rtl',
 							'theme' => 'advanced',
 							'height' => '250',
-							'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php?defaults_marker_popups_maxwidth=' . $defaults_marker_popups_maxwidth . '&defaults_marker_popups_image_max_width=' . $defaults_marker_popups_image_max_width . '',
+							'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php?defaults_marker_popups_maxwidth=' . $defaults_marker_popups_maxwidth . '&defaults_marker_popups_image_css=' . $defaults_marker_popups_image_css . '',
 							'theme_advanced_statusbar_location' => 'bottom',
 							'setup' => 'function(ed) {
 									ed.onKeyUp.add(function(ed, e) {
@@ -552,10 +552,10 @@ if ( $edit_status == 'updated') {
 				?>
 				<small>
 					<?php
-					$max_popup_image_size_note = sprintf( esc_attr__('Note: if you add an image, its width gets reduced to %1$spx to fit in popup - its height gets reduced by the according ratio automatically!','lmm'), intval($lmm_options['defaults_marker_popups_image_max_width']));
-					echo $max_popup_image_size_note;
-					if (current_user_can('activate_plugins')) { echo ' <span style="' . $current_editor_css . '"><a tabindex="102" href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#mapdefaults-section6" title="' . esc_attr__('can be changed at section "Default values for marker popups"','lmm') . '">(' . __('Settings','lmm') . ')</a></span>'; }
+					echo '<span style="' . $current_editor_css . '">' . sprintf( esc_attr__('Note: if you add an image, the following CSS definition will be applied: %1$s','lmm'), '<code>' . $lmm_options['defaults_marker_popups_image_css'] . '</code>');
+					if (current_user_can('activate_plugins')) { echo ' <a tabindex="102" href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#mapdefaults-section6" title="' . esc_attr__('can be changed at section "Default values for marker popups"','lmm') . '">(' . __('Settings','lmm') . ')</a>'; }
 					?>
+					</span>
 					</small>
 				</td>
 			</tr>
