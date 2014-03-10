@@ -41,6 +41,12 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.7') . 
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">optimized live preview of popup content on marker edit page (now also showing current address for directions link)</a>
 </td></tr>
+<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">map moves back to initial position after popup is closed</a>
+</td></tr>
+<tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">option to add markernames to popups automatically (default = false)</a>
+</td></tr>
 <tr><td>' . $new . '</td><td>
 add css classes markermap/layermap and marker-ID/layer-ID to each map div for better custom styling
 </td></tr>
@@ -65,11 +71,17 @@ layer center pin on backend now always stays on top of markers and is now a bit 
 <tr><td>' . $changed . '</td><td>
 removed option "extra CSS for table cells" for list of markers
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+optimized backend loadtimes on marker+layer updates (not loading plugin header twice anymore; next: AJAX ;-)
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 Maps Marker API: validity check for post requests for createdon/updatedon parameter failed (thx Sascha!)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 added clear:both; to directions link in popup text to fix display of floating images (thx Sascha!)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+link to directions settings in marker popup texts on marker edit pages was broken (visible on advanced editor only)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>

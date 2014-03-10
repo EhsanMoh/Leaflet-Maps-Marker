@@ -100,7 +100,7 @@
 .gm-style { /*Gmap link fix*/
 	pointer-events:auto;
 }
-/* original leaflet.css styles (check on updates! remove .leaflet-popup-content img!) */
+/* original leaflet.css styles */
 .leaflet-map-pane,
 .leaflet-tile,
 .leaflet-marker-icon,

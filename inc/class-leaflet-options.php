@@ -1462,8 +1462,8 @@ class Class_leaflet_options {
 			'section' => 'mapdefaults-section6',
 			'title'   => __('CSS for images in popups','lmm'),
 			'desc'    => __( 'Gets added to .leaflet-popup-content img {...} - use max-width to reduce the image width in popups automatically to the given value in pixel (only if it is wider). The height of the images gets reduced by the according ratio automatically.', 'lmm' ),
-			'std'     => 'max-width:250px !important; height:auto; margin: 0px !important; padding: 0px !important; box-shadow:none !important; width:auto !important;',
-			'type'    => 'text'
+			'std'     => 'max-width:234px !important; height:auto; width:auto !important;',
+			'type'    => 'text-deletable'
 		);
 		$this->_settings['defaults_marker_popups_autopan'] = array(
 			'version' => '2.7.1',
@@ -1486,6 +1486,19 @@ class Class_leaflet_options {
 			'desc'    => __('Controls the presence of a close button in popups.','lmm'),
 			'type'    => 'radio',
 			'std'     => 'true',
+			'choices' => array(
+				'true' => __('true','lmm'),
+				'false' => __('false','lmm')
+			)
+		);
+		$this->_settings['defaults_marker_popups_add_markername'] = array(
+			'version' => 'p1.5.8',
+			'pane'    => 'mapdefaults',
+			'section' => 'mapdefaults-section6',
+			'title'   => __('add markername to popup','lmm') . $pro_button_link,
+			'desc'    => __('If set to true, the marker name gets added to the top of the popup automatically','lmm'),
+			'type'    => 'radio-pro',
+			'std'     => 'false',
 			'choices' => array(
 				'true' => __('true','lmm'),
 				'false' => __('false','lmm')

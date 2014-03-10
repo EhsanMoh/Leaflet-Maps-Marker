@@ -84,7 +84,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 					$zoom = $row['zoom'];
 					$openpopup = ($row['openpopup'] == 1) ? '.openPopup()' : '';
 					$mopenpopup = $openpopup;
-					$layer = $row['layer'];
+					//$layer = $row['layer']; //info: not needed in showmap.php, would overwrite if (!empty($layer))-check!
 					$mlat = $lat;
 					$mlon = $lon;
 					$mpopuptext = $popuptext;
@@ -721,7 +721,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 	if ($lmm_options['directions_popuptext_panel'] == 'yes') {
 
 	 	$mpopuptext_css = ($mpopuptext != NULL) ? "border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;clear:both;" : "";
-		$mpopuptext = $mpopuptext . '<div style=\'' . $mpopuptext_css . '\'>' . $address . ' (';
+		$mpopuptext = $mpopuptext . '<div class=\'popup-directions\' style=\'' . $mpopuptext_css . '\'>' . $address . ' (';
 
 		if ($lmm_options['directions_provider'] == 'googlemaps') {
 			if ( isset($lmm_options['google_maps_base_domain_custom']) && ($lmm_options['google_maps_base_domain_custom'] == NULL) ) { $gmaps_base_domain_directions = $lmm_options['google_maps_base_domain']; } else { $gmaps_base_domain_directions = urlencode($lmm_options['google_maps_base_domain_custom']); }
@@ -751,16 +751,18 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 		}
 		$mpopuptext = $mpopuptext . ')</div>';
 	}
-	if (!empty($mpopuptext)) $lmmjs_out .= 'marker_'.$mapname_js.'.bindPopup("' . preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$mpopuptext) . '", {maxWidth: ' . intval($lmm_options['defaults_marker_popups_maxwidth']) . ', minWidth: ' . intval($lmm_options['defaults_marker_popups_minwidth']) . ', maxHeight: ' . intval($lmm_options['defaults_marker_popups_maxheight']) . ', autoPan: ' . $lmm_options['defaults_marker_popups_autopan'] . ', closeButton: ' . $lmm_options['defaults_marker_popups_closebutton'] . ', autoPanPadding: new L.Point(' . intval($lmm_options['defaults_marker_popups_autopanpadding_x']) . ', ' . intval($lmm_options['defaults_marker_popups_autopanpadding_y']) . ')})'.$mopenpopup.';'.PHP_EOL;
+		if (!empty($mpopuptext)) {
+			$lmmjs_out .= 'marker_'.$mapname_js.'.bindPopup("' . preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$mpopuptext) . '", {maxWidth: ' . intval($lmm_options['defaults_marker_popups_maxwidth']) . ', minWidth: ' . intval($lmm_options['defaults_marker_popups_minwidth']) . ', maxHeight: ' . intval($lmm_options['defaults_marker_popups_maxheight']) . ', autoPan: ' . $lmm_options['defaults_marker_popups_autopan'] . ', closeButton: ' . $lmm_options['defaults_marker_popups_closebutton'] . ', autoPanPadding: new L.Point(' . intval($lmm_options['defaults_marker_popups_autopanpadding_x']) . ', ' . intval($lmm_options['defaults_marker_popups_autopanpadding_y']) . ')})'.$mopenpopup.';'.PHP_EOL;
+		}
 	} else if (!empty($geojson) or !empty($geojsonurl) or !empty($layer) ) {
-		$lmmjs_out .= 'var geojsonObj, mapIcon, marker_clickable, marker_title;'.PHP_EOL;
+		$lmmjs_out .= 'var geojsonObj_'.$mapname_js.', mapIcon, marker_clickable, marker_title;'.PHP_EOL;
 		//info: load GeoJSON for layer maps
 		if (!empty($layer) && ($multi_layer_map == 0) ) {
-			$lmmjs_out .= 'geojsonObj = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $id . '&full=no&full_icon_url=no", async: false, cache: true}).responseText + ")");'.PHP_EOL;
+			$lmmjs_out .= 'geojsonObj_'.$mapname_js.' = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $id . '&full=no&full_icon_url=no", async: false, cache: true}).responseText + ")");'.PHP_EOL;
 		} else if (!empty($layer) && ($multi_layer_map == 1) ) {
-			$lmmjs_out .= 'geojsonObj = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $multi_layer_map_list . '&full=no&full_icon_url=no", async: false, cache: true}).responseText + ")");'.PHP_EOL;
+			$lmmjs_out .= 'geojsonObj_'.$mapname_js.' = eval("(" + jQuery.ajax({url: "' . LEAFLET_PLUGIN_URL . 'leaflet-geojson.php?layer=' . $multi_layer_map_list . '&full=no&full_icon_url=no", async: false, cache: true}).responseText + ")");'.PHP_EOL;
 		}
-		$lmmjs_out .= 'L.geoJson(geojsonObj, {'.PHP_EOL;
+		$lmmjs_out .= 'L.geoJson(geojsonObj_'.$mapname_js.', {'.PHP_EOL;
 		$lmmjs_out .= '		onEachFeature: function(feature, marker) {'.PHP_EOL;
 		$lmmjs_out .= "			if (feature.properties.text != '') {".PHP_EOL;
 		$lmmjs_out .= '			marker.bindPopup(feature.properties.text, {'.PHP_EOL;
