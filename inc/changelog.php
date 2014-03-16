@@ -35,6 +35,9 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.7') . '</strong> - ' . $cl_text_b . ' xx.03.2014 (<a href="http://www.mapsmarker.com/v3.8.7" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
+<tr><td><a href="http://www.mapsmarker.com/pricing"  target="_blank"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td style="font-size:1.7em;">
+<a href="http://www.mapsmarker.com/pricing"  target="_blank" title="click here to view all available packages on mapsmarker.com/pricing">Maps Marker Pro licenses now available with prices starting from just €15</a>
+</td></tr>
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">allow admins to change createdby and createdon information for marker and layer maps</a>
 </td></tr>
@@ -1038,7 +1041,7 @@ updated Russian translation thanks to Ekaterina Golubina (supported by Teplitsa 
 updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolara.com" target="_blank">http://www.alvarolara.com</a>, Victor Guevara, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a> and Ricardo Viteri, <a href="http://www.labviteri.com" target="_blank">http://www.labviteri.com</a>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
-updated Swedish translation thanks to Olof Odier <a href="http://www.historiskastadsvandringar.se" target="_blank">http://www.historiskastadsvandringar.se</a>, Tedy Warsitha <a href="http://codeorig.in/" target="_blank">http://codeorig.in/</a> and Dan Paulsson <a href="http://www.paulsson.eu" target="_blank">http://www.paulsson.eu</a>
+updated Swedish translation thanks to Olof Odier <a href="http://www.historiskastadsvandringar.se" target="_blank">http://www.historiskastadsvandringar.se</a>, Tedy Warsitha <a href="http://codeorig.in/" target="_blank">http://codeorig.in/</a>, Dan Paulsson <a href="http://www.paulsson.eu" target="_blank">http://www.paulsson.eu</a> and Elger Lindgren, <a href="http://20x.se" target="_blank">http://20x.se</a>
 </td></tr>
 </table>'.PHP_EOL;
 }

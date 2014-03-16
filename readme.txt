@@ -174,7 +174,7 @@ to the visitors of your website.
 * Slovak (sk_SK) thanks to Zdenko Podobny
 * Spanish (es_ES) thanks to David Ramirez, Alvaro Lara, Ricardo Viteri
 * Spanish (es_MX) thanks to Victor Guevara
-* Swedish (sv_SE) thanks to Swedish translation thanks to Olof Odier, Tedy Warsitha and Dan Paulsson
+* Swedish (sv_SE) thanks to Swedish translation thanks to Olof Odier, Tedy Warsitha, Dan Paulsson and Elger Lindgren
 * Turkish (tr_TR) thanks to Emre Erkan and Mahir Tosun
 * Ukrainian (uk_UK) thanks to Andrexj
 * Vietnamese (vi) thanks to Hoai Thu
