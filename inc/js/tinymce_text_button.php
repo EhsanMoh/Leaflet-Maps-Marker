@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: text/javascript; charset=UTF-8'); //info: to prevent console warning on chrome
-$leaflet_plugin_url = isset($_GET['leafletpluginurl']) ? base64_decode($_GET['leafletpluginurl']) : '';
-$admin_url = isset($_GET['adminurl']) ? base64_decode($_GET['adminurl']) : '';
-$text_add = isset($_GET['textadd']) ? base64_decode($_GET['textadd']) : '';
-$text_insert = isset($_GET['textinsert']) ? base64_decode($_GET['textinsert']) : '';
+$leaflet_plugin_url = isset($_GET['leafletpluginurl']) ? htmlspecialchars(base64_decode($_GET['leafletpluginurl'])) : '';
+$admin_url = isset($_GET['adminurl']) ? htmlspecialchars(base64_decode($_GET['adminurl'])) : '';
+$text_add = isset($_GET['textadd']) ? htmlspecialchars(base64_decode($_GET['textadd'])) : '';
+$text_insert = isset($_GET['textinsert']) ? htmlspecialchars(base64_decode($_GET['textinsert'])) : '';
 
 echo "
 (function($) {

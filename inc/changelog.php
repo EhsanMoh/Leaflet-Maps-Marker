@@ -12,18 +12,17 @@ a:hover,a:active,a:focus{color:#D54E21}
 hr{color:#E6DB55}
 </style></head><body>
 <?php
-$lmm_version_old = isset($_GET['version_old']) ? $_GET['version_old'] : '';
-$lmm_version_new = isset($_GET['version_new']) ? $_GET['version_new'] : '';
-$cl_text_a = isset($_GET['cl_text_a']) ? base64_decode($_GET['cl_text_a']) : '';
-$cl_text_b = isset($_GET['cl_text_b']) ? base64_decode($_GET['cl_text_b']) : '';
-$cl_text_c = isset($_GET['cl_text_c']) ? base64_decode($_GET['cl_text_c']) : '';
-$cl_text_d = isset($_GET['cl_text_d']) ? base64_decode($_GET['cl_text_d']) : '';
-$cl_text_e = isset($_GET['cl_text_e']) ? base64_decode($_GET['cl_text_e']) : '';
-$cl_text_f = isset($_GET['cl_text_f']) ? base64_decode($_GET['cl_text_f']) : '';
-$cl_text_g = isset($_GET['cl_text_g']) ? base64_decode($_GET['cl_text_g']) : '';
-$cl_text_h = isset($_GET['cl_text_h']) ? base64_decode($_GET['cl_text_h']) : '';
-$leaflet_plugin_url = isset($_GET['leaflet_plugin_url']) ? base64_decode($_GET['leaflet_plugin_url']) : '';
-$leaflet_wp_admin_url = isset($_GET['leaflet_wp_admin_url']) ? base64_decode($_GET['leaflet_wp_admin_url']) : '';
+$lmm_version_old = isset($_GET['version_old']) ? htmlspecialchars($_GET['version_old']) : '';
+$lmm_version_new = isset($_GET['version_new']) ? htmlspecialchars($_GET['version_new']) : '';
+$cl_text_a = isset($_GET['cl_text_a']) ? htmlspecialchars(base64_decode($_GET['cl_text_a'])) : '';
+$cl_text_b = isset($_GET['cl_text_b']) ? htmlspecialchars(base64_decode($_GET['cl_text_b'])) : '';
+$cl_text_c = isset($_GET['cl_text_c']) ? htmlspecialchars(base64_decode($_GET['cl_text_c'])) : '';
+$cl_text_d = isset($_GET['cl_text_d']) ? htmlspecialchars(base64_decode($_GET['cl_text_d'])) : '';
+$cl_text_e = isset($_GET['cl_text_e']) ? htmlspecialchars(base64_decode($_GET['cl_text_e'])) : '';
+$cl_text_f = isset($_GET['cl_text_f']) ? htmlspecialchars(base64_decode($_GET['cl_text_f'])) : '';
+$cl_text_h = isset($_GET['cl_text_h']) ? htmlspecialchars(base64_decode($_GET['cl_text_h'])) : '';
+$leaflet_plugin_url = isset($_GET['leaflet_plugin_url']) ? htmlspecialchars(base64_decode($_GET['leaflet_plugin_url'])) : '';
+$leaflet_wp_admin_url = isset($_GET['leaflet_wp_admin_url']) ? htmlspecialchars(base64_decode($_GET['leaflet_wp_admin_url'])) : '';
 $new = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-new.png">';
 $changed = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-changed.png">';
 $fixed = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-fixed.png">';
@@ -36,7 +35,7 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.7') . '</strong> - ' . $cl_text_b . ' xx.03.2014 (<a href="http://www.mapsmarker.com/v3.8.7" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td><a href="http://www.mapsmarker.com/pricing"  target="_blank"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td style="font-size:1.7em;">
-<a href="http://www.mapsmarker.com/pricing"  target="_blank" title="click here to view all available packages on mapsmarker.com/pricing">Maps Marker Pro licenses now available with prices starting from just €15</a>
+<a href="http://www.mapsmarker.com/pricing"  target="_blank" title="click here to view all available packages on mapsmarker.com/pricing">Maps Marker Pro licenses now available with prices starting from €15</a>
 </td></tr>
 <tr><td><a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . $leaflet_wp_admin_url . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $cl_text_h . '">allow admins to change createdby and createdon information for marker and layer maps</a>
@@ -86,6 +85,9 @@ added clear:both; to directions link in popup text to fix display of floating im
 <tr><td>' . $fixed . '</td><td>
 link to directions settings in marker popup texts on marker edit pages was broken (visible on advanced editor only)
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+fixes for potential cross site scripting issues (mostly exploitable by admin users only)
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
 <p>' . sprintf($cl_text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
@@ -95,7 +97,6 @@ updated German translation
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_f . '</a></p></strong>
-<p>' . $cl_text_g . '</p>
 </td></tr>	
 </table>'.PHP_EOL;
 
@@ -2832,7 +2833,6 @@ updated German translation
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_f . '</a></p></strong>
-<p>' . $cl_text_g . '</p>
 </td></tr>	
 </table>'.PHP_EOL;
 echo '<p><hr noshade size="1"/></p>';
