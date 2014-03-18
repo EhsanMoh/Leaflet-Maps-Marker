@@ -91,6 +91,9 @@ link to directions settings in marker popup texts on marker edit pages was broke
 <tr><td>' . $fixed . '</td><td>
 potential cross site scripting issues (mostly exploitable by admin users only)
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+wpdb::prepare() warning message on Wikitude API output for layer maps
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
 <p>' . sprintf($cl_text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>

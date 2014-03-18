@@ -105,7 +105,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 			if ( (($layer == '*' || $layer == 'all') || (count($checkedlayers) > 1) ) || ($mlm_check == 1) ) {
 				$layername = __('layer','lmm') . ' ID ' . $layer;
 			} else {
-				$layername = $wpdb->get_var($wpdb->prepare('SELECT l.name FROM $table_name_layers as l WHERE l.id = %d'), intval($layer));
+				$layername = $wpdb->get_var($wpdb->prepare("SELECT l.name FROM $table_name_layers as l WHERE l.id = %d", intval($layer)));
 			}
 			if ($layername == NULL) { 
 				$layername = get_bloginfo('name');
@@ -196,7 +196,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 			if ( (($layer == '*' || $layer == 'all') || (count($checkedlayers) > 1) ) || ($mlm_check == 1) ) {
 				$layername = __('layer','lmm') . ' ID ' . $layer;
 			} else {
-				$layername = $wpdb->get_var($wpdb->prepare('SELECT l.name FROM $table_name_layers as l WHERE l.id = %d'), intval($layer));
+				$layername = $wpdb->get_var($wpdb->prepare("SELECT l.name FROM $table_name_layers as l WHERE l.id = %d", intval($layer)));
 			}
 			if ($layername == NULL) { 
 				$layername = get_bloginfo('name');
