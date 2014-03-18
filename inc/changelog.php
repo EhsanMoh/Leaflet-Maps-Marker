@@ -55,6 +55,9 @@ add css classes markermap/layermap and marker-ID/layer-ID to each map div for be
 <tr><td>' . $new . '</td><td>
 display an alert for unsaved changes before leaving marker and layer edit pages
 </td></tr>
+<tr><td>' . $new . '</td><td>
+added support for gif and jpg marker icons
+</td></tr>
 <tr><td>' . $changed . '</td><td>
 replaced option "maximum width for images in popups" with option "CSS for images in popups" (<strong>action is needed if you changed maximum width for images in popups!</strong>)
 </td></tr>
@@ -86,7 +89,7 @@ added clear:both; to directions link in popup text to fix display of floating im
 link to directions settings in marker popup texts on marker edit pages was broken (visible on advanced editor only)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
-fixes for potential cross site scripting issues (mostly exploitable by admin users only)
+potential cross site scripting issues (mostly exploitable by admin users only)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>

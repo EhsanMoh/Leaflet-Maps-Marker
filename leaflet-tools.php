@@ -560,7 +560,7 @@ if (!empty($action)) {
 					if ($file === false)
 					  break;
 					if ($file != "." and $file != "..")
-					  if (!is_dir($dir.$file) and substr($file, count($file)-5, 4) == '.png')
+					  if (!is_dir($dir.$file) && ((substr($file, count($file)-5, 4) == '.png') || (substr($file, count($file)-5, 4) == '.jpg') || (substr($file, count($file)-5, 4) == '.gif')))
 						$iconlist[] = $file;
 				  }
 				  closedir($dir);
