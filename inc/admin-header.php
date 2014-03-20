@@ -128,28 +128,18 @@ if ( ($action == 'add') || ($action == 'edit') || ($action == 'duplicate') ) {
 	// info: admin notices which only show on LMM pages //
 	//////////////////////////////////////////////////////
 	if ( isset($lmm_options['misc_global_admin_notices']) && ($lmm_options['misc_global_admin_notices'] == 'show') ){
-		//info: check if custom shadow image exists
+		//info: check if custom shadow image and custom marker icon directory exists
 		function checkUrlExists($url) {
-			$loaded_extensions = get_loaded_extensions();
-			$loaded_extensions = array_flip($loaded_extensions);
-			$ret = false;
-			if ( isset($loaded_extensions['curl']) ) {
-				$curl = curl_init($url);
-				$agent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)';
-				curl_setopt($curl, CURLOPT_USERAGENT, $agent);
-				curl_setopt($curl, CURLOPT_NOBODY, true);
-				$result = curl_exec($curl);
-				if ($result !== false) {
-					$statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-					if ($statusCode == 200) {
-						$ret = true;
-					}
-				}
-				curl_close($curl);
-			} else {
-				$ret = true;
-			}
-			return $ret;
+			$result = wp_remote_get(
+				$url,
+				array(
+					'sslverify' => false,
+					'body' => $url
+				)
+			);
+			if (is_wp_error($result)) { return false; }
+			if ((integer)$result['response']['code']!=200) { return false; }
+			return true;
 		}
 		if ( $lmm_options['defaults_marker_icon_shadow_url_status'] == 'custom') {
 			$custom_shadow_icon_url = $lmm_options['defaults_marker_icon_shadow_url'];

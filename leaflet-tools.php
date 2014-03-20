@@ -633,22 +633,28 @@ if (!empty($action)) {
 			<td style="vertical-align:middle;" class="lmm-border">
 				<?php
 					global $wp_version;
-					$settings = array(
+					$defaults_marker_popups_maxwidth = intval($lmm_options['defaults_marker_popups_maxwidth'] + 1);
+					$defaults_marker_popups_image_css = urlencode(htmlspecialchars($lmm_options['defaults_marker_popups_image_css']));
+					if ( version_compare( $wp_version, '3.9-alpha', '>=' ) ) {
+						$settings = array(
 							'wpautop' => true,
 							'tinymce' => array(
-							'theme_advanced_buttons1' => 'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,|,link,unlink,|,ltr,rtl',
-							'theme' => 'advanced',
-							'height' => '300',
-							'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php',
-							'theme_advanced_statusbar_location' => 'bottom',
-							'setup' => 'function(ed) {
-									ed.onKeyDown.add(function(ed, e) {
-										marker._popup.setContent(ed.getContent());
-									});
-								}'
+								'height' => '250',
+								'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php?defaults_marker_popups_maxwidth=' . $defaults_marker_popups_maxwidth . '&defaults_marker_popups_image_css=' . $defaults_marker_popups_image_css . ''
 							 ),
-							'quicktags' => array(
-								'buttons' => 'strong,em,link,block,del,ins,img,code,close'));
+						'quicktags' => array('buttons' => 'strong,em,link,block,del,ins,img,code,close'));
+					} else {
+						$settings = array(
+							'wpautop' => true,
+							'tinymce' => array(
+								'theme_advanced_buttons1' => 'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect,forecolor,backcolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,|,link,unlink,|,ltr,rtl',
+								'theme' => 'advanced',
+								'height' => '250',
+								'content_css' => LEAFLET_PLUGIN_URL . 'inc/css/leafletmapsmarker-admin-tinymce.php?defaults_marker_popups_maxwidth=' . $defaults_marker_popups_maxwidth . '&defaults_marker_popups_image_css=' . $defaults_marker_popups_image_css . '',
+								'theme_advanced_statusbar_location' => 'bottom'
+							),
+						'quicktags' => array('buttons' => 'strong,em,link,block,del,ins,img,code,close'));
+					}
 					wp_editor( '', 'popuptext', $settings);
 				?>
 			</td>

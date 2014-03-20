@@ -18,7 +18,7 @@ $cl_text_a = isset($_GET['cl_text_a']) ? htmlspecialchars(base64_decode($_GET['c
 $cl_text_b = isset($_GET['cl_text_b']) ? htmlspecialchars(base64_decode($_GET['cl_text_b'])) : '';
 $cl_text_c = isset($_GET['cl_text_c']) ? htmlspecialchars(base64_decode($_GET['cl_text_c'])) : '';
 $cl_text_d = isset($_GET['cl_text_d']) ? htmlspecialchars(base64_decode($_GET['cl_text_d'])) : '';
-$cl_text_e = isset($_GET['cl_text_e']) ? htmlspecialchars(base64_decode($_GET['cl_text_e'])) : '';
+$cl_text_e = isset($_GET['cl_text_e']) ? base64_decode($_GET['cl_text_e']) : '';
 $cl_text_f = isset($_GET['cl_text_f']) ? htmlspecialchars(base64_decode($_GET['cl_text_f'])) : '';
 $cl_text_h = isset($_GET['cl_text_h']) ? htmlspecialchars(base64_decode($_GET['cl_text_h'])) : '';
 $leaflet_plugin_url = isset($_GET['leaflet_plugin_url']) ? htmlspecialchars(base64_decode($_GET['leaflet_plugin_url'])) : '';
@@ -79,6 +79,9 @@ removed option "extra CSS for table cells" for list of markers
 <tr><td>' . $changed . '</td><td>
 optimized backend loadtimes on marker+layer updates (not loading plugin header twice anymore; next: AJAX ;-)
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+use WordPress HTTP API instead of cURL() for custom marker icons and shadow check
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 Maps Marker API: validity check for post requests for createdon/updatedon parameter failed (thx Sascha!)
 </td></tr>
@@ -93,6 +96,9 @@ potential cross site scripting issues (mostly exploitable by admin users only)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 wpdb::prepare() warning message on Wikitude API output for layer maps
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+visual tinyMCE editor was broken on marker edit and tools pages since WordPress 3.9-alpha
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
