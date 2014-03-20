@@ -13,11 +13,11 @@ global $wpdb;
 $lmm_options = get_option( 'leafletmapsmarker_options' );
 //info: security check if input variable is valid
 $columnsort_values = array('id','multi_layer_map','name','m.panel','zoom','basemap','createdon','createdby','updatedon','updatedby','controlbox');
-$columnsort_input = isset($_GET['orderby']) ? mysql_real_escape_string($_GET['orderby']) : $lmm_options[ 'misc_layer_listing_sort_order_by' ];
+$columnsort_input = isset($_GET['orderby']) ? esc_sql($_GET['orderby']) : $lmm_options[ 'misc_layer_listing_sort_order_by' ];
 $columnsort = (in_array($columnsort_input, $columnsort_values)) ? $columnsort_input : $lmm_options[ 'misc_layer_listing_sort_order_by' ];
 //info: security check if input variable is valid
 $columnsortorder_values = array('asc','desc','ASC','DESC');
-$columnsortorder_input = isset($_GET['order']) ? mysql_real_escape_string($_GET['order']) : $lmm_options[ 'misc_layer_listing_sort_sort_order' ];
+$columnsortorder_input = isset($_GET['order']) ? esc_sql($_GET['order']) : $lmm_options[ 'misc_layer_listing_sort_sort_order' ];
 $columnsortorder = (in_array($columnsortorder_input, $columnsortorder_values)) ? $columnsortorder_input : $lmm_options[ 'misc_layer_listing_sort_sort_order' ];
 $table_name_layers = $wpdb->prefix.'leafletmapsmarker_layers';
 $table_name_markers = $wpdb->prefix.'leafletmapsmarker_markers';

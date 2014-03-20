@@ -32,7 +32,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 	$lmm_options = get_option( 'leafletmapsmarker_options' );
 	
 	if (isset($_GET['layer'])) {
-		$layer_prepared = mysql_real_escape_string(strtolower($_GET['layer']));
+		$layer_prepared = esc_sql(strtolower($_GET['layer']));
 		$layer = str_replace(array("b","c","d","e","f","g","h","i","j","k","m","n","o","p","q","r","s","t","u","v","w","x","y","z","$","%","#","-","_","'","\"","\\"), "", $layer_prepared);
 
 		$q = '';
@@ -202,7 +202,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 		} //info: end output as RSS 2.0
 	} //info: end isset($_GET['layer'])
 	elseif (isset($_GET['marker'])) {
-		$markerid_prepared = mysql_real_escape_string(strtolower($_GET['marker']));
+		$markerid_prepared = esc_sql(strtolower($_GET['marker']));
 		$markerid = str_replace(array("b","c","d","e","f","g","h","i","j","k","m","n","o","p","q","r","s","t","u","v","w","x","y","z","$","%","#","-","_","'","\"","\\"), "", $markerid_prepared);
 
 		if (($markerid_prepared == 'all') || ($markerid_prepared == '*')) {

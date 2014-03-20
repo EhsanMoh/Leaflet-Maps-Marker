@@ -52,8 +52,8 @@ function get_mm_list(){
 	$table_name_markers = $wpdb->prefix.'leafletmapsmarker_markers';
 	$table_name_layers = $wpdb->prefix.'leafletmapsmarker_layers';
 
-	$l_condition = isset($_GET['q']) ? "AND l.name LIKE '%" . mysql_real_escape_string($_GET['q']) . "%'" : '';
-	$m_condition = isset($_GET['q']) ? "AND m.markername LIKE '%" . mysql_real_escape_string($_GET['q']) . "%'" : '';
+	$l_condition = isset($_GET['q']) ? "AND l.name LIKE '%" . esc_sql($_GET['q']) . "%'" : '';
+	$m_condition = isset($_GET['q']) ? "AND m.markername LIKE '%" . esc_sql($_GET['q']) . "%'" : '';
 
 	$marklist = $wpdb->get_results("
 		(SELECT l.id, 'icon-layer.png' as 'icon', l.name as 'name', l.updatedon, l.updatedby, 'layer' as 'type' FROM $table_name_layers as l WHERE l.id != '0' $l_condition)

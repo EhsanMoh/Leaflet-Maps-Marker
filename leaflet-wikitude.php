@@ -31,7 +31,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 	$table_name_layers = $wpdb->prefix.'leafletmapsmarker_layers';
 	$ar_wikitude_provider_name_sanitized = strtolower(preg_replace(array('/\s/', '/\.[\.]+/', '/[^\w_\.\-]/'), array('_', '.', ''), $lmm_options[ 'ar_wikitude_provider_name' ]));
 	if (isset($_GET['layer'])) {
-		$layer = mysql_real_escape_string($_GET['layer']);
+		$layer = esc_sql($_GET['layer']);
 		$maxNumberOfPois = isset($_GET['maxNumberOfPois']) ? intval($_GET['maxNumberOfPois']) : $lmm_options[ 'ar_wikitude_maxnumberpois' ];
 
 		if ($layer == '*' or $layer == 'all') {
@@ -63,7 +63,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 		$boundingBoxLongitude1 = $lonUser - $distanceLLA;
 		$boundingBoxLongitude2 = $lonUser + $distanceLLA;
 
-		isset($_GET['searchterm']) ? $searchterm = mysql_real_escape_string($_GET['searchterm']) : $searchterm = NULL;
+		isset($_GET['searchterm']) ? $searchterm = esc_sql($_GET['searchterm']) : $searchterm = NULL;
 		if ($searchterm != NULL) {
 			$q = '';
 			if ($layer == '*' or $layer == 'all') {
@@ -248,7 +248,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 			echo '</kml>';
 		}
 	} elseif (isset($_GET['marker'])) {
-		$markerid = mysql_real_escape_string($_GET['marker']);
+		$markerid = esc_sql($_GET['marker']);
 		$markers = explode(',', $markerid);
 		$maxNumberOfPois = isset($_GET['maxNumberOfPois']) ? intval($_GET['maxNumberOfPois']) : $lmm_options[ 'ar_wikitude_maxnumberpois' ];
 		$markerlat = $wpdb->get_var('SELECT lat FROM '.$table_name_markers.' WHERE id IN ('.$markerid.')');
@@ -263,7 +263,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 		$boundingBoxLatitude2 = $latUser + $distanceLLA;
 		$boundingBoxLongitude1 = $lonUser - $distanceLLA;
 		$boundingBoxLongitude2 = $lonUser + $distanceLLA;
-		isset($_GET['searchterm']) ? $searchterm = mysql_real_escape_string($_GET['searchterm']) : $searchterm = NULL;
+		isset($_GET['searchterm']) ? $searchterm = esc_sql($_GET['searchterm']) : $searchterm = NULL;
 		if ($searchterm != NULL) {
 			$checkedmarkers = array();
 			foreach ($markers as $cmarker) {

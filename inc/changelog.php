@@ -100,6 +100,9 @@ wpdb::prepare() warning message on Wikitude API output for layer maps
 <tr><td>' . $fixed . '</td><td>
 visual tinyMCE editor was broken on marker edit and tools pages since WordPress 3.9-alpha
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+escaping of input values with mysql_real_escape_string() was broken since WordPress 3.9-alpha (now replaced with esc_sql())
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $cl_text_d . '</a></p></strong>
 <p>' . sprintf($cl_text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
