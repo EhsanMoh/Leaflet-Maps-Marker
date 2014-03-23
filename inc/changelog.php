@@ -32,7 +32,7 @@ $issue = '<img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-know-issues
 /*****************************************************************************************/
 
 
-echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.7') . '</strong> - ' . $cl_text_b . ' xx.03.2014 (<a href="http://www.mapsmarker.com/v3.8.7" target="_blank">' . $cl_text_c . '</a>):</p>
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.7') . '</strong> - ' . $cl_text_b . ' 27.03.2014 (<a href="http://www.mapsmarker.com/v3.8.7" target="_blank">' . $cl_text_c . '</a>):</p>
 <table>
 <tr><td><a href="http://www.mapsmarker.com/pricing"  target="_blank"><img src="' . $leaflet_plugin_url .'inc/img/icon-changelog-pro.png"></a></td><td style="font-size:1.7em;">
 <a href="http://www.mapsmarker.com/pricing"  target="_blank" title="click here to view all available packages on mapsmarker.com/pricing">Maps Marker Pro licenses now available with prices starting from €15</a>
@@ -108,11 +108,23 @@ escaping of input values with mysql_real_escape_string() was broken since WordPr
 <p>' . sprintf($cl_text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
+updated Dutch translation thanks to Patrick Ruers, <a href="http://www.stationskwartiersittard.nl" target="_blank">http://www.stationskwartiersittard.nl</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
 updated German translation
 </td></tr>
-<tr><td colspan="2">
-<p><strong>' . $cl_text_f . '</a></p></strong>
-</td></tr>	
+<tr><td>' . $transl . '</td><td>
+updated Latvian translation thanks to Juris Orlovs, <a href="http://lbpa.lv" target="_blank">http://lbpa.lv</a> and Eriks Remess <a href="http://geekli.st/Eriks" target="_blank">http://geekli.st/Eriks</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Romanian translation thanks to Arian, <a href="http://administrare-cantine.ro" target="_blank">http://administrare-cantine.ro</a> and Daniel Codrea, <a href="http://www.inadcod.com" target="_blank">http://www.inadcod.com</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolara.com" target="_blank">http://www.alvarolara.com</a>, Victor Guevara, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a> and Ricardo Viteri, <a href="http://www.labviteri.com" target="_blank">http://www.labviteri.com</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Swedish translation thanks to Olof Odier <a href="http://www.historiskastadsvandringar.se" target="_blank">http://www.historiskastadsvandringar.se</a>, Tedy Warsitha <a href="http://codeorig.in/" target="_blank">http://codeorig.in/</a>, Dan Paulsson <a href="http://www.paulsson.eu" target="_blank">http://www.paulsson.eu</a> and Elger Lindgren, <a href="http://20x.se" target="_blank">http://20x.se</a>
+</td></tr>
 </table>'.PHP_EOL;
 
 if ( ( $lmm_version_old < '3.8.6' ) && ( $lmm_version_old > '0' ) ) {

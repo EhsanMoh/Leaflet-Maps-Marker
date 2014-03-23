@@ -7,8 +7,8 @@ Author URI:        http://www.harm.co.at
 Author:            Robert Harm
 Donate link:       http://www.mapsmarker.com/donations
 Requires at least: 3.3
-Tested up to:      3.8.1
-Stable tag:        3.8.6
+Tested up to:      3.9
+Stable tag:        3.8.7
 License:           GPLv2
 
 Pin, organize & show your favorite places & tracks through OpenStreetMap, Google Maps, KML, Bing Maps, APIs or Augmented-Reality browsers
@@ -295,10 +295,10 @@ MapsMarker &reg; - registration pending
 Copyright 2011-2014, Robert Harm, All Rights Reserved
 
 == Upgrade Notice ==
-= v3.8.6 =
-breaking MapsMarker API changes and backend optimizations - see http://www.mapsmarker.com/v3.8.6 for more details
+= v3.8.7 =
+compatibility with WordPress 3.9 and improvements based on a security audit by the City of Vienna - see http://www.mapsmarker.com/v3.8.7p for more details
 
 == Changelog ==
-[blog post with details about v3.8.6](http://www.mapsmarker.com/v3.8.6)
+[blog post with details about v3.8.7](http://www.mapsmarker.com/v3.8.7)
 
 [changelog for all versions](http://www.mapsmarker.com/changelog)
