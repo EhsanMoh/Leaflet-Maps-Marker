@@ -53,7 +53,7 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($cl_text_a, '3.8.7') . 
 add css classes markermap/layermap and marker-ID/layer-ID to each map div for better custom styling
 </td></tr>
 <tr><td>' . $new . '</td><td>
-display an alert for unsaved changes before leaving marker and layer edit pages
+display an alert for unsaved changes before leaving marker/layer edit or settings pages
 </td></tr>
 <tr><td>' . $new . '</td><td>
 added support for gif and jpg marker icons
