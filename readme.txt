@@ -296,7 +296,7 @@ Copyright 2011-2014, Robert Harm, All Rights Reserved
 
 == Upgrade Notice ==
 = v3.8.7 =
-compatibility with WordPress 3.9 and improvements based on a security audit by the City of Vienna - see http://www.mapsmarker.com/v3.8.7p for more details
+compatibility with WordPress 3.9 and improvements based on a security audit by the City of Vienna - see http://www.mapsmarker.com/v3.8.7 for more details
 
 == Changelog ==
 [blog post with details about v3.8.7](http://www.mapsmarker.com/v3.8.7)

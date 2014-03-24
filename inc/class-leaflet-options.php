@@ -237,7 +237,7 @@ class Class_leaflet_options {
         }
 		echo '</div>'; // tab-content
 		echo '</div>'; // tabs-top
-		echo '<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes','lmm' ) . '" /></p>
+		echo '<p class="submit"><input id="submit" name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes','lmm' ) . '" /></p>
 
 	</form>';
 
@@ -280,6 +280,21 @@ class Class_leaflet_options {
 			//info:  Browser compatibility
 			if ($.browser.mozilla)
 			         $("form").attr("autocomplete", "off");
+
+			//info: warn on unsaved changes when leaving page
+			var unsaved = false;
+			$(":input").change(function(){
+				unsaved = true;
+			});
+			$("#submit, #s2id_lmm-select-search-tabs").click(function() {
+				unsaved = false;
+			});
+			function unloadPage(){ 
+				if(unsaved){
+					return "' . esc_attr__('You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?','lmm') . '";
+				}
+			}
+			window.onbeforeunload = unloadPage;	
 		});
 	</script></div>';
 		?>
