@@ -469,9 +469,6 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 	$plugin_version = get_option('leafletmapsmarker_version');
 
 	$lmmjs_out .= '/* Maps created with Leaflet Maps Marker - #1 premium mapping plugin for WordPress (www.mapsmarker.com) - v'.$plugin_version.' */'.PHP_EOL;
-
-	//$lmmjs_out .= 'var layers = {};'.PHP_EOL;
-	//$lmmjs_out .= 'var markers = {};'.PHP_EOL;
 	if (!empty($layer)) {
 		$mapname_js = 'layermap_' . intval($layer);
 	} else if (!empty($marker)) {

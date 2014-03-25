@@ -11,7 +11,6 @@ if ( ($action == 'add') || ($action == 'edit') || ($action == 'duplicate') ) {
 	return;
 } else {
 
-
 	require_once(ABSPATH . WPINC . DIRECTORY_SEPARATOR . "pluggable.php");
 	$lmm_options = get_option( 'leafletmapsmarker_options' ); //info: required for bing maps api key check
 
