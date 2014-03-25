@@ -566,7 +566,7 @@ if ( $edit_status == 'updated') {
 							'setup' => 'function(ed) { 
 											ed.on("keyup", function(ed,e) {
 												var popup_panel = "<div style=\"border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;clear:both;\">"+document.getElementById("address").value+" <a href=\"' . $directionslink . '\" target=\"_blank\" title=\"' . esc_attr__('Get directions','lmm') . '\">(' . __('Directions','lmm') . ')</a>' . $directions_settings_link . '</div>";
-												marker._popup.setContent(ed.getContent()+popup_panel);
+												marker._popup.setContent(tinymce.activeEditor.getContent()+popup_panel);
 												unsaved = true;
 											});
 								    }'
