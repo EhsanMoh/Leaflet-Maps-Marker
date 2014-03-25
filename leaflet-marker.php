@@ -445,6 +445,29 @@ if ( $edit_status == 'updated') {
 					</div> <!--end lmm-panel-->
 					<div id="selectlayer" style="height:<?php echo $mapheight; ?>px;"></div>
 					</div><!--end mapsmarker div-->
+					<?php
+					if ($lmm_options['directions_popuptext_panel'] == 'yes') {
+						if ($lmm_options['directions_provider'] == 'googlemaps') {
+							if ( isset($lmm_options['google_maps_base_domain_custom']) && ($lmm_options['google_maps_base_domain_custom'] == NULL) ) { $gmaps_base_domain_directions = $lmm_options['google_maps_base_domain']; } else { $gmaps_base_domain_directions = htmlspecialchars($lmm_options['google_maps_base_domain_custom']); }
+							if ( $address != NULL ) { $google_from = urlencode($address); } else { $google_from = $lat . ',' . $lon; }
+							$avoidhighways = (isset($lmm_options[ 'directions_googlemaps_route_type_highways' ] ) == TRUE ) && ( $lmm_options[ 'directions_googlemaps_route_type_highways' ] == 1 ) ? '&dirflg=h' : '';
+							$avoidtolls = (isset($lmm_options[ 'directions_googlemaps_route_type_tolls' ] ) == TRUE ) && ( $lmm_options[ 'directions_googlemaps_route_type_tolls' ] == 1 ) ? '&dirflg=t' : '';
+							$publictransport = (isset($lmm_options[ 'directions_googlemaps_route_type_public_transport' ] ) == TRUE ) && ( $lmm_options[ 'directions_googlemaps_route_type_public_transport' ] == 1 ) ? '&dirflg=r' : '';
+							$walking = (isset($lmm_options[ 'directions_googlemaps_route_type_walking' ] ) == TRUE ) && ( $lmm_options[ 'directions_googlemaps_route_type_walking' ] == 1 ) ? '&dirflg=w' : '';
+							$directionslink = "http://" . $gmaps_base_domain_directions . "/maps?daddr=" . $google_from . "&t=" . $lmm_options[ 'directions_googlemaps_map_type' ] . "&layer=" . $lmm_options[ 'directions_googlemaps_traffic' ] . "&doflg=" . $lmm_options[ 'directions_googlemaps_distance_units' ] . $avoidhighways . $avoidtolls . $publictransport . $walking . $google_language . "&om=" . $lmm_options[ 'directions_googlemaps_overview_map' ];
+						} else if ($lmm_options['directions_provider'] == 'yours') {
+							$directionslink = "http://www.yournavigation.org/?tlat=" . $lat . "&tlon=" . $lon . "&v=" . $lmm_options[ 'directions_yours_type_of_transport' ] . "&fast=" . $lmm_options[ 'directions_yours_route_type' ] . "&layer=" . $lmm_options[ 'directions_yours_layer' ];
+						} else if ($lmm_options['directions_provider'] == 'osrm') {
+							$directionslink = "http://map.project-osrm.org/?hl=" . $lmm_options[ 'directions_osrm_language' ] . "&loc=" . $lat . "," . $lon . "&df=" . $lmm_options[ 'directions_osrm_units' ];
+						} else if ($lmm_options['directions_provider'] == 'ors') {
+							$directionslink = "http://openrouteservice.org/index.php?end=" . $lon . "," . $lat . "&pref=" . $lmm_options[ 'directions_ors_route_preferences' ] . "&lang=" . $lmm_options[ 'directions_ors_language' ] . "&noMotorways=" . $lmm_options[ 'directions_ors_no_motorways' ] . "&noTollways=" . $lmm_options[ 'directions_ors_no_tollways' ];
+						} else if ($lmm_options['directions_provider'] == 'bingmaps') {
+							if ( $address != NULL ) { $bing_to = '_' . urlencode($address); } else { $bing_to = ''; }
+							$directionslink = "http://www.bing.com/maps/default.aspx?v=2&rtp=pos___e_~pos." . $lat . "_" . $lon . $bing_to;
+						}		
+						$mpopuptext_css = ($popuptext != NULL) ? "border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;clear:both;" : "";		
+						$directions_settings_link = ( (current_user_can("activate_plugins")) && ($current_editor == "advanced") ) ? " (<a tabindex='103' href='" . LEAFLET_WP_ADMIN_URL . "admin.php?page=leafletmapsmarker_settings#directions' title='" . esc_attr__("change directions settings","lmm") . "'>" . __("Settings","lmm") . "</a>)" : "";
+					} ?>					
 				</td>
 			</tr>
 			<tr>
@@ -543,8 +566,7 @@ if ( $edit_status == 'updated') {
 							'setup' => 'function(ed) { 
 											ed.on("keyup", function(ed,e) {
 												var popup_panel = "<div style=\"border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;clear:both;\">"+document.getElementById("address").value+" <a href=\"' . $directionslink . '\" target=\"_blank\" title=\"' . esc_attr__('Get directions','lmm') . '\">(' . __('Directions','lmm') . ')</a>' . $directions_settings_link . '</div>";
-												var popupcontent = marker._popup.getContent();
-												marker._popup.setContent(tinymce.activeEditor.getContent()+popup_panel);
+												marker._popup.setContent(ed.getContent()+popup_panel);
 												unsaved = true;
 											});
 								    }'
