@@ -38,8 +38,11 @@ hr{color:#E6DB55}
 /*****************************************************************************************/
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</strong> - ' . $text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.x" target="_blank">' . $text_c . '</a>):</p>
 <table>
+<tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png">Maps Marker Pro reseller program launched - see https://www.mapsmarker.com/reseller for more details</a></td><td>
+<a href="https://www.mapsmarker.com/reseller"  target="_blank"></a>
+</td></tr>
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
+<a href="http://www.mapsmarker.com/pricing"  target="_blank" title="click here to view all available packages on mapsmarker.com/pricing">Maps Marker Pro licenses now available also with 3 and 5 years access to updates and support</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
 show warning message if incompatible plugin "Root Relative URLs" is active (thx Brad!)
@@ -48,7 +51,13 @@ show warning message if incompatible plugin "Root Relative URLs" is active (thx 
 
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
-
+fixed potential XSS issues (exploitable by admins only)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+attribution for mapbox 2 basemap was wrong on marker and layer edit pages
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+WMS demo layer "Vienna public toilets" was not shown on KML view (fixed on new installations only to not overwrite existing custom settings)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>

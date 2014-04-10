@@ -267,7 +267,7 @@ class Leafletmapsmarker
 				} else {
 					$feed->enable_cache(false);
 				}
-				$feed->set_feed_url('http://feeds.feedburner.com/MapsMarker');
+				$feed->set_feed_url('http://feeds.feedburner.com/MapsMarkerPro');
 				$feed->set_stupidly_fast(true);
 				$feed->enable_order_by_date(true);
 				$feed->init();
