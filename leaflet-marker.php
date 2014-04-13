@@ -986,7 +986,7 @@ var marker,selectlayer,googleLayer_roadmap,googleLayer_satellite,googleLayer_hyb
 	}
 	 $address = (($address == NULL) ? esc_attr__('if set, address will be displayed here','lmm') : $address);
 	 $popuptext_css = ($popuptext != NULL) ? "border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;clear:both;" : "";
-	 $popuptext = $popuptext . '<div class="popup-directions" style="' . $popuptext_css . '">' . $address . ' ';
+	 $popuptext = $popuptext . '<div class="popup-directions" style="' . $popuptext_css . '">' . addslashes($address) . ' ';
 
 	 if ($lmm_options['directions_provider'] == 'googlemaps') {
 		 if ( isset($lmm_options['google_maps_base_domain_custom']) && ($lmm_options['google_maps_base_domain_custom'] == NULL) ) { $gmaps_base_domain_directions = $lmm_options['google_maps_base_domain']; } else { $gmaps_base_domain_directions = htmlspecialchars($lmm_options['google_maps_base_domain_custom']); }

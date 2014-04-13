@@ -59,6 +59,9 @@ attribution for mapbox 2 basemap was wrong on marker and layer edit pages
 <tr><td>' . $fixed . '</td><td>
 WMS demo layer "Vienna public toilets" was not shown on KML view (fixed on new installations only to not overwrite existing custom settings)
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+Certain types of apostrophes in addresses could break marker maps on backends
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
