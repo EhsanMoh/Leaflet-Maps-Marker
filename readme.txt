@@ -296,7 +296,7 @@ Copyright 2011-2014, Robert Harm, All Rights Reserved
 
 == Upgrade Notice ==
 = v3.8.8 =
-security fixes (potential XSS issues) - see http://www.mapsmarker.com/v3.8.8 for more details
+security fixes (potential XSS issues - exploitable by admins only) - see http://www.mapsmarker.com/v3.8.8 for more details
 
 == Changelog ==
 [blog post with details about v3.8.8](http://www.mapsmarker.com/v3.8.8)
