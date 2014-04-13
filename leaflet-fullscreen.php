@@ -192,10 +192,9 @@ if (isset($_GET['layer'])) {
 			$lmm_out .= '<div class="lmm-geo-tags geo">' . htmlspecialchars($row['markername']) . ': <span class="latitude">' . $row['mlat'] . '</span>, <span class="longitude">' . $row['mlon'] . '</span></div>'.PHP_EOL;
 		}
 	}
-	$plugin_version = get_option('leafletmapsmarker_version');
 	$lmm_out .= '<script type="text/javascript">'.PHP_EOL;
 	$lmm_out .= '/* <![CDATA[ */'.PHP_EOL;
-	$lmm_out .= '/* Maps created with MapsMarker.com WordPress plugin - version '.$plugin_version.' */'.PHP_EOL;
+	$lmm_out .= '/* Maps created with Leaflet Maps Marker - #1 mapping plugin for WordPress (www.mapsmarker.com) */'.PHP_EOL;
 	$lmm_out .= 'var layers = {};'.PHP_EOL;
 	$lmm_out .= 'var markers = {};'.PHP_EOL;
 	$lmm_out .= 'var mapsmarker_'.$uid.' = {};'.PHP_EOL;
@@ -675,10 +674,9 @@ elseif (isset($_GET['marker'])) {
 	}
 	//info: add geo microformats
 	$lmm_out .= '<div class="lmm-geo-tags geo">' . $paneltext . ': <span class="latitude">' . $lat . '</span>, <span class="longitude">' . $lon . '</span></div>'.PHP_EOL;
-	$plugin_version = get_option('leafletmapsmarker_version');
 	$lmm_out .= '<script type="text/javascript">'.PHP_EOL;
 	$lmm_out .= '/* <![CDATA[ */'.PHP_EOL;
-	$lmm_out .= '/* Maps created with MapsMarker.com WordPress plugin - version '.$plugin_version.' */'.PHP_EOL;
+	$lmm_out .= '/* Maps created with Leaflet Maps Marker - #1 mapping plugin for WordPress (www.mapsmarker.com) */'.PHP_EOL;
 	$lmm_out .= 'var layers = {};'.PHP_EOL;
 	$lmm_out .= 'var markers = {};'.PHP_EOL;
 	$lmm_out .= 'var mapsmarker_'.$uid.' = {};'.PHP_EOL;

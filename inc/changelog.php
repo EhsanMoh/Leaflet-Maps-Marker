@@ -36,10 +36,10 @@ hr{color:#E6DB55}
 </style></head><body>
 <?php
 /*****************************************************************************************/
-echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</strong> - ' . $text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.x" target="_blank">' . $text_c . '</a>):</p>
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.8.8') . '</strong> - ' . $text_b . ' 13.04.2014 (<a href="http://www.mapsmarker.com/v3.8.8" target="_blank">' . $text_c . '</a>):</p>
 <table>
-<tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png">Maps Marker Pro reseller program launched - see https://www.mapsmarker.com/reseller for more details</a></td><td>
-<a href="https://www.mapsmarker.com/reseller"  target="_blank"></a>
+<tr><td><a href="https://www.mapsmarker.com/reseller" target="_blank"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="https://www.mapsmarker.com/reseller"  target="_blank">Maps Marker Pro reseller program launched - see https://www.mapsmarker.com/reseller for more details</a>
 </td></tr>
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="http://www.mapsmarker.com/pricing"  target="_blank" title="click here to view all available packages on mapsmarker.com/pricing">Maps Marker Pro licenses now available also with 3 and 5 years access to updates and support</a>
@@ -48,7 +48,7 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</st
 show warning message if incompatible plugin "Root Relative URLs" is active (thx Brad!)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+remove plugin version used from source code on frontend to prevent information disclosure
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 fixed potential XSS issues (exploitable by admins only)
@@ -64,11 +64,20 @@ WMS demo layer "Vienna public toilets" was not shown on KML view (fixed on new i
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
+updated Chinese translation thanks to John Shen, <a href="http://www.synyan.net" target="_blank">http://www.synyan.net</a> and ck
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Dutch translation thanks to Patrick Ruers, <a href="http://www.stationskwartiersittard.nl" target="_blank">http://www.stationskwartiersittard.nl</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
 updated German translation
 </td></tr>
-<tr><td colspan="2">
-<p><strong>' . $text_f . '</a></p></strong>
-</td></tr>	
+<tr><td>' . $transl . '</td><td>
+updated Russian translation thanks to Ekaterina Golubina (supported by Teplitsa of Social Technologies - <a href="http://te-st.ru" target="_blank">http://te-st.ru</a>) and Vyacheslav Strenadko, <a href="http://poi-gorod.ru" target="_blank">http://poi-gorod.ru</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Turkish translation thanks to Emre Erkan, <a href="http://www.karalamalar.net" target="_blank">http://www.karalamalar.net</a> and Mahir Tosun, <a href="http://www.bozukpusula.com" target="_blank">http://www.bozukpusula.com</a>
+</td></tr>
 </table>'.PHP_EOL;
 echo '<p><hr noshade size="1"/></p>';
 
