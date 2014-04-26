@@ -43,7 +43,7 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</st
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
-
+add support for GeoJSON-API-link for multi-layer-maps in map panel 
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 
