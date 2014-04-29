@@ -46,6 +46,9 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</st
 add support for GeoJSON-API-links for multi-layer-maps in map panels
 </td></tr>
 <tr><td>' . $changed . '</td><td>
+significantly improve loading time for huge layer maps by limiting (hidden) geo microformat tags to 250
+</td></tr>
+<tr><td>' . $changed . '</td><td>
 update import-export library PHPExcel to v1.8.0 (<a href="https://github.com/PHPOffice/PHPExcel/blob/develop/changelog.txt" target="_blank">changelog</a>)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
