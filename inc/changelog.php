@@ -43,13 +43,19 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</st
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
-add support for GeoJSON-API-link for multi-layer-maps in map panel 
+add support for GeoJSON-API-links for multi-layer-maps in map panels
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+update import-export library PHPExcel to v1.8.0 (<a href="https://github.com/PHPOffice/PHPExcel/blob/develop/changelog.txt" target="_blank">changelog</a>)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 automatic resizing of maps within woocommerce tabs was broken
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+wrong line-height applied to panel api images could break map layout on certain themes (thx K.W.!)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+potential low-critical PHP object injection vulnerabilities with PHPExcel, discovered by <a href="https://security.dxw.com/" target="_blank">https://security.dxw.com/</a>
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>

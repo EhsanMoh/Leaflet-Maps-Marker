@@ -45,6 +45,7 @@
 }
 .lmm-panel a {
 	border:none;
+	line-height:1em;
 }
 .lmm-panel-text {
 	position:relative;
