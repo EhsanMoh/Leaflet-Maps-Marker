@@ -8209,6 +8209,19 @@ $this->_settings['clustering_helptext2'] = array(
 				'hide' => __('hide','lmm')
 			)
 		);
+		$this->_settings['async_geojson_loading'] = array(
+			'version' => 'p1.6',
+			'pane'    => 'misc',
+			'section' => 'misc-section1',
+			'title'   => __('Async GeoJSON loading for layer maps','lmm') . $pro_button_link,
+			'desc'    => __('Disabling async GeoJSON loading will increase page loadtime and is only needed if multiple instance of a layer map should be displayed on one page.','lmm'),
+			'type'    => 'radio-pro',
+			'std'     => 'disabled',
+			'choices' => array(
+				'enabled' => __('enabled','lmm'),
+				'disabled' => __('disabled','lmm')
+			)
+		);
 		$this->_settings['misc_betatest'] = array(
 			'version' => 'p1.1',
 			'pane'    => 'misc',

@@ -40,13 +40,13 @@ hr{color:#E6DB55}
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</strong> - ' . $text_b . ' xx.04.2014 (<a href="http://www.mapsmarker.com/v3.x" target="_blank">' . $text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
+<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">improved performance for layer maps by asynchronous loading of markers via GeoJSON</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
 add support for GeoJSON-API-links for multi-layer-maps in map panels
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-significantly improve loading time for huge layer maps by limiting (hidden) geo microformat tags to 250
+significantly improve loading time for huge layer maps by limiting (hidden) geo microformat tags
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 update import-export library PHPExcel to v1.8.0 (<a href="https://github.com/PHPOffice/PHPExcel/blob/develop/changelog.txt" target="_blank">changelog</a>)
@@ -59,6 +59,9 @@ wrong line-height applied to panel api images could break map layout on certain 
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 potential low-critical PHP object injection vulnerabilities with PHPExcel, discovered by <a href="https://security.dxw.com/" target="_blank">https://security.dxw.com/</a>
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+issues with pro upgrader on servers with PHP 5.5 and ioncube support
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
