@@ -348,10 +348,10 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 		$layer_marker_list_width = $mapwidth.$mapwidthunit;
 	}
 	$lmm_out .= '<div id="lmm_listmarkers_'.$uid.'" class="lmm-listmarkers" style="width:' . $layer_marker_list_width . ';">'.PHP_EOL;
-	$lmm_out .= '<table style="width:' . $layer_marker_list_width . ';" id="lmm_listmarkers_table_'.$uid.'">';
+	$lmm_out .= '<table style="width:' . $layer_marker_list_width . ';" id="lmm_listmarkers_table_'.$uid.'" class="lmm-listmarkers-table">';
 	foreach ($layer_marker_list as $row){
 		if ( (isset($lmm_options[ 'defaults_layer_listmarkers_show_icon' ]) == TRUE ) && ($lmm_options[ 'defaults_layer_listmarkers_show_icon' ] == 1 ) ) {
-			$lmm_out .= '<tr><td style="width:35px;vertical-align:top;text-align:center;">';
+			$lmm_out .= '<tr><td class="lmm-listmarkers-icon">';
 			if ($row['micon'] != null) {
 				$lmm_out .= '<img style="border-radius:0;box-shadow:none;" alt="marker icon" src="' . LEAFLET_PLUGIN_ICONS_URL . '/'.$row['micon'].'" title="' . stripslashes($row['markername']) . '" />';
 			} else {
@@ -360,7 +360,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 		} else {
 			$lmm_out .= '<tr><td>';
 		};
-		$lmm_out .= '</td><td><div class="lmm-listmarkers-panel-icons">';
+		$lmm_out .= '</td><td class="lmm-listmarkers-popuptext"><div class="lmm-listmarkers-panel-icons">';
 		if ( (isset($lmm_options[ 'defaults_layer_listmarkers_api_directions' ] ) == TRUE ) && ( $lmm_options[ 'defaults_layer_listmarkers_api_directions' ] == 1 ) ) {
 			if ($lmm_options['directions_provider'] == 'googlemaps') {
 				if ( isset($lmm_options['google_maps_base_domain_custom']) && ($lmm_options['google_maps_base_domain_custom'] == NULL) ) { $gmaps_base_domain_directions = $lmm_options['google_maps_base_domain']; } else { $gmaps_base_domain_directions = htmlspecialchars($lmm_options['google_maps_base_domain_custom']); }
@@ -421,7 +421,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 			if ( $row['mpopuptext'] == NULL ) {
 				$lmm_out .= stripslashes(htmlspecialchars($row['maddress']));
 			} else if ( ($row['mpopuptext'] != NULL) && ($row['maddress'] != NULL) ) {
-				$lmm_out .= '<br/><div style="border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;">' . stripslashes(htmlspecialchars($row['maddress'])) . '</div>';
+				$lmm_out .= '<br/><div class="lmm-listmarkers-hr">' . stripslashes(htmlspecialchars($row['maddress'])) . '</div>';
 			}
 		}
 		$lmm_out .= '</td></tr>';
@@ -826,15 +826,24 @@ function resizeMap() {
 	}".PHP_EOL;
 		$lmmjs_out .= "}
 resizeMap();".PHP_EOL;
-	//info: fix for loading maps in jquery ui tabs
+	//info: fix for loading maps in jQuery UI tabs & jQuery Mobile
 	$lmmjs_out .= "if (typeof jQuery.ui != 'undefined') {
 	".$mapname_js.".invalidateSize();
 	$('.ui-tabs').on('tabsactivate', function(event, ui) {
 		".$mapname_js.".invalidateSize();
 	});
-}".PHP_EOL;
-		$lmmjs_out .= "});".PHP_EOL;
+}
+if (typeof jQuery.mobile != 'undefined') {
+	jQuery(document).bind('pageinit', function( event, data ){
+		".$mapname_js.".invalidateSize();
+	});".PHP_EOL;
+	if ($lmm_options['misc_javascript_header_footer'] == 'footer') {
+		$jquery_mobile_error = (current_user_can( 'manage_options' )) ? '	alert("' . esc_attr__('Warning: Maps Marker (Pro) is not properly configured to work with jQuery Mobile! Please navigate to Maps Marker (Pro)-Settings / Misc / General settings and set the option -Where to insert Javascript files on frontend?- to -header+inline javascript- to fix this issue.','lmm') . '");'.PHP_EOL : '';
+		$lmmjs_out .= $jquery_mobile_error;
 	}
+	$lmmjs_out .= "}".PHP_EOL;
+	$lmmjs_out .= "});".PHP_EOL;
+}
 
 	//info: fix for loading maps in woocommmerce tabs
 	include_once( ABSPATH . 'wp-admin' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'plugin.php' );

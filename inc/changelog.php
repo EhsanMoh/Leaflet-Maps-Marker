@@ -43,6 +43,9 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</st
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">improved performance for layer maps by asynchronous loading of markers via GeoJSON</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
+add support for loading maps within jQuery Mobile frameworks (thanks Håkan!)
+</td></tr>
+<tr><td>' . $new . '</td><td>
 add support for GeoJSON-API-links for multi-layer-maps in map panels
 </td></tr>
 <tr><td>' . $changed . '</td><td>
@@ -50,6 +53,9 @@ significantly improve loading time for huge layer maps by limiting (hidden) geo 
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 update import-export library PHPExcel to v1.8.0 (<a href="https://github.com/PHPOffice/PHPExcel/blob/develop/changelog.txt" target="_blank">changelog</a>)
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+optimized CSS classes and removed inline-styles for list of markers-table for better custom styling
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 automatic resizing of maps within woocommerce tabs was broken

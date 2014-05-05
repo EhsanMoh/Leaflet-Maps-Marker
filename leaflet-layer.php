@@ -521,7 +521,7 @@ if ( $edit_status == 'updated') {
 					} else {
 						$layer_marker_list_width = $mapwidth.$mapwidthunit;
 					}
-					echo '<table id="lmm-listmarkers-table" cellspacing="0" style="width:' . $layer_marker_list_width . ';">';
+					echo '<table id="lmm-listmarkers-table" cellspacing="0" style="width:' . $layer_marker_list_width . ';" class="lmm-listmarkers-table">';
 					if ($markercount == 0) {
 						echo '<tr><td style="border-style:none;width:35px;"><img src="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/images/marker.png" /></td>';
 						echo '<td style="border-style:none;"><div style="float:right;"><img src="' . LEAFLET_PLUGIN_URL . 'inc/img/icon-car.png" width="14" height="14" class="lmm-panel-api-images" />&nbsp;<img src="' . LEAFLET_PLUGIN_URL . 'inc/img/icon-fullscreen.png" width="14" height="14" class="lmm-panel-api-images" />&nbsp;<img src="' . LEAFLET_PLUGIN_URL . 'inc/img/icon-kml.png" width="14" height="14" class="lmm-panel-api-images" /></div><strong>'.__('Markers assigned to this layer will be listed here', 'lmm').'</strong></td></tr>';
@@ -529,7 +529,7 @@ if ( $edit_status == 'updated') {
 						if ($layer_marker_list != NULL) { //info: to prevent PHP errors
 							foreach ($layer_marker_list as $row){
 								if ( (isset($lmm_options[ 'defaults_layer_listmarkers_show_icon' ]) == TRUE ) && ($lmm_options[ 'defaults_layer_listmarkers_show_icon' ] == 1 ) ) {
-									echo '<tr><td style="width:35px;vertical-align:top;text-align:center;">';
+									echo '<tr><td class="lmm-listmarkers-icon">';
 									if ($row['micon'] != null) {
 										echo '<img src="' . LEAFLET_PLUGIN_ICONS_URL . '/'.$row['micon'].'" title="' . stripslashes(htmlspecialchars($row['markername'])) . '" />';
 									} else {
@@ -538,7 +538,7 @@ if ( $edit_status == 'updated') {
 								} else {
 									echo '<tr><td>';
 								}
-								echo '</td><td><div class="lmm-listmarkers-panel-icons">';
+								echo '</td><td class="lmm-listmarkers-popuptext"><div class="lmm-listmarkers-panel-icons">';
 								if ( (isset($lmm_options[ 'defaults_layer_listmarkers_api_directions' ] ) == TRUE ) && ( $lmm_options[ 'defaults_layer_listmarkers_api_directions' ] == 1 ) ) {
 									if ($lmm_options['directions_provider'] == 'googlemaps') {
 										if ( isset($lmm_options['google_maps_base_domain_custom']) && ($lmm_options['google_maps_base_domain_custom'] == NULL) ) { $gmaps_base_domain_directions = $lmm_options['google_maps_base_domain']; } else { $gmaps_base_domain_directions = htmlspecialchars($lmm_options['google_maps_base_domain_custom']); }
@@ -599,7 +599,7 @@ if ( $edit_status == 'updated') {
 									if ( $row['mpopuptext'] == NULL ) {
 										echo stripslashes(htmlspecialchars($row['maddress']));
 									} else if ( ($row['mpopuptext'] != NULL) && ($row['maddress'] != NULL) ) {
-										echo '<br/><div style="border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;">' . stripslashes(htmlspecialchars($row['maddress'])) . '</div>';
+										echo '<br/><div class="lmm-listmarkers-hr">' . stripslashes(htmlspecialchars($row['maddress'])) . '</div>';
 									}
 								}
 								echo '</td></tr>';
