@@ -266,7 +266,7 @@ Good news, this plugin is free for everyone! Since it's released under the GPL, 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License included with this plugin for more details.
 
 = Licenses for used libraries, services and images =
-* Leaflet - Copyright (c) 2010-2012, CloudMade, Vladimir Agafonkin [http://www.leafletjs.com](http://www.leafletjs.com)
+* Leaflet - Copyright (c) 2010-2014, CloudMade, Vladimir Agafonkin [http://www.leafletjs.com](http://www.leafletjs.com)
 * OpenStreetMap - The Free Wiki World Map: [OpenStreetMap License](http://wiki.openstreetmap.org/wiki/OpenStreetMap_License)
 * Map Icons Collection by Nicolas Mollet - [http://mapicons.nicolasmollet.com](http://mapicons.nicolasmollet.com)
 * Datasource OGD Vienna maps: Stadt Wien, Creative Commons Attribution (by) [http://data.wien.gv.at](http://data.wien.gv.at)

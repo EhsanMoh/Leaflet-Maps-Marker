@@ -57,6 +57,12 @@ update import-export library PHPExcel to v1.8.0 (<a href="https://github.com/PHP
 <tr><td>' . $changed . '</td><td>
 optimized CSS classes and removed inline-styles for list of markers-table for better custom styling
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+updated jQuery timepicker addon to v1.4.4
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+updated jQuery select2 addon for settings to v3.4.8
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 automatic resizing of maps within woocommerce tabs was broken
 </td></tr>
