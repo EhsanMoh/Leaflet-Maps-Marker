@@ -6875,15 +6875,6 @@ $this->_settings['clustering_helptext2'] = array(
 			'std'     => '',
 			'type'    => 'text'
 		);
-		$this->_settings['google_maps_api_key_helptext2'] = array(
-			'version' => '2.6',
-			'pane'    => 'google',
-			'section' => 'google-section1',
-			'std'     => '',
-			'title'   => '',
-			'desc'    => '<div style="height:60px;"></div>',
-			'type'    => 'helptext'
-		);
 		/*
 		* Google language localization
 		* https://spreadsheets.google.com/spreadsheet/pub?key=0Ah0xU81penP1cDlwZHdzYWkyaERNc0xrWHNvTTA1S1E&gid=1
