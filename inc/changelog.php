@@ -64,6 +64,9 @@ updated jQuery timepicker addon to v1.4.4
 <tr><td>' . $changed . '</td><td>
 updated jQuery select2 addon for settings to v3.4.8
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+hardened SQL queries for multi-layer-maps
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 automatic resizing of maps within woocommerce tabs was broken
 </td></tr>
