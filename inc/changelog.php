@@ -46,10 +46,13 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</st
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">map parameters can be overwritten within shortcodes (e.g. [mapsmarker marker="1" height="100"])</a></td></tr>
 <tr><td>' . $new . '</td><td>
-add support for loading maps within jQuery Mobile frameworks (thanks Håkan!)
+added support for loading maps within jQuery Mobile frameworks (thanks Håkan!)
 </td></tr>
 <tr><td>' . $new . '</td><td>
-add support for GeoJSON-API-links for multi-layer-maps in map panels
+added support for GeoJSON-API-links for multi-layer-maps in map panels
+</td></tr>
+<tr><td>' . $new . '</td><td>
+added new sort order options for "list of markers" below layer maps (popuptext, icon, created by, updated by, kml_timestamp)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 significantly improve loading time for huge layer maps by limiting (hidden) geo microformat tags
