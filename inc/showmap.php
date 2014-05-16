@@ -425,7 +425,30 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 			$lmm_out .= '<strong>' . stripslashes(htmlspecialchars($row['markername'])) . '</strong>';
 		}
 		if ( (isset($lmm_options[ 'defaults_layer_listmarkers_show_popuptext' ]) == TRUE ) && ($lmm_options[ 'defaults_layer_listmarkers_show_popuptext' ] == 1 ) ) {
-			$lmm_out .= '<br/>' . nl2br(stripslashes($row['mpopuptext']));
+			$sanitize_popuptext_from = array(
+				'#<ul(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+				'#</li>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+				'#</li>(\s)*(<br\s*/?>)*(\s)*</ul>#si',
+				'#<ol(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+				'#</li>(\s)*(<br\s*/?>)*(\s)*</ol>#si',
+				'#(<br\s*/?>){1}\s*<ul(.*?)>#si',
+				'#(<br\s*/?>){1}\s*<ol(.*?)>#si',
+				'#</ul>\s*(<br\s*/?>){1}#si',
+				'#</ol>\s*(<br\s*/?>){1}#si',
+			);
+			$sanitize_popuptext_to = array(
+				'<ul$1><li$5>',
+				'</li><li$4>',
+				'</li></ul>',
+				'<ol$1><li$5>',
+				'</li></ol>',
+				'<ul$2>',
+				'<ol$2>',
+				'</ul>',
+				'</ol>'
+			);
+			$popuptext_sanitized = preg_replace($sanitize_popuptext_from, $sanitize_popuptext_to, stripslashes(preg_replace( '/(\015\012)|(\015)|(\012)/','<br />', $row['mpopuptext'])));
+			$lmm_out .= '<br/>' . do_shortcode($popuptext_sanitized);
 		}
 		if ( (isset($lmm_options[ 'defaults_layer_listmarkers_show_address' ]) == TRUE ) && ($lmm_options[ 'defaults_layer_listmarkers_show_address' ] == 1 ) ) {
 			if ( $row['mpopuptext'] == NULL ) {
@@ -756,7 +779,30 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'showmap.php') { die ("Please do no
 		$mpopuptext = $mpopuptext . ')</div>';
 	}
 		if (!empty($mpopuptext)) {
-			$lmmjs_out .= 'marker_'.$mapname_js.'.bindPopup("' . preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$mpopuptext) . '", {maxWidth: ' . intval($lmm_options['defaults_marker_popups_maxwidth']) . ', minWidth: ' . intval($lmm_options['defaults_marker_popups_minwidth']) . ', maxHeight: ' . intval($lmm_options['defaults_marker_popups_maxheight']) . ', autoPan: ' . $lmm_options['defaults_marker_popups_autopan'] . ', closeButton: ' . $lmm_options['defaults_marker_popups_closebutton'] . ', autoPanPadding: new L.Point(' . intval($lmm_options['defaults_marker_popups_autopanpadding_x']) . ', ' . intval($lmm_options['defaults_marker_popups_autopanpadding_y']) . ')})'.$mopenpopup.';'.PHP_EOL;
+			$sanitize_popuptext_from = array(
+				'#<ul(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+				'#</li>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+				'#</li>(\s)*(<br\s*/?>)*(\s)*</ul>#si',
+				'#<ol(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+				'#</li>(\s)*(<br\s*/?>)*(\s)*</ol>#si',
+				'#(<br\s*/?>){1}\s*<ul(.*?)>#si',
+				'#(<br\s*/?>){1}\s*<ol(.*?)>#si',
+				'#</ul>\s*(<br\s*/?>){1}#si',
+				'#</ol>\s*(<br\s*/?>){1}#si',
+			);
+			$sanitize_popuptext_to = array(
+				'<ul$1><li$5>',
+				'</li><li$4>',
+				'</li></ul>',
+				'<ol$1><li$5>',
+				'</li></ol>',
+				'<ul$2>',
+				'<ol$2>',
+				'</ul>',
+				'</ol>'
+			);
+			$popuptext_sanitized = preg_replace($sanitize_popuptext_from, $sanitize_popuptext_to, preg_replace( '/(\015\012)|(\015)|(\012)/','<br />', $mpopuptext));
+			$lmmjs_out .= 'marker_'.$mapname_js.'.bindPopup("' . $popuptext_sanitized . '", {maxWidth: ' . intval($lmm_options['defaults_marker_popups_maxwidth']) . ', minWidth: ' . intval($lmm_options['defaults_marker_popups_minwidth']) . ', maxHeight: ' . intval($lmm_options['defaults_marker_popups_maxheight']) . ', autoPan: ' . $lmm_options['defaults_marker_popups_autopan'] . ', closeButton: ' . $lmm_options['defaults_marker_popups_closebutton'] . ', autoPanPadding: new L.Point(' . intval($lmm_options['defaults_marker_popups_autopanpadding_x']) . ', ' . intval($lmm_options['defaults_marker_popups_autopanpadding_y']) . ')})'.$mopenpopup.';'.PHP_EOL;
 		}
 	} else if (!empty($geojson) or !empty($geojsonurl) or !empty($layer) ) {
 		$lmmjs_out .= 'var geojsonObj_'.$mapname_js.', mapIcon, marker_clickable, marker_title;'.PHP_EOL;

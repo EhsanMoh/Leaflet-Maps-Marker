@@ -950,7 +950,30 @@ elseif (isset($_GET['marker'])) {
 		}
 		$mpopuptext = $mpopuptext . ')</div>';
 	}
-	if (!empty($mpopuptext)) $lmm_out .= 'marker.bindPopup("' . preg_replace('/(\015\012)|(\015)|(\012)/','<br/>',$mpopuptext) . '", {maxWidth: ' . intval($lmm_options['defaults_marker_popups_maxwidth']) . ', minWidth: ' . intval($lmm_options['defaults_marker_popups_minwidth']) . ', maxHeight: ' . intval($lmm_options['defaults_marker_popups_maxheight']) . ', autoPan: ' . $lmm_options['defaults_marker_popups_autopan'] . ', closeButton: ' . $lmm_options['defaults_marker_popups_closebutton'] . ', autoPanPadding: new L.Point(' . intval($lmm_options['defaults_marker_popups_autopanpadding_x']) . ', ' . intval($lmm_options['defaults_marker_popups_autopanpadding_y']) . ')})'.$mopenpopup.';'.PHP_EOL;
+	$sanitize_popuptext_from = array(
+		'#<ul(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+		'#</li>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+		'#</li>(\s)*(<br\s*/?>)*(\s)*</ul>#si',
+		'#<ol(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+		'#</li>(\s)*(<br\s*/?>)*(\s)*</ol>#si',
+		'#(<br\s*/?>){1}\s*<ul(.*?)>#si',
+		'#(<br\s*/?>){1}\s*<ol(.*?)>#si',
+		'#</ul>\s*(<br\s*/?>){1}#si',
+		'#</ol>\s*(<br\s*/?>){1}#si',
+	);
+	$sanitize_popuptext_to = array(
+		'<ul$1><li$5>',
+		'</li><li$4>',
+		'</li></ul>',
+		'<ol$1><li$5>',
+		'</li></ol>',
+		'<ul$2>',
+		'<ol$2>',
+		'</ul>',
+		'</ol>'
+	);
+	$mpopuptext_sanitized = preg_replace($sanitize_popuptext_from, $sanitize_popuptext_to, preg_replace( '/(\015\012)|(\015)|(\012)/','<br />', $mpopuptext));
+	if (!empty($mpopuptext)) $lmm_out .= 'marker.bindPopup("' . $mpopuptext_sanitized . '", {maxWidth: ' . intval($lmm_options['defaults_marker_popups_maxwidth']) . ', minWidth: ' . intval($lmm_options['defaults_marker_popups_minwidth']) . ', maxHeight: ' . intval($lmm_options['defaults_marker_popups_maxheight']) . ', autoPan: ' . $lmm_options['defaults_marker_popups_autopan'] . ', closeButton: ' . $lmm_options['defaults_marker_popups_closebutton'] . ', autoPanPadding: new L.Point(' . intval($lmm_options['defaults_marker_popups_autopanpadding_x']) . ', ' . intval($lmm_options['defaults_marker_popups_autopanpadding_y']) . ')})'.$mopenpopup.';'.PHP_EOL;
   }
   $lmm_out .= '})(jQuery);'.PHP_EOL;
   $lmm_out .= '/* ]] > */'.PHP_EOL;

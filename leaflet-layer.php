@@ -603,7 +603,30 @@ if ( $edit_status == 'updated') {
 									echo '<strong>' . stripslashes(htmlspecialchars($row['markername'])) . '</strong> (<a title="' . esc_attr__('Edit marker','lmm') . ' (ID ' . $row['markerid'].')" href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_marker&id=' . $row['markerid'].'" class="row-title">' . __('edit','lmm') . '</a>)';
 								}
 								if ( (isset($lmm_options[ 'defaults_layer_listmarkers_show_popuptext' ]) == TRUE ) && ($lmm_options[ 'defaults_layer_listmarkers_show_popuptext' ] == 1 ) ) {
-									echo '<br/>' . nl2br(stripslashes($row['mpopuptext']));
+									$sanitize_popuptext_from = array(
+										'#<ul(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+										'#</li>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+										'#</li>(\s)*(<br\s*/?>)*(\s)*</ul>#si',
+										'#<ol(.*?)>(\s)*(<br\s*/?>)*(\s)*<li(.*?)>#si',
+										'#</li>(\s)*(<br\s*/?>)*(\s)*</ol>#si',
+										'#(<br\s*/?>){1}\s*<ul(.*?)>#si',
+										'#(<br\s*/?>){1}\s*<ol(.*?)>#si',
+										'#</ul>\s*(<br\s*/?>){1}#si',
+										'#</ol>\s*(<br\s*/?>){1}#si',
+									);
+									$sanitize_popuptext_to = array(
+										'<ul$1><li$5>',
+										'</li><li$4>',
+										'</li></ul>',
+										'<ol$1><li$5>',
+										'</li></ol>',
+										'<ul$2>',
+										'<ol$2>',
+										'</ul>',
+										'</ol>'
+									);
+									$popuptext_sanitized = preg_replace($sanitize_popuptext_from, $sanitize_popuptext_to, stripslashes(preg_replace( '/(\015\012)|(\015)|(\012)/','<br />', $row['mpopuptext'])));
+									echo '<br/>' . $popuptext_sanitized;
 								}
 								if ( (isset($lmm_options[ 'defaults_layer_listmarkers_show_address' ]) == TRUE ) && ($lmm_options[ 'defaults_layer_listmarkers_show_address' ] == 1 ) ) {
 									if ( $row['mpopuptext'] == NULL ) {

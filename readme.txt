@@ -7,8 +7,8 @@ Author URI:        http://www.harm.co.at
 Author:            Robert Harm
 Donate link:       http://www.mapsmarker.com/donations
 Requires at least: 3.3
-Tested up to:      3.9
-Stable tag:        3.8.8
+Tested up to:      3.9.1
+Stable tag:        3.8.9
 License:           GPLv2
 
 Pin, organize & show your favorite places & tracks through OpenStreetMap, Google Maps, KML, Bing Maps, APIs or Augmented-Reality browsers
@@ -42,6 +42,10 @@ For even more features please try "Leaflet Maps Marker Pro" - demo maps includin
 * [support for filtering of marker icons on backend (based on filename)](http://www.mapsmarker.com/v1.5.7p)
 * [support for changing marker IDs and layer IDs from the tools page](http://www.mapsmarker.com/v1.5.7p)
 * [support for bulk updates of marker maps on the tools page for selected layers only](http://www.mapsmarker.com/v1.5.7p)
+* [option to add markernames to popups automatically](http://www.mapsmarker.com/v1.5.8p)
+* [map moves back to initial position after popup is closed](http://www.mapsmarker.com/v1.5.8p)
+* [option to disable loading of Google Maps API for higher performance if alternative basemaps are used only](http://www.mapsmarker.com/v1.6p)
+* [map parameters can be overwritten within shortcodes (e.g. [mapsmarker marker="1" height="100"])](http://www.mapsmarker.com/v1.6p)
 * priority support
 
 The free version includes a pro upgrader which allows you to start a free 30 day trial easily. 
@@ -295,10 +299,10 @@ MapsMarker &reg; - registration pending
 Copyright 2011-2014, Robert Harm, All Rights Reserved
 
 == Upgrade Notice ==
-= v3.8.8 =
-security fixes (potential XSS issues - exploitable by admins only) - see http://www.mapsmarker.com/v3.8.8 for more details
+= v3.8.9 =
+performance and usability improvements - see http://www.mapsmarker.com/v3.8.9 for more details
 
 == Changelog ==
-[blog post with details about v3.8.8](http://www.mapsmarker.com/v3.8.8)
+[blog post with details about v3.8.9](http://www.mapsmarker.com/v3.8.9)
 
 [changelog for all versions](http://www.mapsmarker.com/changelog)
