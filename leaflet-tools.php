@@ -454,7 +454,7 @@ if (!empty($action)) {
 				<strong><?php _e('Zoom','lmm') ?></strong>
 			</td>
 			<td style="vertical-align:top;" class="lmm-border">
-				<input style="width: 30px;" type="text" name="zoom" value="<?php echo intval($lmm_options[ 'defaults_marker_zoom' ]) ?>" />
+				<input style="width: 40px;" type="text" name="zoom" value="<?php echo intval($lmm_options[ 'defaults_marker_zoom' ]) ?>" />
 			</td>
 			<td style="vertical-align:middle;text-align:center;" class="lmm-border">
 				<?php _e('Which markers should be updated?','lmm'); ?>
@@ -804,7 +804,7 @@ if (!empty($action)) {
 				<strong><?php _e('Zoom','lmm') ?></strong>
 			</td>
 				<td style="vertical-align:middle;" class="lmm-border">
-				<input style="width: 30px;" type="text" id="zoom-layer" name="zoom-layer" value="<?php echo intval($lmm_options[ 'defaults_layer_zoom' ]) ?>" />
+				<input style="width: 40px;" type="text" id="zoom-layer" name="zoom-layer" value="<?php echo intval($lmm_options[ 'defaults_layer_zoom' ]) ?>" />
 			</td>
 			<td style="vertical-align:middle;" class="lmm-border">
 				<input style="font-weight:bold;" class="submit button-primary" type="submit" name="zoom-layer-submit" value="<?php _e('change zoom for all layers','lmm') ?> &raquo;" onclick="return confirm('<?php _e('Do you really want to change the zoom level for all layers? (cannot be undone)','lmm') ?>')" />

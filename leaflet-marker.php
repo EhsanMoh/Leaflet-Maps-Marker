@@ -327,7 +327,7 @@ if ( $edit_status == 'updated') {
 					
 					<hr style="border:none;color:#edecec;background:#edecec;height:1px;">
 					
-					<label for="zoom"><strong><?php _e('Zoom','lmm') ?></strong> <img src="<?php echo LEAFLET_PLUGIN_URL; ?>inc/img/icon-question-mark.png" title="<?php esc_attr_e('You can also change zoom level by clicking on + or - on preview map or using your mouse wheel'); ?>" width="12" height="12" border="0"/></label>&nbsp;<input style="width: 30px;" type="text" id="zoom" name="zoom" value="<?php echo $zoom ?>" />
+					<label for="zoom"><strong><?php _e('Zoom','lmm') ?></strong> <img src="<?php echo LEAFLET_PLUGIN_URL; ?>inc/img/icon-question-mark.png" title="<?php esc_attr_e('You can also change zoom level by clicking on + or - on preview map or using your mouse wheel'); ?>" width="12" height="12" border="0"/></label>&nbsp;<input style="width: 40px;" type="text" id="zoom" name="zoom" value="<?php echo $zoom ?>" />
 					<?php __('You can also change zoom level by clicking on + or - on preview map or using your mouse wheel','lmm');
 					echo ' <span style="' . $current_editor_css . '"><br/><small>' . __('Global maximum zoom level','lmm') . ': <a title="' . esc_attr__('If the native maximum zoom level of a basemap is lower, tiles will be upscaled automatically.','lmm') . '" tabindex="111" href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade">' . __('pro version only','lmm') . '</a></small></span>'; 
 					?>
