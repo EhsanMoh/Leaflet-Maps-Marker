@@ -187,6 +187,7 @@ if (!empty($action)) {
 	echo '
 	<ul>
 	<li>- <a href="#backup-restore" style="text-decoration:none;">' . __('Backup/Restore settings','lmm') . '</a></li>
+	<li>- <a href="#deleted-maps-errors" style="text-decoration:none;">' . __('Active shortcodes for already deleted maps','lmm') . '</a></li>
 	<li>- <a href="#move-markers" style="text-decoration:none;">' . __('Move markers to a layer','lmm') . '</a></li>
 	<li>- <a href="#bulk-update-markers" style="text-decoration:none;">' . __('Bulk updates for marker maps','lmm') . '</a></li>
 	<li>- <a href="#bulk-update-layers" style="text-decoration:none;">' . sprintf( esc_attr__('Bulk updates for all %1$s existing layer maps','lmm'), $layercount_all) . '</a></li>
@@ -233,6 +234,27 @@ if (!empty($action)) {
 						});
 					})(jQuery);
 				</script>
+			</td>
+		</tr>
+	</table>
+	</form>
+	<p><a href="#top" style="text-decoration:none;"><?php _e('back to top','lmm'); ?></a></p>
+
+	<a name="deleted-maps-errors"></a>
+	<br/><br/>
+	<?php $nonce= wp_create_nonce('tool-nonce'); ?>
+	<form method="post">
+	<input type="hidden" name="action" value="deleted_maps_errors" />
+	<?php wp_nonce_field('tool-nonce'); ?>
+	<table class="widefat fixed" style="width:auto;">
+		<tr style="background-color:#d6d5d5;">
+			<td colspan="2"><strong><?php _e('Active shortcodes for already deleted maps','lmm') ?></strong></td>
+		</tr>
+		<tr>
+			<td style="vertical-align:middle;">
+				<?php
+					echo '<div style="margin:10px 0;"><strong><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade">' . __('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . '</a></strong></div>';
+				?>				
 			</td>
 		</tr>
 	</table>
