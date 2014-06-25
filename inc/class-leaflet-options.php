@@ -2234,6 +2234,20 @@ class Class_leaflet_options {
 			'type'    => 'checkbox',
 			'std'     => 0
 		);
+		$this->_settings['defaults_layer_listmarkers_link_action'] = array(
+			'version' => 'p1.8',
+			'pane'    => 'mapdefaults',
+			'section' => 'mapdefaults-section9',
+			'title'   => __('Default action for clicking on icons or marker names','lmm') . $pro_button_link,
+			'desc'    => '',
+			'type'    => 'radio-pro',
+			'std'     => 'disabled',
+			'choices' => array(
+				'setview-open' => __('set map center on marker position and open popup','lmm'),
+				'setview-only' => __('set map center on marker position only','lmm'),
+				'disabled' => __('no action (and hide links)','lmm')
+			)
+		);
 		/*
 		* Interaction options
 		* formerly "General map settings" and moved to "Basemaps" from "Misc" tab

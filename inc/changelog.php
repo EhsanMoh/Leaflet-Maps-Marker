@@ -39,7 +39,10 @@ hr{color:#E6DB55}
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.8.11') . '</strong> - ' . $text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.x" target="_blank">' . $text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">new tool for monitoring "active shortcodes for already deleted maps"</a>
+<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">layer maps: center map on markers and open popups by clicking on list of markers entries</a>
+</td></tr>
+<tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">new tool for monitoring "active shortcodes with invalid map IDs"</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
 
@@ -49,6 +52,9 @@ replaced discontinued predefined MapBox tiles "MapBox Streets" with "Natural Ear
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 input field for marker and layer zoom on backend was too small on mobile devices
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+icons selection on markers maps was broken in IE11 (thx geekahedron!)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
