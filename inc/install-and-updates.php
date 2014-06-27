@@ -818,7 +818,7 @@ if (get_option('leafletmapsmarker_version') == '3.8.10' ) {
 		set_transient( 'leafletmapsmarker_version_before_update', 'deleted-in-1-hour', 60*3 );
 		update_option('leafletmapsmarker_version_before_update', '3.8.10');
 	}
-	update_option('leafletmapsmarker_version', '3.8.11');
+	update_option('leafletmapsmarker_version', '3.9');
 	//info: redirect to create marker page only on first plugin activation, otherwise redirect is also done on bulk plugin activations
 	if (get_option('leafletmapsmarker_redirect') == 'true')
 	{
