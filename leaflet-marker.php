@@ -63,9 +63,9 @@ if (! wp_verify_nonce($markernonce, 'marker-nonce') ) die('<br/>'.__('Security c
 		$wms10_checkbox = isset($_POST['wms10']) ? '1' : '0';
 		$openpopup_checkbox = isset($_POST['openpopup']) ? '1' : '0';
 		$panel_checkbox = isset($_POST['panel']) ? '1' : '0';
-		$markername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['markername'])); //info: backslash and double quotes break geojson
-		$popuptext = preg_replace("/\t/", " ", $_POST['popuptext']); //info: tabs break geojson
-		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: tabs break geojson
+		$markername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['markername'])); //info: geojson validity fixes
+		$popuptext = preg_replace("/\t/", " ", str_replace("\\\\","/", $_POST['popuptext'])); //info: geojson validity fixes
+		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: geojson validity fixes
 		$gpx_url = ''; //info: added for compat
 		$gpx_panel_checkbox = '0'; //info: added for compat
 		if ($_POST['kml_timestamp'] == NULL) {
@@ -99,9 +99,9 @@ if (! wp_verify_nonce($markernonce, 'marker-nonce') ) die('<br/>'.__('Security c
 		$wms10_checkbox = isset($_POST['wms10']) ? '1' : '0';
 		$openpopup_checkbox = isset($_POST['openpopup']) ? '1' : '0';
 		$panel_checkbox = isset($_POST['panel']) ? '1' : '0';
-		$markername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['markername'])); //info: backslash and double quotes break geojson
-		$popuptext = preg_replace("/\t/", " ", $_POST['popuptext']); //info: tabs break geojson
-		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: tabs break geojson
+		$markername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['markername'])); //info: geojson validity fixes
+		$popuptext = preg_replace("/\t/", " ", str_replace("\\\\","/", $_POST['popuptext'])); //info: geojson validity fixes
+		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: geojson validity fixes
 		$gpx_url = ''; //info: added for compat
 		$gpx_panel_checkbox = '0'; //info: added for compat
 		if ($_POST['kml_timestamp'] == NULL) {
@@ -307,9 +307,9 @@ if ( $edit_status == 'updated') {
 				<td class="lmm-border"><input <?php if (get_option('leafletmapsmarker_update_info') == 'hide') { echo 'autofocus'; } ?> style="width:640px;" type="text" id="markername" name="markername" value="<?php echo stripslashes($markername) ?>" /></td>
 			</tr>
 			<tr>
-				<td class="lmm-border"><label for="address"><strong><?php _e('Location','lmm') ?></strong></label><br/><a tabindex="99" href="http://code.google.com/intl/de-AT/apis/maps/documentation/places/autocomplete.html" target="_blank"><img style="padding-top:9px;" src="<?php echo LEAFLET_PLUGIN_URL ?>inc/img/powered-by-google.png" width="104" height="16" /></a></td>
-				<td class="lmm-border"><label for="address"><?php _e('Please select a place or an address','lmm') ?></label> <?php if (current_user_can('activate_plugins')) { echo '<span style="' . $current_editor_css . '"><a tabindex="100" href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#google">(' . __('Settings','lmm') . ')</a></span>'; } ?><br/>
-					<input style="width: 640px;" type="text" id="address" name="address" value="<?php echo stripslashes(htmlspecialchars($address)); ?>" />
+				<td class="lmm-border"><label for="address"><strong><?php _e('Location','lmm') ?></strong></label><br/><a tabindex="99" href="https://developers.google.com/places/documentation/autocomplete" target="_blank"><img style="padding-top:9px;" src="<?php echo LEAFLET_PLUGIN_URL ?>inc/img/powered-by-google.png" width="104" height="16" /></a></td>
+				<td class="lmm-border"><label for="address"><?php _e('Please select a place or an address','lmm') ?></label> <?php if (current_user_can('activate_plugins')) { echo '<span style="' . $current_editor_css . '"><a tabindex="100" href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_settings#lmm-google-section4">(' . __('Settings','lmm') . ')</a></span>'; } ?><br/>
+					<input style="width:640px;height:25px;" type="text" id="address" name="address" value="<?php echo stripslashes(htmlspecialchars($address)); ?>" />
 					<div style="margin-top:5px;<?php echo $current_editor_css; ?>">
 					<?php _e('or paste coordinates here','lmm') ?> -
 					<?php _e('latitude','lmm') ?>: <input style="width:100px;height:24px;" type="text" id="lat" name="lat" value="<?php echo $lat; ?>" />

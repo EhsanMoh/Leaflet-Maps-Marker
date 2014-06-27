@@ -8,7 +8,7 @@ Author:            Robert Harm
 Donate link:       http://www.mapsmarker.com/donations
 Requires at least: 3.3
 Tested up to:      3.9.1
-Stable tag:        3.8.10
+Stable tag:        3.8.11
 License:           GPLv2
 
 Pin, organize & show your favorite places & tracks through OpenStreetMap, Google Maps, KML, Bing Maps, APIs or Augmented-Reality browsers
@@ -281,7 +281,7 @@ This program is free software; you can redistribute it and/or modify it under th
 * Map Icons Collection by Nicolas Mollet - [http://mapicons.nicolasmollet.com](http://mapicons.nicolasmollet.com)
 * Datasource OGD Vienna maps: Stadt Wien, Creative Commons Attribution (by) [http://data.wien.gv.at](http://data.wien.gv.at)
 * Jquery TimePicker, by Trent Richardson, [http://trentrichardson.com/examples/timepicker/](http://trentrichardson.com/examples/timepicker/), licence: GPL
-* Adress autocompletion powered by [Google Places API](http://code.google.com/intl/de-AT/apis/maps/documentation/places/autocomplete.html)
+* Adress autocompletion powered by [Google Places API](https://developers.google.com/places/documentation/autocomplete)
 * Map center icon [Joseph Wain](http://glyphish.com/) - Creative Commons Attribution (by)
 * Plus-, json-, layer-, language- & csv-export icon by icon by [Yusuke Kamiyamane](http://www.pinvoke.com/) - Creative Commons Attribution (by)
 * Question Mark icon by [RandomJabber](http://www.randomjabber.com/)
@@ -305,10 +305,10 @@ MapsMarker &reg; - registration pending
 Copyright 2011-2014, Robert Harm, All Rights Reserved
 
 == Upgrade Notice ==
-= v3.8.10 =
-compatibility fixes - see http://www.mapsmarker.com/v3.8.10 for more details
+= v3.8.11 =
+bugfix release for IE11 - see http://www.mapsmarker.com/v3.8.11 for more details
 
 == Changelog ==
-[blog post with details about v3.8.10](http://www.mapsmarker.com/v3.8.10)
+[blog post with details about v3.8.11](http://www.mapsmarker.com/v3.8.11)
 
 [changelog for all versions](http://www.mapsmarker.com/changelog)
