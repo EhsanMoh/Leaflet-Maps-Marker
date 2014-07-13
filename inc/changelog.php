@@ -42,10 +42,16 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.x') . '</st
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
-
+<a href="https://www.mapsmarker.com" target="_blank">enabled SSL by default for MapsMarker.com website & installed EV SSL certificate (=verified identity)</a>
+</td></tr>
+<tr><td>' . $new . '</td><td>
+compatibility check for "Page Builder by SiteOrigin" plugin (thx porga!)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+optimized version compare functions by using PHP version_compare();
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+not all sections within settings could be selected on smaller screens (thx Francesco!)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 display of popuptext in GeoRSS feed was broken (thx Indrajit!)
