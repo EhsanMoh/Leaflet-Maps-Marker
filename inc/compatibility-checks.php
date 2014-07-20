@@ -42,8 +42,8 @@ if (is_plugin_active('wp-google-analytics/wp-google-analytics.php') ) {
 if (is_plugin_active('bwp-minify/bwp-minify.php') ) {
 	$lmm_bwpminify_options = get_option( 'bwp_minify_general' );
 	if ($lmm_bwpminify_options['enable_min_js'] == 'yes') {
-		if (strpos($lmm_bwpminify_options['input_ignore'], 'leafletmapsmarker') === false)  {
-			echo '<p><div class="error" style="padding:10px;"><strong>' . __('Warning: you are using the plugin "Better WordPress Minify" which can cause Leaflet Maps Marker to break if the option "Minify JS files automatically?" is active. Please disable this option (Settings / BWP Minify) or add <strong>leafletmapsmarker</strong> to the form field "Scripts to be ignored (not minified)"','lmm') . '</strong></div></p>';
+		if ((strpos($lmm_bwpminify_options['input_ignore'], 'leafletmapsmarker') === false) || (strpos($lmm_bwpminify_options['input_ignore'], 'jquery-core') === false))  {
+			echo '<p><div class="error" style="padding:10px;">' . sprintf(__('Warning: you are using the plugin "Better WordPress Minify" which can cause Leaflet Maps Marker to break if the option "Minify JS files automatically?" is active. Please disable this option (BWP Minify / General Options) or navigate to BWP Minify / "Manage Enqueued Files", click on "Scripts to be ignored (not minified)" and add %1$s (one line for each)','lmm'), '<strong>leafletmapsmarker</strong> & <strong>jquery-core</strong>') . '</div></p>';
 		}
 	}
 }
