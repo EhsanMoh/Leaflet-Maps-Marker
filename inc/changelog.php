@@ -26,7 +26,12 @@ $issue = '<img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-know-issues.
 <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 <title>Changelog for Leaflet Maps Marker</title>
 <style type="text/css">
-body{font-family:sans-serif;font-size:12px;line-height:1.4em;margin:0;padding:0 0 0 5px}
+<?php 
+if ( function_exists( 'is_rtl' ) && is_rtl() ) {
+	echo 'body{font-family:sans-serif;font-size:12px;line-height:1.4em;margin:0;padding:0 0 0 5px;direction: rtl;unicode-bidi: embed;}'.PHP_EOL;
+} else {
+	echo 'body{font-family:sans-serif;font-size:12px;line-height:1.4em;margin:0;padding:0 0 0 5px;}'.PHP_EOL;
+} ?>
 table{line-height:.7em;font-size:12px;font-family:sans-serif}
 td{line-height:1.1em}
 .updated{background-color:#FFFFE0;padding:10px}
@@ -36,6 +41,34 @@ hr{color:#E6DB55}
 </style></head><body>
 <?php
 /*****************************************************************************************/
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.2') . '</strong> - ' . $text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.9.2" target="_blank">' . $text_c . '</a>):</p>
+<table>
+<tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
+</td></tr>
+<tr><td>' . $new . '</td><td>
+
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+optimized RTL (right-to-left) language support on marker and layer map edit pages
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+some settings were not selectable when RTL (right-to-left) language support was active
+</td></tr>
+<tr><td colspan="2">
+<p><strong>' . $text_d . '</a></p></strong>
+<p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated German translation
+</td></tr>
+<tr><td colspan="2">
+<p><strong>' . $text_f . '</a></p></strong>
+</td></tr>	
+</table>'.PHP_EOL;
+
+if ( (version_compare($lmm_version_old,"3.9.1","<")) && ( $lmm_version_old > '0' ) ) {
+echo '<p><hr noshade size="1"/></p>';
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.1') . '</strong> - ' . $text_b . ' 22.07.2014 (<a href="http://www.mapsmarker.com/v3.9.1" target="_blank">' . $text_c . '</a>):</p>
 <table>
 <tr><td>' . $new . '</td><td>
@@ -79,6 +112,7 @@ updated Latvian translation thanks to Juris Orlovs, <a href="http://lbpa.lv" tar
 updated Russian translation thanks to Ekaterina Golubina (supported by Teplitsa of Social Technologies - <a href="http://te-st.ru" target="_blank">http://te-st.ru</a>) and Vyacheslav Strenadko, <a href="http://poi-gorod.ru" target="_blank">http://poi-gorod.ru</a>
 </td></tr>
 </table>'.PHP_EOL;
+}
 
 if ( (version_compare($lmm_version_old,"3.9","<")) && ( $lmm_version_old > '0' ) ) {
 echo '<p><hr noshade size="1"/></p>';

@@ -266,7 +266,7 @@ class Class_leaflet_options {
 				}
 			});
 
-			$(".lmmsettings h3, .lmmsettings table, .leafletmapsmarker-listings").show();
+			$(".lmmsettings h3, .lmmsettings table").show();
 
 			//info:  This will make the "warning" checkbox class really stand out when checked.
 			$(".warning").change(function() {
