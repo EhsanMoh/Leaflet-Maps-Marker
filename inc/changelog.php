@@ -44,13 +44,16 @@ hr{color:#E6DB55}
 echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.2') . '</strong> - ' . $text_b . ' xx.08.2014 (<a href="http://www.mapsmarker.com/v3.9.2" target="_blank">' . $text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
+<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">search function for layerlist on marker edit page</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
 
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 optimized RTL (right-to-left) language support on marker and layer map edit pages
+</td></tr>
+<tr><td>' . $changed . '</td><td>
+updated jQuery select2 addon to v3.5.1
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 some settings were not selectable when RTL (right-to-left) language support was active
