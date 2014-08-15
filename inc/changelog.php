@@ -49,6 +49,9 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.2') . '</
 <tr><td>' . $new . '</td><td>
 support for using WMTS servers as custom overlays (thx dimizu!)
 </td></tr>
+<tr><td>' . $new . '</td><td>
+compatibility check for plugin "WP External Links" which can cause maps to break
+</td></tr>
 <tr><td>' . $changed . '</td><td>
 optimized RTL (right-to-left) language support on marker and layer map edit pages
 </td></tr>
