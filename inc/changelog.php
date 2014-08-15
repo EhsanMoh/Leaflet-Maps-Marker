@@ -47,7 +47,7 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.2') . '</
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">search function for layerlist on marker edit page</a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
-
+support for using WMTS servers as custom overlays (thx dimizu!)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 optimized RTL (right-to-left) language support on marker and layer map edit pages
@@ -57,6 +57,12 @@ updated jQuery select2 addon to v3.5.1
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 some settings were not selectable when RTL (right-to-left) language support was active
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+custom overlays and custom basemaps with & and {} chars in URLs were broken
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+potential XSS security issue on fullscreen maps (discovered by <a href="https://security.dxw.com/" target="_blank">https://security.dxw.com/</a>)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
