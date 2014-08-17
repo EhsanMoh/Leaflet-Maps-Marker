@@ -72,6 +72,9 @@ potential XSS security issue on fullscreen maps (discovered by <a href="https://
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
+updated Bosnian translation thanks to Kenan Dervišević, <a href="http://dkenan.com" target="_blank">http://dkenan.com</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
 updated German translation
 </td></tr>
 <tr><td colspan="2">
