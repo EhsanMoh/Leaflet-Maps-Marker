@@ -67,6 +67,9 @@ custom overlays and custom basemaps with & and {} chars in URLs were broken
 <tr><td>' . $fixed . '</td><td>
 potential XSS security issue on fullscreen maps (discovered by <a href="https://security.dxw.com/" target="_blank">https://security.dxw.com/</a>)
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+default marker icon was not used for maps created with shortcodes directly (thx Bernd!)
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
