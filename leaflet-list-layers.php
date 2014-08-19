@@ -21,7 +21,7 @@ $columnsortorder_input = isset($_GET['order']) ? esc_sql($_GET['order']) : $lmm_
 $columnsortorder = (in_array($columnsortorder_input, $columnsortorder_values)) ? $columnsortorder_input : $lmm_options[ 'misc_layer_listing_sort_sort_order' ];
 $table_name_layers = $wpdb->prefix.'leafletmapsmarker_layers';
 $table_name_markers = $wpdb->prefix.'leafletmapsmarker_markers';
-$layerlist = $wpdb->get_results( "SELECT * FROM $table_name_layers WHERE id>0 order by $columnsort $columnsortorder", ARRAY_A );
+$layerlist = $wpdb->get_results( "SELECT * FROM `$table_name_layers` WHERE `id` > 0 order by `$columnsort` $columnsortorder", ARRAY_A );
 $lcount = intval($wpdb->get_var('SELECT COUNT(*)-1 FROM '.$table_name_layers));
 ?>
 
@@ -147,13 +147,13 @@ if ($getorder == 'asc') { $sortordericon = 'asc'; } else { $sortordericon = 'des
 		}
 		$column_address = ((isset($lmm_options[ 'misc_layer_listing_columns_address' ] ) == TRUE ) && ( $lmm_options[ 'misc_layer_listing_columns_address' ] == 1 )) ? '<td class="lmm-border">' . $row['address'] . '</td>' : '';
 		if ($row['multi_layer_map'] == 0) {
-			$markercount = $wpdb->get_var('SELECT count(*) FROM '.$table_name_layers.' as l INNER JOIN '.$table_name_markers.' AS m ON l.id=m.layer WHERE l.id='.$row['id']);
+			$markercount = $wpdb->get_var('SELECT count(*) FROM `'.$table_name_layers.'` as l INNER JOIN `'.$table_name_markers.'` AS m ON l.id=m.layer WHERE l.id='.$row['id']);
 		} else 	if ( ($row['multi_layer_map'] == 1) && ( $row['multi_layer_map_list'] == 'all' ) ) {
 			$markercount = intval($wpdb->get_var('SELECT COUNT(*) FROM '.$table_name_markers));
 		} else 	if ( ($row['multi_layer_map'] == 1) && ( $row['multi_layer_map_list'] != NULL ) && ($row['multi_layer_map_list'] != 'all') ) {
-			$multi_layer_map_list_exploded = explode(",", $wpdb->get_var('SELECT l.multi_layer_map_list FROM '.$table_name_layers.' as l WHERE l.id='.$row['id']));
+			$multi_layer_map_list_exploded = explode(",", $wpdb->get_var('SELECT l.multi_layer_map_list FROM `'.$table_name_layers.'` as l WHERE l.id='.$row['id']));
 			foreach ($multi_layer_map_list_exploded as $mlmrowcount){
-				$mlm_count_temp{$mlmrowcount} = $wpdb->get_var('SELECT count(*) FROM '.$table_name_layers.' as l INNER JOIN '.$table_name_markers.' AS m ON l.id=m.layer WHERE m.layer='.$mlmrowcount);
+				$mlm_count_temp{$mlmrowcount} = $wpdb->get_var('SELECT count(*) FROM `'.$table_name_layers.'` as l INNER JOIN `'.$table_name_markers.'` AS m ON l.id=m.layer WHERE m.layer='.$mlmrowcount);
 				$markercount = $markercount + $mlm_count_temp{$mlmrowcount};
 			}
 		} else 	if ( ($row['multi_layer_map'] == 1) && ( $row['multi_layer_map_list'] == NULL ) ) {

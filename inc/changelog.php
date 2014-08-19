@@ -58,6 +58,9 @@ optimized RTL (right-to-left) language support on marker and layer map edit page
 <tr><td>' . $changed . '</td><td>
 updated jQuery select2 addon to v3.5.1
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+added backticks (`) around column and table names in all SQL statements to prevent collisions with reserved words
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 some settings were not selectable when RTL (right-to-left) language support was active
 </td></tr>
@@ -69,6 +72,9 @@ potential XSS security issue on fullscreen maps (discovered by <a href="https://
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 default marker icon was not used for maps created with shortcodes directly (thx Bernd!)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+broken layer maps/plugin installations on mySQL instances using <i>clustering</i> as reserved word (thx Tim!)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>

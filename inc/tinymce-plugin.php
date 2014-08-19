@@ -53,9 +53,9 @@ function get_mm_list(){
 	$m_condition = isset($_GET['q']) ? "AND m.markername LIKE '%" . esc_sql($_GET['q']) . "%'" : '';
 
 	$marklist = $wpdb->get_results("
-		(SELECT l.id, 'icon-layer.png' as 'icon', l.name as 'name', l.updatedon, l.updatedby, 'layer' as 'type' FROM $table_name_layers as l WHERE l.id != '0' $l_condition)
+		(SELECT l.id, 'icon-layer.png' as 'icon', l.name as 'name', l.updatedon, l.updatedby, 'layer' as 'type' FROM `$table_name_layers` as l WHERE l.id != '0' $l_condition)
 		UNION
-		(SELECT m.id, m.icon as 'icon', m.markername as 'name', m.updatedon, m.updatedby, 'marker' as 'type' FROM $table_name_markers as m WHERE  m.id != '0' $m_condition)
+		(SELECT m.id, m.icon as 'icon', m.markername as 'name', m.updatedon, m.updatedby, 'marker' as 'type' FROM `$table_name_markers` as m WHERE  m.id != '0' $m_condition)
 		order by updatedon DESC LIMIT 100", ARRAY_A);
 	if (isset($_GET['q'])) {
 		buildMarkersList($marklist);

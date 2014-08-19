@@ -25,12 +25,12 @@ $markers_per_page_validated = intval($lmm_options[ 'markers_per_page' ]);
 if ($action == 'search') {
 	$markersearchnonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
 	if (! wp_verify_nonce($markersearchnonce, 'markersearch-nonce') ) die('<br/>'.__('Security check failed - please call this function from the according admin page!','lmm').'');
-       	$mcount = intval($wpdb->get_var('SELECT COUNT(*) FROM '.$table_name_markers.' WHERE markername like \'%'.$searchtext.'%'.'\' OR popuptext like \'%'.$searchtext.'%'.'\''));
-	$marklist = $wpdb->get_results( $wpdb->prepare("SELECT m.id,CONCAT(m.lat,',',m.lon) AS coords,m.basemap,m.icon,m.popuptext,m.layer,m.zoom,m.openpopup as openpopup,m.lat,m.lon,m.mapwidth,m.mapheight,m.mapwidthunit,m.markername,m.panel,m.createdby,m.createdon,m.updatedby,m.updatedon,m.controlbox,m.overlays_custom,m.overlays_custom2,m.overlays_custom3,m.overlays_custom4,m.wms,m.wms2,m.wms3,m.wms4,m.wms5,m.wms6,m.wms7,m.wms8,m.wms9,m.wms10,m.address,l.name AS layername,l.id as layerid FROM $table_name_markers AS m LEFT OUTER JOIN $table_name_layers AS l ON m.layer=l.id WHERE m.markername like '%s' OR m.popuptext like '%s' order by $columnsort $columnsortorder LIMIT $markers_per_page_validated OFFSET $start", $searchtext, $searchtext), ARRAY_A);
+       	$mcount = intval($wpdb->get_var('SELECT COUNT(*) FROM `'.$table_name_markers.'` WHERE `markername` like \'%'.$searchtext.'%'.'\' OR `popuptext` like \'%'.$searchtext.'%'.'\''));
+	$marklist = $wpdb->get_results( $wpdb->prepare("SELECT m.id,CONCAT(m.lat,',',m.lon) AS coords,m.basemap,m.icon,m.popuptext,m.layer,m.zoom,m.openpopup as openpopup,m.lat,m.lon,m.mapwidth,m.mapheight,m.mapwidthunit,m.markername,m.panel,m.createdby,m.createdon,m.updatedby,m.updatedon,m.controlbox,m.overlays_custom,m.overlays_custom2,m.overlays_custom3,m.overlays_custom4,m.wms,m.wms2,m.wms3,m.wms4,m.wms5,m.wms6,m.wms7,m.wms8,m.wms9,m.wms10,m.address,l.name AS layername,l.id as layerid FROM `$table_name_markers` AS m LEFT OUTER JOIN $table_name_layers AS l ON m.layer=l.id WHERE m.markername like '%s' OR m.popuptext like '%s' order by $columnsort $columnsortorder LIMIT $markers_per_page_validated OFFSET $start", $searchtext, $searchtext), ARRAY_A);
 } else {
         $mcount = intval($wpdb->get_var('SELECT COUNT(*) FROM '.$table_name_markers));
 	$marker_per_page = intval($lmm_options[ 'markers_per_page' ]);
- 	$marklist = $wpdb->get_results( "SELECT m.id,CONCAT(m.lat,',',m.lon) AS coords,m.basemap,m.icon,m.popuptext,m.layer,m.zoom,m.openpopup as openpopup,m.lat,m.lon,m.mapwidth,m.mapheight,m.mapwidthunit,m.markername,m.panel,m.createdby,m.createdon,m.updatedby,m.updatedon,m.controlbox,m.overlays_custom,m.overlays_custom2,m.overlays_custom3,m.overlays_custom4,m.wms,m.wms2,m.wms3,m.wms4,m.wms5,m.wms6,m.wms7,m.wms8,m.wms9,m.wms10,m.address,l.name AS layername,l.id as layerid FROM $table_name_markers AS m LEFT OUTER JOIN $table_name_layers AS l ON m.layer=l.id order by $columnsort $columnsortorder LIMIT $marker_per_page OFFSET $start", ARRAY_A);
+ 	$marklist = $wpdb->get_results( "SELECT m.id,CONCAT(m.lat,',',m.lon) AS coords,m.basemap,m.icon,m.popuptext,m.layer,m.zoom,m.openpopup as openpopup,m.lat,m.lon,m.mapwidth,m.mapheight,m.mapwidthunit,m.markername,m.panel,m.createdby,m.createdon,m.updatedby,m.updatedon,m.controlbox,m.overlays_custom,m.overlays_custom2,m.overlays_custom3,m.overlays_custom4,m.wms,m.wms2,m.wms3,m.wms4,m.wms5,m.wms6,m.wms7,m.wms8,m.wms9,m.wms10,m.address,l.name AS layername,l.id as layerid FROM `$table_name_markers` AS m LEFT OUTER JOIN $table_name_layers AS l ON m.layer=l.id order by $columnsort $columnsortorder LIMIT $marker_per_page OFFSET $start", ARRAY_A);
 }
 if ($start > $mcount or $start < 0)
 $start = 0;
@@ -89,15 +89,15 @@ if ($mcount > intval($lmm_options[ 'markers_per_page' ])) {
 		if (! wp_verify_nonce($massactionnonce, 'massaction-nonce') ) die('<br/>'.__('Security check failed - please call this function from the according admin page!','lmm').'');
 		$checked_markers_prepared = implode(",", $_POST['checkedmarkers']);
 		$checked_markers = preg_replace('/[a-z|A-Z| |\=]/', '', $checked_markers_prepared);
-		$wpdb->query( "DELETE FROM $table_name_markers WHERE id IN (" . htmlspecialchars($checked_markers) . ")");
-		$wpdb->query( "OPTIMIZE TABLE $table_name_markers" );
+		$wpdb->query( "DELETE FROM `$table_name_markers` WHERE `id` IN (" . htmlspecialchars($checked_markers) . ")");
+		$wpdb->query( "OPTIMIZE TABLE `$table_name_markers`" );
 		echo '<p><div class="updated" style="padding:10px;">' . __('The selected markers have been deleted','lmm') . ' (ID ' . htmlspecialchars($checked_markers) . ')</div>';
 		echo '<p><a class=\'button-secondary\' href=\'' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_markers\'>' . __('list all markers','lmm') . '</a>&nbsp;&nbsp;&nbsp;<a class=\'button-secondary\' href=\'' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_marker\'>' . __('add new maker','lmm') . '</a></p>';
 	} else if ( ($assignselected == '1') && isset($_POST['checkedmarkers']) ) {
 		if (! wp_verify_nonce($massactionnonce, 'massaction-nonce') ) die('<br/>'.__('Security check failed - please call this function from the according admin page!','lmm').'');
 		$checked_markers_prepared = implode(",", $_POST['checkedmarkers']);
 		$checked_markers = preg_replace('/[a-z|A-Z| |\=]/', '', $checked_markers_prepared);
-		$wpdb->query( "UPDATE $table_name_markers SET layer = " . intval($_POST['layer']) . " where id IN (" . $checked_markers . ")");
+		$wpdb->query( "UPDATE `$table_name_markers` SET `layer` = " . intval($_POST['layer']) . " where `id` IN (" . $checked_markers . ")");
 		echo '<p><div class="updated" style="padding:10px;">' . __('The selected markers have been assigned to the selected layer','lmm') . ' (' . __('Marker','lmm') . ' ID ' . htmlspecialchars($checked_markers) . ', ' . __('Layer','lmm') . ' ID ' . htmlspecialchars($_POST['layer']) . ')</div>';
 		echo '<p><a class=\'button-secondary\' href=\'' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_markers\'>' . __('list all markers','lmm') . '</a>&nbsp;&nbsp;&nbsp;<a class=\'button-secondary\' href=\'' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_marker\'>' . __('add new maker','lmm') . '</a></p>';
 	} else {
@@ -335,7 +335,7 @@ if ($mcount > intval($lmm_options[ 'markers_per_page' ])) {
 		<?php if (current_user_can( $lmm_options[ 'capabilities_delete' ])) { ?>
 		<p><input type="checkbox" id="deleteselected" name="deleteselected" /> <label for="deleteselected"><?php _e('delete','lmm') ?></label></p>
 		<?php } ?>
-		<?php $layerlist = $wpdb->get_results('SELECT * FROM '.$table_name_layers.' WHERE id>0 AND multi_layer_map = 0', ARRAY_A); ?>
+		<?php $layerlist = $wpdb->get_results('SELECT * FROM `'.$table_name_layers.'` WHERE `id` > 0 AND `multi_layer_map` = 0', ARRAY_A); ?>
 		<input type="checkbox" id="assignselected" name="assignselected" /> <label for="assignselected"><?php _e('assign to the following layer:','lmm') ?></label>
 		<select id="layer" name="layer">
 		<option value="0"><?php _e('unassigned','lmm') ?></option>
