@@ -1112,7 +1112,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										if ($callback != NULL) { echo $callback . '('; }
 										echo '{'.PHP_EOL;
 										echo '"success":false,'.PHP_EOL;
-										echo '"message":"' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com",'.PHP_EOL;
+										echo '"message":"' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': https://www.mapsmarker.com",'.PHP_EOL;
 										echo '"data": { }'.PHP_EOL;
 										echo '}';
 										if ($callback != NULL) { echo ');'; }
@@ -1121,7 +1121,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										echo '<?xml version="1.0" encoding="utf8"?>'.PHP_EOL;
 										echo '<mapsmarker>'.PHP_EOL;
 										echo '<success>false</success>'.PHP_EOL;
-										echo '<message>' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com</message>'.PHP_EOL;
+										echo '<message>' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': https://www.mapsmarker.com</message>'.PHP_EOL;
 										echo '<data></data>'.PHP_EOL;
 										echo '</mapsmarker>';
 									}
@@ -1134,7 +1134,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										if ($callback != NULL) { echo $callback . '('; }
 										echo '{'.PHP_EOL;
 										echo '"success":false,'.PHP_EOL;
-										echo '"message":"' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com",'.PHP_EOL;
+										echo '"message":"' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': https://www.mapsmarker.com",'.PHP_EOL;
 										echo '"data": { }'.PHP_EOL;
 										echo '}';
 										if ($callback != NULL) { echo ');'; }
@@ -1143,7 +1143,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										echo '<?xml version="1.0" encoding="utf8"?>'.PHP_EOL;
 										echo '<mapsmarker>'.PHP_EOL;
 										echo '<success>false</success>'.PHP_EOL;
-										echo '<message>' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com</message>'.PHP_EOL;
+										echo '<message>' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': https://www.mapsmarker.com</message>'.PHP_EOL;
 										echo '<data></data>'.PHP_EOL;
 										echo '</mapsmarker>';
 									}
@@ -1156,7 +1156,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										if ($callback != NULL) { echo $callback . '('; }
 										echo '{'.PHP_EOL;
 										echo '"success":false,'.PHP_EOL;
-										echo '"message":"' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com",'.PHP_EOL;
+										echo '"message":"' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': https://www.mapsmarker.com",'.PHP_EOL;
 										echo '"data": { }'.PHP_EOL;
 										echo '}';
 										if ($callback != NULL) { echo ');'; }
@@ -1165,7 +1165,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 										echo '<?xml version="1.0" encoding="utf8"?>'.PHP_EOL;
 										echo '<mapsmarker>'.PHP_EOL;
 										echo '<success>false</success>'.PHP_EOL;
-										echo '<message>' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': http://www.mapsmarker.com</message>'.PHP_EOL;
+										echo '<message>' . esc_attr__('This feature is available in the pro version only! Click here to find out how you can start a free 30-day-trial easily','lmm') . ': https://www.mapsmarker.com</message>'.PHP_EOL;
 										echo '<data></data>'.PHP_EOL;
 										echo '</mapsmarker>';
 									}

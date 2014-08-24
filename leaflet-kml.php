@@ -103,7 +103,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 			echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
 			echo '<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2">'.PHP_EOL;
 			echo '<Document>'.PHP_EOL;
-			echo '<description><![CDATA[powered by <a href="http://www.wordpress.org">WordPress</a> &amp; <a href="http://www.mapsmarker.com">MapsMarker.com</a>]]></description>'.PHP_EOL;
+			echo '<description><![CDATA[powered by <a href="http://www.wordpress.org">WordPress</a> &amp; <a href="https://www.mapsmarker.com">MapsMarker.com</a>]]></description>'.PHP_EOL;
 			echo '<open>1</open>'.PHP_EOL;
 			foreach ($styles_distinct as $marker_icon) {
 				if ($marker_icon['micon'] == null) {
@@ -264,7 +264,7 @@ if (!lmm_is_plugin_active('leaflet-maps-marker/leaflet-maps-marker.php') ) {
 			echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
 			echo '<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2">'.PHP_EOL;
 			echo '<Document>'.PHP_EOL;
-			echo '<description><![CDATA[powered by <a href="http://www.wordpress.org">WordPress</a> &amp; <a href="http://www.mapsmarker.com">MapsMarker.com</a>]]></description>'.PHP_EOL;
+			echo '<description><![CDATA[powered by <a href="http://www.wordpress.org">WordPress</a> &amp; <a href="https://www.mapsmarker.com">MapsMarker.com</a>]]></description>'.PHP_EOL;
 			echo '<open>0</open>'.PHP_EOL;
 			foreach ($styles_distinct as $marker_icon) {
 				if ($marker_icon['micon'] == null) {

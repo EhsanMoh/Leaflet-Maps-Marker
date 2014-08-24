@@ -1,6 +1,6 @@
 <?php
 //info prevent file from being accessed directly
-if (basename($_SERVER['SCRIPT_FILENAME']) == 'tinymce-plugin.php') { die ("Please do not access this file directly. Thanks!<br/><a href='http://www.mapsmarker.com/go'>www.mapsmarker.com</a>"); }
+if (basename($_SERVER['SCRIPT_FILENAME']) == 'tinymce-plugin.php') { die ("Please do not access this file directly. Thanks!<br/><a href='https://www.mapsmarker.com/go'>www.mapsmarker.com</a>"); }
 add_action('admin_print_styles-post.php', 'mm_shortcode_button');
 add_action('admin_print_styles-post-new.php', 'mm_shortcode_button');
 
