@@ -114,7 +114,11 @@ if (isset($_GET['layer'])) {
 	$lmm_out .= '<link rel="apple-touch-startup-image" href="' . LEAFLET_PLUGIN_URL . 'inc/img/iso-launch-image-iphone-320x460.png" media="screen and (max-device-width: 320px)" />'.PHP_EOL;
 	$lmm_out .= '<link rel="apple-touch-startup-image" href="' . LEAFLET_PLUGIN_URL . 'inc/img/ios-launch-image-iphone-retina-640x920.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />'.PHP_EOL;
 	$lmm_out .= '<link rel="apple-touch-startup-image" href="' . LEAFLET_PLUGIN_URL . 'inc/img/ios-launch-image-iphone-retina-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />'.PHP_EOL;
-	$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css?ver=' . $plugin_version . '" type="text/css" media="all">'.PHP_EOL;
+	if ( function_exists( 'is_rtl' ) && is_rtl() ) { 
+		$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-rtl-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet-rtl.css?ver=' . $plugin_version . '" type="text/css" media="all">'.PHP_EOL;
+	} else {
+		$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css?ver=' . $plugin_version . '" type="text/css" media="all">'.PHP_EOL;
+	}
 	$lmm_out .= '<!--[if lt IE 9]>'.PHP_EOL;
 	$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-ie-only-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.ie.css?ver=' . $plugin_version . '" type="text/css" media="all" / >'.PHP_EOL;
 	$lmm_out .= '<![endif]-->'.PHP_EOL;
@@ -154,7 +158,8 @@ if (isset($_GET['layer'])) {
 	$lmm_out .= '<body style="margin:0;padding:0;height:100%;background: ' . htmlspecialchars(addslashes($lmm_options[ 'defaults_layer_panel_background_color' ])) . ';overflow:hidden;">'.PHP_EOL;
 	//info: panel for layer/marker name and API URLs
 	if ($panel == 1) {
-		$lmm_out .= '<div id="panel_top_' . $uid . '" style="background: ' . htmlspecialchars(addslashes($lmm_options[ 'defaults_layer_panel_background_color' ])) . '; width:99%; padding:5px;">'.PHP_EOL;
+		if ( function_exists( 'is_rtl' ) && is_rtl() ) { $panel_fullscreen_text = 'text-align:right;'; } else { $panel_fullscreen_text = 'text-align:left;'; }
+		$lmm_out .= '<div id="panel_top_' . $uid . '" style="' . $panel_fullscreen_text  . 'background: ' . htmlspecialchars(addslashes($lmm_options[ 'defaults_layer_panel_background_color' ])) . '; width:99%; padding:5px;">'.PHP_EOL;
 		$lmm_out .= '<span style="' . htmlspecialchars(addslashes($lmm_options[ 'defaults_layer_panel_paneltext_css' ])) . '">' . $paneltext . '</span><span class="lmm-panel-api-fullscreen">';
 		if ( (isset($lmm_options[ 'defaults_layer_panel_kml' ] ) == TRUE ) && ( $lmm_options[ 'defaults_layer_panel_kml' ] == 1 ) ) {
 			$lmm_out .= '<a href="' . LEAFLET_PLUGIN_URL . 'leaflet-kml.php?layer=' . $id . '&amp;name=' . $lmm_options[ 'misc_kml' ] . '" style="text-decoration:none;" title="' . esc_attr__('Export as KML for Google Earth/Google Maps','lmm') . '"><img src="' . LEAFLET_PLUGIN_URL . 'inc/img/icon-kml.png" width="14" height="14" alt="KML-Logo" class="lmm-panel-api-images" /></a>';
@@ -558,7 +563,11 @@ elseif (isset($_GET['marker'])) {
 	$lmm_out .= '<link rel="apple-touch-startup-image" href="' . LEAFLET_PLUGIN_URL . 'inc/img/iso-launch-image-iphone-320x460.png" media="screen and (max-device-width: 320px)" />'.PHP_EOL;
 	$lmm_out .= '<link rel="apple-touch-startup-image" href="' . LEAFLET_PLUGIN_URL . 'inc/img/ios-launch-image-iphone-retina-640x920.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />'.PHP_EOL;
 	$lmm_out .= '<link rel="apple-touch-startup-image" href="' . LEAFLET_PLUGIN_URL . 'inc/img/ios-launch-image-iphone-retina-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" />'.PHP_EOL;
-	$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css?ver=' . $plugin_version . '" type="text/css" media="all">'.PHP_EOL;
+	if ( function_exists( 'is_rtl' ) && is_rtl() ) { 
+		$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-rtl-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet-rtl.css?ver=' . $plugin_version . '" type="text/css" media="all">'.PHP_EOL;
+	} else {
+		$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css?ver=' . $plugin_version . '" type="text/css" media="all">'.PHP_EOL;
+	}
 	$lmm_out .= '<!--[if lt IE 9]>'.PHP_EOL;
 	$lmm_out .= '<link rel="stylesheet" id="leafletmapsmarker-ie-only-css" href="' . LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.ie.css?ver=' . $plugin_version . '" type="text/css" media="all" / >'.PHP_EOL;
 	$lmm_out .= '<![endif]-->'.PHP_EOL;
@@ -599,7 +608,8 @@ elseif (isset($_GET['marker'])) {
 	$lmm_out .= '<body style="margin:0;padding:0;height:100%;background: ' . htmlspecialchars(addslashes($lmm_options[ 'defaults_marker_panel_background_color' ])) . ';overflow:hidden;">'.PHP_EOL;
 	//info: panel for layer/marker name and API URLs
 	if ($panel == 1) {
-		$lmm_out .= '<div id="panel_top_' . $uid . '" style="background: ' . htmlspecialchars(addslashes($lmm_options[ 'defaults_marker_panel_background_color' ])) . '; width:99%; padding:5px;">'.PHP_EOL;
+		if ( function_exists( 'is_rtl' ) && is_rtl() ) { $panel_fullscreen_text = 'text-align:right;'; } else { $panel_fullscreen_text = 'text-align:left;'; }
+		$lmm_out .= '<div id="panel_top_' . $uid . '" style="' . $panel_fullscreen_text . 'background: ' . htmlspecialchars(addslashes($lmm_options[ 'defaults_marker_panel_background_color' ])) . '; width:99%; padding:5px;">'.PHP_EOL;
 		$lmm_out .= '<span style="' . htmlspecialchars(addslashes($lmm_options[ 'defaults_marker_panel_paneltext_css' ])) . '">' . $paneltext . '</span><span class="lmm-panel-api-fullscreen">';
 		if ( (isset($lmm_options[ 'defaults_marker_panel_directions' ] ) == TRUE ) && ( $lmm_options[ 'defaults_marker_panel_directions' ] == 1 ) ) {
 				//info: Google language localization (directions)

@@ -56,7 +56,7 @@ support for using WMTS servers as custom overlays (thx dimizu!)
 compatibility check for plugin "WP External Links" which can cause maps to break
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-optimized RTL (right-to-left) language support on marker and layer map edit pages
+optimized RTL (right-to-left) language support
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 updated jQuery select2 addon to v3.5.1

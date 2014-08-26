@@ -664,6 +664,13 @@ class Leafletmapsmarker
 	function lmm_frontend_enqueue_stylesheets() {
 		//info: conditional loading of css files
 		$lmm_options = get_option( 'leafletmapsmarker_options' );
+		if ( function_exists( 'is_rtl' ) && is_rtl() ) { 
+			$css_enqueue_handle = 'leafletmapsmarker-rtl';
+			$css_file_name = 'leaflet-rtl.css';
+		} else { 
+			$css_enqueue_handle = 'leafletmapsmarker'; 
+			$css_file_name = 'leaflet.css';
+		}
 		if ( (isset($lmm_options['misc_conditional_css_loading'])) && ($lmm_options['misc_conditional_css_loading'] == 'enabled') ){
 				global $wp_query;
 				$posts = $wp_query->posts;
@@ -671,13 +678,13 @@ class Leafletmapsmarker
 
 				$plugin_version = get_option('leafletmapsmarker_version');
 				global $wp_styles;
-				wp_register_style('leafletmapsmarker', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css', array(), $plugin_version);
+				wp_register_style($css_enqueue_handle, LEAFLET_PLUGIN_URL . 'leaflet-dist/' . $css_file_name, array(), $plugin_version);
 				wp_register_style('leafletmapsmarker-ie-only', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.ie.css', array(), $plugin_version);
 
 				if (is_array($posts)) {
 					foreach ($posts as $post) {
 						if ( preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches ) && array_key_exists( 2, $matches ) && in_array( $lmm_options['shortcode'], $matches[2] ) ) {
-							wp_enqueue_style('leafletmapsmarker');
+							wp_enqueue_style($css_enqueue_handle);
 							wp_enqueue_style('leafletmapsmarker-ie-only');
 							$wp_styles->add_data('leafletmapsmarker-ie-only', 'conditional', 'lt IE 9');
 							break;
@@ -685,33 +692,40 @@ class Leafletmapsmarker
 					}
 					//info: override max image width in popups
 					$lmm_custom_css = ".leaflet-popup-content img { " . $lmm_options['defaults_marker_popups_image_css'] . " }";
-						wp_add_inline_style('leafletmapsmarker',$lmm_custom_css);
+						wp_add_inline_style($css_enqueue_handle,$lmm_custom_css);
 				}
 		} else {
 				global $wp_styles;
 				$plugin_version = get_option('leafletmapsmarker_version');
-				wp_register_style('leafletmapsmarker', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css', array(), $plugin_version);
-				wp_enqueue_style('leafletmapsmarker');
+				wp_register_style($css_enqueue_handle, LEAFLET_PLUGIN_URL . 'leaflet-dist/' . css_file_name, array(), $plugin_version);
+				wp_enqueue_style($css_enqueue_handle);
 				wp_register_style('leafletmapsmarker-ie-only', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.ie.css', array(), $plugin_version);
 				wp_enqueue_style('leafletmapsmarker-ie-only');
 				$wp_styles->add_data('leafletmapsmarker-ie-only', 'conditional', 'lt IE 9');
 				//info: override max image width in popups
 				$lmm_custom_css = ".leaflet-popup-content img { " . $lmm_options['defaults_marker_popups_image_css'] . " }";
-					wp_add_inline_style('leafletmapsmarker',$lmm_custom_css);
+					wp_add_inline_style($css_enqueue_handle,$lmm_custom_css);
 		}
 	}
 	function lmm_template_check_shortcode( $template ) {
 		$lmm_options = get_option( 'leafletmapsmarker_options' );
 		$searchterm = '[' . $lmm_options['shortcode'];
 		$files = array( $template, get_stylesheet_directory() . DIRECTORY_SEPARATOR . 'header.php', get_stylesheet_directory() . DIRECTORY_SEPARATOR . 'footer.php' );
+		if ( function_exists( 'is_rtl' ) && is_rtl() ) { 
+			$css_enqueue_handle = 'leafletmapsmarker-rtl';
+			$css_file_name = 'leaflet-rtl.css';
+		} else { 
+			$css_enqueue_handle = 'leafletmapsmarker'; 
+			$css_file_name = 'leaflet.css';
+		}
 		foreach( $files as $file ) {
 			if( file_exists($file) ) {
 				$contents = file_get_contents($file);
 				if( strpos( $contents, $searchterm )  ) {
 					global $wp_styles;
 					$plugin_version = get_option('leafletmapsmarker_version');
-					wp_register_style('leafletmapsmarker', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css', array(), $plugin_version);
-					wp_enqueue_style('leafletmapsmarker');
+					wp_register_style($css_enqueue_handle, LEAFLET_PLUGIN_URL . 'leaflet-dist/' . $css_file_name, array(), $plugin_version);
+					wp_enqueue_style($css_enqueue_handle);
 					wp_register_style('leafletmapsmarker-ie-only', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.ie.css', array(), $plugin_version);
 					wp_enqueue_style('leafletmapsmarker-ie-only');
 					$wp_styles->add_data('leafletmapsmarker-ie-only', 'conditional', 'lt IE 9');
@@ -741,8 +755,15 @@ class Leafletmapsmarker
 	function lmm_admin_enqueue_stylesheets_leaflet() {
 		global $wp_styles;
 		$plugin_version = get_option('leafletmapsmarker_version');
-		wp_register_style( 'leafletmapsmarker', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.css', array(), $plugin_version);
-		wp_enqueue_style( 'leafletmapsmarker' );
+		if ( function_exists( 'is_rtl' ) && is_rtl() ) { 
+			$css_enqueue_handle = 'leafletmapsmarker-rtl';
+			$css_file_name = 'leaflet-rtl.css';
+		} else { 
+			$css_enqueue_handle = 'leafletmapsmarker'; 
+			$css_file_name = 'leaflet.css';
+		}
+		wp_register_style( $css_enqueue_handle, LEAFLET_PLUGIN_URL . 'leaflet-dist/' . $css_file_name, array(), $plugin_version);
+		wp_enqueue_style( $css_enqueue_handle );
 		wp_register_style('leafletmapsmarker-ie-only', LEAFLET_PLUGIN_URL . 'leaflet-dist/leaflet.ie.css', array(), $plugin_version);
 		wp_enqueue_style('leafletmapsmarker-ie-only');
 		$wp_styles->add_data('leafletmapsmarker-ie-only', 'conditional', 'lt IE 9');
