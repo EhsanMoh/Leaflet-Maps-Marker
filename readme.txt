@@ -7,7 +7,7 @@ Author URI:        https://www.mapsmarker.com
 Author:            MapsMarker.com e.U.
 Requires at least: 3.3
 Tested up to:      4.0
-Stable tag:        3.9.1
+Stable tag:        3.9.2
 License:           GPLv2
 
 Pin, organize & show your favorite places & tracks through OpenStreetMap, Google Maps, KML, Bing Maps, APIs or Augmented-Reality browsers
@@ -306,10 +306,10 @@ MapsMarker &reg; - registration pending
 Copyright 2011-2014, MapsMarker.com e.U., All Rights Reserved
 
 == Upgrade Notice ==
-= v3.9.1 =
-compatibility fixes (WordPress 4.0, plugin conflicts) - see https://www.mapsmarker.com/v3.9.1 for more details
+= v3.9.2 =
+bugfix and compatibility release (RTL support, mySQL...) - see https://www.mapsmarker.com/v3.9.2 for more details
 
 == Changelog ==
-[blog post with details about v3.9.1](https://www.mapsmarker.com/v3.9.1)
+[blog post with details about v3.9.2](https://www.mapsmarker.com/v3.9.2)
 
 [changelog for all versions](https://www.mapsmarker.com/changelog)
