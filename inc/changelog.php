@@ -53,6 +53,9 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.3') . '</
 
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
+leaflet-min.css was not properly loaded on RTL themes (thx Nic!)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
 custom panel background for marker maps was taken from layer map settings (thx Bernd!)
 </td></tr>
 <tr><td colspan="2">
