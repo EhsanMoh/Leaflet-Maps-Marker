@@ -265,7 +265,7 @@ if ( $edit_status == 'updated') {
 		<input type="hidden" id="overlays_custom2" name="overlays_custom2" value="<?php echo $overlays_custom2 ?>" />
 		<input type="hidden" id="overlays_custom3" name="overlays_custom3" value="<?php echo $overlays_custom3 ?>" />
 		<input type="hidden" id="overlays_custom4" name="overlays_custom4" value="<?php echo $overlays_custom4 ?>" />
-		<input id="icon-hidden" type="hidden" name="icon-hidden" value="<?php echo ($isedit ? $icon : '') ?>" /> <!-- //info: IE11 fix -->
+		<input id="icon-hidden" type="hidden" name="icon-hidden" value="<?php echo $icon; ?>" /> <!-- //info: IE11 fix -->
 		<?php
 		$noncelink = wp_create_nonce('marker-nonce');
 		if ($current_editor == 'simplified') {

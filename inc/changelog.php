@@ -58,6 +58,9 @@ leaflet-min.css was not properly loaded on RTL themes (thx Nic!)
 <tr><td>' . $fixed . '</td><td>
 custom panel background for marker maps was taken from layer map settings (thx Bernd!)
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+custom default marker icon was not saved when creating a new marker map (thx Oleg!)
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
