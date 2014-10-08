@@ -47,10 +47,13 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.3') . '</
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
-
+support for accent folding for API and importer geocoding calls (to better support special chars)
+</td></tr>
+<tr><td>' . $new . '</td><td>
+compatibility check for Sucuri Security plugin which breaks maps if option "Restrict wp-content access" is active
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+MapsMarker API: use "MapsMarker API" as createdby & updatedby attribute if not set
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 leaflet-min.css was not properly loaded on RTL themes (thx Nic!)
@@ -60,6 +63,12 @@ custom panel background for marker maps was taken from layer map settings (thx B
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 custom default marker icon was not saved when creating a new marker map (thx Oleg!)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+Google+Bing language localizations could be broken since WordPress 4.0 as constant WPLANG has been depreciated
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+Bing culture parameter was ignored and fallback set to en-US when constant WPLANG with hypen was used 
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
@@ -470,10 +479,10 @@ updated Latvian translation thanks to Juris Orlovs, <a href="http://lbpa.lv" tar
 updated Romanian translation thanks to Arian, <a href="http://administrare-cantine.ro" target="_blank">http://administrare-cantine.ro</a> and Daniel Codrea, <a href="http://www.inadcod.com" target="_blank">http://www.inadcod.com</a>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
-updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolara.com" target="_blank">http://www.alvarolara.com</a>, Victor Guevara, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a> and Ricardo Viteri, <a href="http://www.labviteri.com" target="_blank">http://www.labviteri.com</a>
+updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolara.com" target="_blank">http://www.alvarolara.com</a>, Victor Guevara, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a>, Ricardo Viteri, <a href="http://www.labviteri.com" target="_blank">http://www.labviteri.com</a> and Juan Valdes
 </td></tr>
 <tr><td>' . $transl . '</td><td>
-updated Swedish translation thanks to Olof Odier <a href="http://www.historiskastadsvandringar.se" target="_blank">http://www.historiskastadsvandringar.se</a>, Tedy Warsitha <a href="http://codeorig.in/" target="_blank">http://codeorig.in/</a>, Dan Paulsson <a href="http://www.paulsson.eu" target="_blank">http://www.paulsson.eu</a> and Elger Lindgren, <a href="http://20x.se" target="_blank">http://20x.se</a>
+updated Swedish translation thanks to Olof Odier <a href="http://www.historiskastadsvandringar.se" target="_blank">http://www.historiskastadsvandringar.se</a>, Tedy Warsitha <a href="http://codeorig.in/" target="_blank">http://codeorig.in/</a>, Dan Paulsson <a href="http://www.paulsson.eu" target="_blank">http://www.paulsson.eu</a>, Elger Lindgren, <a href="http://20x.se" target="_blank">http://20x.se</a> and Anton Andreasson, <a href="http://andreasson.org/" target="_blank">http://andreasson.org/</a>
 </td></tr>
 </table>'.PHP_EOL;
 }

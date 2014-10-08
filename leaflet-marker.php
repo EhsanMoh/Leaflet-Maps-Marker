@@ -8,7 +8,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) == 'leaflet-marker.php') { die ("Pleas
 <div class="wrap">
 <?php include('inc' . DIRECTORY_SEPARATOR . 'admin-header.php'); ?>
 <?php
-global $wpdb, $allowedtags;
+global $wpdb, $allowedtags, $wp_version, $locale;
 $lmm_options = get_option( 'leafletmapsmarker_options' );
 //info: set marker shadow url
 if ( $lmm_options['defaults_marker_icon_shadow_url_status'] == 'default' ) {
@@ -24,7 +24,6 @@ $current_editor = get_option( 'leafletmapsmarker_editor' );
 $new_editor = isset($_GET['new_editor']) ? $_GET['new_editor'] : '';
 $current_editor_css = ($current_editor == 'simplified') ? 'display:none;' : '';
 //info: workaround - select shortcode on input focus doesnt work on iOS
-global $wp_version;
 if ( version_compare( $wp_version, '3.4', '>=' ) ) {
 	 $is_ios = wp_is_mobile() && preg_match( '/iPad|iPod|iPhone/', $_SERVER['HTTP_USER_AGENT'] );
 	 $shortcode_select = ( $is_ios ) ? '' : 'onfocus="this.select();" readonly="readonly"';
@@ -395,7 +394,7 @@ if ( $edit_status == 'updated') {
 								if ($lmm_options['google_maps_language_localization'] == 'browser_setting') {
 									$google_language = '';
 								} else if ($lmm_options['google_maps_language_localization'] == 'wordpress_setting') {
-									if ( defined('WPLANG') ) { $google_language = '&hl=' . substr(WPLANG, 0, 2); } else { $google_language =  '&hl=en'; }
+									if ($locale != NULL ) { $google_language = '&hl=' . substr($locale, 0, 2); } else { $google_language =  '&hl=en'; }
 								} else {
 									$google_language = '&hl=' . $lmm_options['google_maps_language_localization'];
 								}
@@ -1036,7 +1035,7 @@ var marker,selectlayer,googleLayer_roadmap,googleLayer_satellite,googleLayer_hyb
 		 if ($lmm_options['google_maps_language_localization'] == 'browser_setting') {
 			$google_language = '';
 		 } else if ($lmm_options['google_maps_language_localization'] == 'wordpress_setting') {
-			if ( defined('WPLANG') ) { $google_language = '&hl=' . substr(WPLANG, 0, 2); } else { $google_language =  '&hl=en'; }
+			if ( $locale != NULL ) { $google_language = '&hl=' . substr($locale, 0, 2); } else { $google_language =  '&hl=en'; }
 		 } else {
 			$google_language = '&hl=' . $lmm_options['google_maps_language_localization'];
 		 }
