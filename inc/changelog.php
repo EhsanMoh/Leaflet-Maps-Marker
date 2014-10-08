@@ -70,6 +70,9 @@ Google+Bing language localizations could be broken since WordPress 4.0 as consta
 <tr><td>' . $fixed . '</td><td>
 Bing culture parameter was ignored and fallback set to en-US when constant WPLANG with hypen was used 
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+RSS & Atom feeds for marker and layer maps did not validate with http://validator.w3.org
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
