@@ -64,7 +64,7 @@ if (! wp_verify_nonce($markernonce, 'marker-nonce') ) die('<br/>'.__('Security c
 		$panel_checkbox = isset($_POST['panel']) ? '1' : '0';
 		$markername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['markername'])); //info: geojson validity fixes
 		$popuptext = preg_replace("/\t/", " ", str_replace("\\\\","/", $_POST['popuptext'])); //info: geojson validity fixes
-		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: geojson validity fixes
+		$address = preg_replace("/(\\\\)(?!')/","/", preg_replace("/\t/", " ", $_POST['address'])); //info: geojson validity fixes
 		$gpx_url = ''; //info: added for compat
 		$gpx_panel_checkbox = '0'; //info: added for compat
 		if ($_POST['kml_timestamp'] == NULL) {
@@ -100,7 +100,7 @@ if (! wp_verify_nonce($markernonce, 'marker-nonce') ) die('<br/>'.__('Security c
 		$panel_checkbox = isset($_POST['panel']) ? '1' : '0';
 		$markername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['markername'])); //info: geojson validity fixes
 		$popuptext = preg_replace("/\t/", " ", str_replace("\\\\","/", $_POST['popuptext'])); //info: geojson validity fixes
-		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: geojson validity fixes
+		$address = preg_replace("/(\\\\)(?!')/","/", preg_replace("/\t/", " ", $_POST['address'])); //info: geojson validity fixes
 		$gpx_url = ''; //info: added for compat
 		$gpx_panel_checkbox = '0'; //info: added for compat
 		if ($_POST['kml_timestamp'] == NULL) {
@@ -1023,7 +1023,7 @@ var marker,selectlayer,googleLayer_roadmap,googleLayer_satellite,googleLayer_hyb
 	}
 	 $address = (($address == NULL) ? esc_attr__('if set, address will be displayed here','lmm') : $address);
 	 $popuptext_css = ($popuptext != NULL) ? "border-top:1px solid #f0f0e7;padding-top:5px;margin-top:5px;clear:both;" : "";
-	 $popuptext = $popuptext . '<div class="popup-directions" style="' . $popuptext_css . '">' . addslashes($address) . ' ';
+	 $popuptext = $popuptext . '<div class="popup-directions" style="' . $popuptext_css . '">' . addslashes(str_replace("\'","&#39;",$address)) . ' ';
 
 	 if ($lmm_options['directions_provider'] == 'googlemaps') {
 		 if ( isset($lmm_options['google_maps_base_domain_custom']) && ($lmm_options['google_maps_base_domain_custom'] == NULL) ) { $gmaps_base_domain_directions = $lmm_options['google_maps_base_domain']; } else { $gmaps_base_domain_directions = htmlspecialchars($lmm_options['google_maps_base_domain_custom']); }

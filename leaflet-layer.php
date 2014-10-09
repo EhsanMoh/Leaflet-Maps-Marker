@@ -62,7 +62,7 @@ if (!empty($action)) {
 		$listmarkers_checkbox = isset($_POST['listmarkers']) ? '1' : '0';
 		$panel_checkbox = isset($_POST['panel']) ? '1' : '0';
 		$layername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['name'])); //info: backslash and double quotes break geojson
-		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: tabs break geojson
+		$address = preg_replace("/(\\\\)(?!')/","/", preg_replace("/\t/", " ", $_POST['address'])); //info: tabs break geojson
 		$multi_layer_map_checkbox = isset($_POST['multi_layer_map']) ? '1' : '0';
 		$mlm_checked_imploded = isset($_POST['mlm-all']) ? 'all' : '';
 		$clustering = '1';  //info: added for compat
@@ -105,7 +105,7 @@ if (!empty($action)) {
 		$listmarkers_checkbox = isset($_POST['listmarkers']) ? '1' : '0';
 		$panel_checkbox = isset($_POST['panel']) ? '1' : '0';
 		$layername_quotes = str_replace("\\\\","/", str_replace("\"","'", $_POST['name'])); //info: backslash and double quotes break geojson
-		$address = str_replace("\\","/", preg_replace("/\t/", " ", $_POST['address'])); //info: tabs break geojson
+		$address = preg_replace("/(\\\\)(?!')/","/", preg_replace("/\t/", " ", $_POST['address'])); //info: tabs break geojson
 		$multi_layer_map_checkbox = isset($_POST['multi_layer_map']) ? '1' : '0';
 		$mlm_checked_imploded = isset($_POST['mlm-all']) ? 'all' : '';
 		$clustering = '1';  //info: added for compat

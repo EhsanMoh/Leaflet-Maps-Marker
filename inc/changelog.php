@@ -73,6 +73,9 @@ Bing culture parameter was ignored and fallback set to en-US when constant WPLAN
 <tr><td>' . $fixed . '</td><td>
 RSS & Atom feeds for marker and layer maps did not validate with http://validator.w3.org
 </td></tr>
+<tr><td>' . $fixed . '</td><td>
+remove slashes before single apostrophes (Arc d\\\'airain) in addresses for new maps / on map updates (thx Guffroy!)
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
