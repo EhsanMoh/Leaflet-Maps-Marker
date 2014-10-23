@@ -50,7 +50,7 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.4') . '</
 
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+removed link to ioncube encoded pro plugin package to increase compatibility with PHP5.5+
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 WMS legend link on frontend and fullscreen maps was broken (thx Graham!)
