@@ -68,6 +68,9 @@ incompatibility notices with certain themes using jQuery mobile (now displaying 
 <tr><td>' . $transl . '</td><td>
 updated German translation
 </td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Ukrainian translation thanks to Andrexj, <a href="http://all3d.com.ua" target="_blank">http://all3d.com.ua</a> and Sergey Zhitnitsky, <a href="http://zhitya.com" target="_blank">http://zhitya.com</a>
+</td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_f . '</a></p></strong>
 </td></tr>	
