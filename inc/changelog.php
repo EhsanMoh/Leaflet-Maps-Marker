@@ -41,13 +41,10 @@ hr{color:#E6DB55}
 </style></head><body>
 <?php
 /*****************************************************************************************/
-echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.4') . '</strong> - ' . $text_b . ' xx.11.2014 (<a href="https://www.mapsmarker.com/v3.x" target="_blank">' . $text_c . '</a>):</p>
+echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.4') . '</strong> - ' . $text_b . ' 15.11.2014 (<a href="https://www.mapsmarker.com/v3.9.4" target="_blank">' . $text_c . '</a>):</p>
 <table>
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
-<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
-</td></tr>
-<tr><td>' . $new . '</td><td>
-
+<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">improved accessibility/screen reader support by using proper alt texts (thx Open Commons Linz!)</a>
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 removed link to ioncube encoded pro plugin package to increase compatibility with PHP5.5+
@@ -66,14 +63,26 @@ incompatibility notices with certain themes using jQuery mobile (now displaying 
 <p>' . sprintf($text_e, 'https://translate.mapsmarker.com/projects/lmm') . '</p>
 </td></tr>
 <tr><td>' . $transl . '</td><td>
+updated Chinese translation thanks to John Shen, <a href="http://www.synyan.net" target="_blank">http://www.synyan.net</a> and ck
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Danish translation thanks to Mads Dyrmann Larsen and Peter Erfurt, <a href="http://24-7news.dk" target="_blank">http://24-7news.dk</a>
+</td></tr>
+<tr><td>' . $transl . '</td><td>
 updated German translation
 </td></tr>
 <tr><td>' . $transl . '</td><td>
-updated Ukrainian translation thanks to Andrexj, <a href="http://all3d.com.ua" target="_blank">http://all3d.com.ua</a> and Sergey Zhitnitsky, <a href="http://zhitya.com" target="_blank">http://zhitya.com</a>
+updated Polish translation thanks to Pawel Wyszy&#324;ski, <a href="http://injit.pl" target="_blank">http://injit.pl</a>, Tomasz Rudnicki, <a href="http://www.kochambieszczady.pl" target="_blank"></a> and Robert Pawlak
 </td></tr>
-<tr><td colspan="2">
-<p><strong>' . $text_f . '</a></p></strong>
-</td></tr>	
+<tr><td>' . $transl . '</td><td>
+updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolara.com" target="_blank">http://www.alvarolara.com</a>, Victor Guevara, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a>, Ricardo Viteri, <a href="http://www.labviteri.com" target="_blank">http://www.labviteri.com</a> and Juan Valdes
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Spanish/Mexico translation thanks to Victor Guevera, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a> and Eze Lazcano
+</td></tr>
+<tr><td>' . $transl . '</td><td>
+updated Ukrainian translation thanks to Andrexj, <a href="http://all3d.com.ua" target="_blank">http://all3d.com.ua</a>
+</td></tr>
 </table>'.PHP_EOL;
 
 if ( (version_compare($lmm_version_old,"3.9.3","<")) && ( $lmm_version_old > '0' ) ) {
