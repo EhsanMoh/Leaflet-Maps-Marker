@@ -47,13 +47,16 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.5') . '</
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"></a>
 </td></tr>
 <tr><td>' . $new . '</td><td>
-
+support for search by ID and address within the list of markers (thx Will!)
 </td></tr>
 <tr><td>' . $changed . '</td><td>
 
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 HTML lang attribute on fullscreen maps set to $locale instead of de-DE (thx sprokt!)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+custom sort order on list of markers was reset if direct paging was used (thx Will!)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>
