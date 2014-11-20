@@ -53,6 +53,8 @@ For even more features please try "Maps Marker Pro" - demo maps including admin 
 * [support for setting global maximum zoom level to 21 (tiles from basemaps with lower native zoom levels will be upscaled automatically)](https://www.mapsmarker.com/v1.5p)
 * [duplicate markers](https://www.mapsmarker.com/v1.5.1p)
 * [improved accessibility/screen reader support by using proper alt texts](https://www.mapsmarker.com/v1.9.2p)
+* [support for duplicating layer maps (without assigned markers)](https://www.mapsmarker.com/v1.9.3p)
+* [bulk actions for layers (duplicate, delete layer only, delete & re-assign markers)](https://www.mapsmarker.com/v1.9.3p)
 * priority support
 
 The free version includes a pro upgrader which allows you to start a free 30 day trial easily. 
