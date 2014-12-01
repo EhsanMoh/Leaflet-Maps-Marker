@@ -58,6 +58,9 @@ search for layers by ID, layername and address on "list all layers" page
 <tr><td>' . $new . '</td><td>
 support for search by ID and address within the list of markers (thx Will!)
 </td></tr>
+<tr><td>' . $new . '</td><td>
+database cleanup: remove expired update pointer IDs from user_meta-table (dismissed_wp_pointers) for active user
+</td></tr>
 <tr><td>' . $changed . '</td><td>
 
 </td></tr>

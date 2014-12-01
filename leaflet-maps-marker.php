@@ -169,6 +169,12 @@ class Leafletmapsmarker
 		$version_without_dots = "lmmv" . str_replace('.', '', $lmm_version_new);
 
 		if ( !isset($dismissed_pointers[$version_without_dots]) ) {
+			//info: delete expired lmmv(p)* update pointer IDs for current user
+			$current_dismissed_wp_pointers = get_user_meta(get_current_user_id(), "dismissed_wp_pointers");
+			$replace_lmmv = preg_replace('/(lmmv(p)?(\\d)+(,)?)/',NULL,$current_dismissed_wp_pointers['0']);
+			$replace_without_end_coma = preg_replace('/(,)$/',NULL,$replace_lmmv);
+			update_user_meta( get_current_user_id(), 'dismissed_wp_pointers', $replace_without_end_coma);
+
 			$do_add_script = true;
 			add_action( 'admin_print_footer_scripts', array( $this, 'lmm_update_pointer_footer_script' ) );
 		}
