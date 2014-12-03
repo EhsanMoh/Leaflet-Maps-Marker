@@ -52,6 +52,9 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.5') . '</
 <tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
 <a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '">bulk actions for layers (duplicate, delete layer only, delete & re-assign markers)</a>
 </td></tr>
+<tr><td><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"  target="_top" title="' . $text_h . '"><img src="' . LEAFLET_PLUGIN_URL .'inc/img/icon-changelog-pro.png"></a></td><td>
+<a href="https://www.mapsmarker.com/integrity-checks"  target="_blank">added SHA-256 hashes and PGP signing to verify the integrity of plugin packages</a>
+</td></tr>
 <tr><td>' . $new . '</td><td>
 search for layers by ID, layername and address on "list all layers" page
 </td></tr>
