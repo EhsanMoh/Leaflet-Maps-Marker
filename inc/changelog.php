@@ -65,13 +65,16 @@ support for search by ID and address within the list of markers (thx Will!)
 database cleanup: remove expired update pointer IDs from user_meta-table (dismissed_wp_pointers) for active user
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+improved security for mapsmarker.com (support for Perfect Forward Secrecy, TLS 1.2 & SHA-256 certificate hashes) 
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 HTML lang attribute on fullscreen maps set to $locale instead of de-DE (thx sprokt!)
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 custom sort order on list of markers was reset if direct paging was used (thx Will!)
+</td></tr>
+<tr><td>' . $fixed . '</td><td>
+removed backticks for dbdelta()-SQL statements to prevent PHP error log entries (thx QROkes!)
 </td></tr>
 <tr><td colspan="2">
 <p><strong>' . $text_d . '</a></p></strong>

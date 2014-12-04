@@ -10,7 +10,7 @@ Tested up to:      4.0
 Stable tag:        3.9.4
 License:           GPLv2
 
-Pin, organize & show your favorite places & tracks through OpenStreetMap, Google Maps, KML, Bing Maps, APIs or Augmented-Reality browsers
+The most comprehensive & user-friendly mapping solution for WordPress
 
 == Description ==
 Maps Marker allows you to pin, organize and share your favorite places & tracks through your WordPress powered site easily. You can use maps from OpenStreetMap, Google Maps, Google Earth, Bing Maps or custom maps and additionally display your spots in innovative ways like through augmented-reality browsers.
