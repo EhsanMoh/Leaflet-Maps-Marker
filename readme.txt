@@ -6,8 +6,8 @@ Tags:              Google Maps, OpenStreetMap, OSM, bing maps, googlemaps, googl
 Author URI:        https://www.mapsmarker.com
 Author:            MapsMarker.com e.U.
 Requires at least: 3.3
-Tested up to:      4.0
-Stable tag:        3.9.4
+Tested up to:      4.0.1
+Stable tag:        3.9.5
 License:           GPLv2
 
 The most comprehensive & user-friendly mapping solution for WordPress
@@ -308,10 +308,10 @@ MapsMarker &reg; - registration pending
 Copyright 2011-2014, MapsMarker.com e.U., All Rights Reserved
 
 == Upgrade Notice ==
-= v3.9.4 =
-bugfix and compatibility release - see https://www.mapsmarker.com/v3.9.4 for more details
+= v3.9.5 =
+layer management enhancements & bugfixes - see https://www.mapsmarker.com/v3.9.5 for more details
 
 == Changelog ==
-[blog post with details about v3.9.4](https://www.mapsmarker.com/v3.9.4)
+[blog post with details about v3.9.5](https://www.mapsmarker.com/v3.9.5)
 
 [changelog for all versions](https://www.mapsmarker.com/changelog)
