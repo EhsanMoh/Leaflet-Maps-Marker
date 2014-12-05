@@ -95,9 +95,6 @@ updated Spanish translation thanks to Alvaro Lara, <a href="http://www.alvarolar
 <tr><td>' . $transl . '</td><td>
 updated Spanish/Mexico translation thanks to Victor Guevera, <a href="http://1sistemas.net" target="_blank">http://1sistemas.net</a> and Eze Lazcano
 </td></tr>
-<tr><td colspan="2">
-<p><strong>' . $text_f . '</a></p></strong>
-</td></tr>	
 </table>'.PHP_EOL;
 
 if ( (version_compare($lmm_version_old,"3.9.4","<")) && ( $lmm_version_old > '0' ) ) {
