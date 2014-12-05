@@ -91,7 +91,7 @@ if (isset($_GET['layer'])) {
 	$lmm_out .= '<!--<![endif]-->'.PHP_EOL;
 	$lmm_out .= '<head>'.PHP_EOL;
 	if ($layername == '') { $title_layername = get_bloginfo('name'); } else { $title_layername = htmlspecialchars(stripslashes($layername)); }
-	$lmm_out .= '<title>' . $title_layername . ' (' . __('fullscreen map','lmm') . ') - ' . __('powered by','lmm') . ' MapsMarker.com</title>'.PHP_EOL;
+	$lmm_out .= '<title>' . $title_layername . ' ' . __('powered by','lmm') . ' MapsMarker.com</title>'.PHP_EOL;
 	$lmm_out .= '<meta charset="UTF-8" />'.PHP_EOL;
 	$lmm_out .= '<meta name="geo.position" content="' . $lat . ';' . $lon . '" />'.PHP_EOL;
 	$lmm_out .= '<meta name="ICBM" content="' . $lat . ', ' . $lon . '" />'.PHP_EOL;
@@ -534,7 +534,7 @@ elseif (isset($_GET['marker'])) {
 	$lmm_out .= '<!--<![endif]-->'.PHP_EOL;
 	$lmm_out .= '<head>'.PHP_EOL;
 	if ($markername == '') { $title_markername = get_bloginfo('name'); } else { $title_markername = htmlspecialchars(stripslashes($markername)); }
-	$lmm_out .= '<title>' . $title_markername . ' (' . __('fullscreen map','lmm') . ') - ' . __('powered by','lmm') . ' MapsMarker.com</title>'.PHP_EOL;
+	$lmm_out .= '<title>' . $title_markername . ' ' . __('powered by','lmm') . ' MapsMarker.com</title>'.PHP_EOL;
 	$lmm_out .= '<meta charset="UTF-8" />'.PHP_EOL;
 	$lmm_out .= '<meta name="geo.position" content="' . $lat . ';' . $lon . '" />'.PHP_EOL;
 	$lmm_out .= '<meta name="ICBM" content="' . $lat . ', ' . $lon . '" />'.PHP_EOL;
