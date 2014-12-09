@@ -169,7 +169,7 @@ to the visitors of your website.
 * Danish (da_DK) thanks to Mads Dyrmann Larsen and Peter Erfurt
 * Dutch (nl_NL) thanks to Marijke Metz and Patrick Ruers
 * English (en_US)
-* French (fr_FR) thanks to Vincèn Pujol and Rodolphe Quiedeville, Fx Benard, cazal cédric and Fabien Hurelle
+* French (fr_FR) thanks to Vincèn Pujol and Rodolphe Quiedeville, Fx Benard, cazal cédric, Fabien Hurelle and Thomas Guignard
 * German (de_DE)
 * Hindi (hi_IN) thanks to by Outshine Solutions and Guntupalli Karunakar
 * Hungarian (hu_HU) thanks to István Pintér and Csaba Orban

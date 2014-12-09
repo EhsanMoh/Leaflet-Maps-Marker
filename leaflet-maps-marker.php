@@ -184,10 +184,16 @@ class Leafletmapsmarker
 		}
 	}
 	function lmm_update_pointer_footer_script() {
+		$lmm_options = get_option( 'leafletmapsmarker_options' );
 		$lmm_version_new = get_option( 'leafletmapsmarker_version' );
 		$version_without_dots = "lmmv" . str_replace('.', '', $lmm_version_new);
 		$pointer_content = '<h3>' . sprintf(esc_attr__('Leaflet Maps Marker plugin update to v%1s was successful','lmm'), $lmm_version_new) . '</h3>';
-		$changelog_url = '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_markers' . '" style="text-decoration:none;">' . __('changelog','lmm') . '</a>';
+		//info: for dynamic changelog / multi-user-blog
+		if (get_option('leafletmapsmarker_update_info') == 'show') {
+			$changelog_url = '<a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_markers' . '" style="text-decoration:none;">' . __('changelog','lmm') . '</a>';
+		} else {
+			$changelog_url = '<a href="https://www.mapsmarker.com/v' . $lmm_version_new . '" style="text-decoration:none;" target="_blank">' . __('changelog','lmm') . '</a>';
+		}
 		$blogpost_url = '<a href="https://www.mapsmarker.com/v' . $lmm_version_new . '" target="_blank" style="text-decoration:none;">mapsmarker.com</a>';
 		$pointer_content .= '<p>' . sprintf(esc_attr__('Please see the %1s for new features or the blog post on %2s for more details','lmm'), $changelog_url, $blogpost_url) . '</p>';
 		$pointer_content .= '<hr noshade size="1"><p><a href="' . LEAFLET_WP_ADMIN_URL . 'admin.php?page=leafletmapsmarker_pro_upgrade"><img src="' . LEAFLET_PLUGIN_URL . 'inc/img/pro-upgrade.png"></a></p>';
