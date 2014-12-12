@@ -53,7 +53,7 @@ added CSS class .lmm-listmarkers-markername to allow better styling (thx Christi
 link to changelog on mapsmarker.com for update pointer if dynamic changelog has already been hidden
 </td></tr>
 <tr><td>' . $changed . '</td><td>
-
+strip invisible control chars from GeoJSON array as this could break maps
 </td></tr>
 <tr><td>' . $fixed . '</td><td>
 
