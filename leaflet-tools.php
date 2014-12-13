@@ -872,7 +872,7 @@ if (!empty($action)) {
 				<form method="post">
 				<input type="hidden" name="action" value="listmarkers-layer" />
 				<?php wp_nonce_field('tool-nonce'); ?>
-				<strong><?php _e('Display a list of markers under the map','lmm') ?></strong>
+				<strong><?php _e('Display a list of markers below the map','lmm') ?></strong>
 			</td>
 			<td style="vertical-align:middle;" class="lmm-border">
 				<input id="layermaps_listmarkers_yes" type="radio" name="listmarkers-layer" value="1" checked />

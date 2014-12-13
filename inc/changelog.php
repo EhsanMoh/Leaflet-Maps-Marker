@@ -49,6 +49,9 @@ echo '<p style="margin:0.5em 0 0 0;"><strong>' . sprintf($text_a, '3.9.6') . '</
 <tr><td>' . $new . '</td><td>
 added CSS class .lmm-listmarkers-markername to allow better styling (thx Christian!)
 </td></tr>
+<tr><td>' . $new . '</td><td>
+improved SEO for fullscreen maps by adding Settings->General->"Site Title" to end of &lt;title&gt;-tag
+</td></tr>
 <tr><td>' . $changed . '</td><td>
 link to changelog on mapsmarker.com for update pointer if dynamic changelog has already been hidden
 </td></tr>
