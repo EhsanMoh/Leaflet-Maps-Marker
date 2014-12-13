@@ -70,7 +70,7 @@ We are working hard on delivering the best mapping solution available for WordPr
 = Plugin's Official Site =
 https://www.mapsmarker.com
 
-* [Affiliates](https://www.mapsmarker.com/affiliates/) - [FAQ](https://www.mapsmarker.com/faq/) - [Docs](https://www.mapsmarker.com/docs/) - [Support](http://mapsmarker.com/support/) - [Github](https://github.com/robertharm/Leaflet-Maps-Marker) - [Twitter](http://twitter.com/mapsmarker) - [Facebook](http://facebook.com/mapsmarker) - [Google+](https://www.mapsmarker.com/+) - [Translations](http://translate.mapsmarker.com/projects/lmm)
+* [Affiliates](https://www.mapsmarker.com/affiliates/) - [FAQ](https://www.mapsmarker.com/faq/) - [Docs](https://www.mapsmarker.com/docs/) - [Support](https://www.mapsmarker.com/support/) - [Github](https://github.com/robertharm/Leaflet-Maps-Marker) - [Twitter](https://twitter.com/mapsmarker) - [Facebook](https://facebook.com/mapsmarker) - [Google+](https://www.mapsmarker.com/+) - [Translations](https://translate.mapsmarker.com/projects/lmm)
 
 = Main features =
 Leaflet Maps Marker allows you to

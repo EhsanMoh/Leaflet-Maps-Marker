@@ -1,7 +1,7 @@
 <?php
 while(!is_file('wp-load.php')){
-  if(is_dir('../')) chdir('../');
-  else die('Error: Could not construct path to wp-load.php - please check <a href="http://mapsmarker.com/path-error">http://mapsmarker.com/path-error</a> for more details');
+	if(is_dir('../')) chdir('../');
+	else die('Error: Could not construct path to wp-load.php - please check <a href="https://www.mapsmarker.com/path-error">https://www.mapsmarker.com/path-error</a> for more details');
 }
 include( 'wp-load.php' );
 if (get_option('leafletmapsmarker_update_info') == 'show') {
