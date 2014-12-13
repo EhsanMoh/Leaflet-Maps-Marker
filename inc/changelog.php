@@ -55,6 +55,9 @@ link to changelog on mapsmarker.com for update pointer if dynamic changelog has 
 <tr><td>' . $changed . '</td><td>
 strip invisible control chars from GeoJSON array as this could break maps
 </td></tr>
+<tr><td>' . $changed . '</td><td>
+show complete troubleshooting link on frontend only if map could not be loaded to users with manage_options-capability (thx Moti!)
+</td></tr>
 <tr><td>' . $fixed . '</td><td>
 
 </td></tr>
